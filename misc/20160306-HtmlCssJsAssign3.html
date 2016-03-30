@@ -1,0 +1,80 @@
+---
+---
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Matching Game</title>
+    {% include head.html %}
+    <style>
+      img.gameTarget {
+        position: absolute;
+      }
+      div.gameCanvas {
+        display: inline-block;
+        position: relative;
+        width: 200px;
+        height: 200px;
+      }
+      div#leftSide {
+        border: 3px solid black;
+      }
+    </style>
+  </head>
+  <body>
+    {% include header.html %}
+    <div class="page-content">
+      <div class="wrapper">
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+          <header class="post-header">
+            <h1 class="post-title" itemprop="name headline">Matching Game</h1>
+          </header>
+          <div class="post-content" itemprop="articleBody">
+            <p>Click on the extra smiling face in the <b>first</b> picture. Reload the page to play again. </p>
+            <p>Current faces: <span id="scoreText"></span><p>
+            <div id="leftSide" class="gameCanvas"></div>
+            <div id="rightSide" class="gameCanvas"></div>
+            <div><a href="{{ "/2016/03/06/HTML-CSS-JavaScript.html" | prepend: site.baseurl }}">Back to Post</a></div>
+          </div>
+        </article>
+      </div>
+    </div>
+    {% include footer.html %}
+    <script>
+      var numberOfFaces = 5;
+      var theLeftSide = document.getElementById("leftSide");
+      var theRightSide = document.getElementById("rightSide");
+      var scoreBoard = document.getElementById("scoreText");
+      window.onload = function generateFaces(){
+        for(var i=0; i<numberOfFaces; i++){
+          img = document.createElement("img");
+          img.className = "gameTarget";
+          img.src = "{{ "/images/20160306-HtmlCssJsSmile-40x40.png" | prepend: site.baseurl }}";
+          img.style.top = Math.floor(Math.random() * 160) + "px";
+          img.style.left = Math.floor(Math.random() * 160) + "px";
+          theLeftSide.appendChild(img);
+          scoreBoard.innerHTML = numberOfFaces;
+        }
+        var leftSideImages = theLeftSide.cloneNode(true);
+        leftSideImages.removeChild(leftSideImages.lastChild);
+        theRightSide.appendChild(leftSideImages);
+        theLeftSide.lastChild.onclick = function nextLevel(event){
+          event.stopPropagation();
+          numberOfFaces += 5;
+          while(theLeftSide.lastChild){
+            theLeftSide.removeChild(theLeftSide.lastChild);
+          }
+          while(theRightSide.lastChild){
+            theRightSide.removeChild(theRightSide.lastChild);
+          }
+          generateFaces();
+        };        
+      };
+      theLeftSide.onclick = function gameOver() {
+        alert("You score: " + (numberOfFaces - 5) 
+          + " faces.\nGame Over! Reload the page to play again.");
+        theLeftSide.onclick = null;
+        theLeftSide.lastChild.onclick = null;
+      };
+    </script>
+  </body>
+</html>

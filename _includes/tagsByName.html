@@ -1,0 +1,7 @@
+{% capture tagsAll %}
+  {% for tag in site.tags %}
+    {{ tag[0] }}
+  {% endfor %}
+{% endcapture %}
+
+{% assign tagsByName = tagsAll | split:' ' | sort %}

@@ -1,0 +1,105 @@
+/**
+ * Home page
+ */
+
+.home {
+    width: 100%;
+}
+
+.cover {
+    background: url($image-cover-bg) bottom right;
+    background-repeat: no-repeat;
+    background-size: cover;
+    text-align: center;
+    min-height: 500px;
+    height: 80vh;
+    width: 100%;
+    position: relative;
+
+    div {
+        width: 100%;
+    }
+}
+
+.logo-cover {
+    svg {
+        padding: 0;
+        margin: 35px 0;
+        width: 70px;
+        height: 70px;
+        fill: rgba(255,255,255,0.5);
+    }
+
+    svg:hover {
+        fill: rgba(255,255,255,1);
+    }
+}
+
+.slogan {
+    h1 {
+        color: $color-text-conv;
+        font-family: Fantasy, Arial;
+        font-size: 70px;
+        padding: 20px 0px;
+    }
+}
+
+.color-conv {
+    color: $color-text-conv;
+
+    a {
+        color: $color-text-conv;
+        text-decoration: none;
+
+        &:visited {
+            color: darken($color-text-conv, 15%);
+            text-decoration: none;
+        }
+
+        &:hover {
+            color: $color-text-conv;
+            text-decoration: underline;
+        }
+    }
+}
+
+.tag-list {
+    position: absolute;
+    bottom: 0px;
+
+    ul {
+        margin: 0;
+        background: rgba(0,0,0,0.5);
+    }
+
+    li {
+        font-size: $font-size-base * 1.5;
+        display: inline-block;
+        padding: 5px 20px;
+    }
+    @extend .color-conv;
+}
+
+@include media-query($on-palm) {
+
+    .logo-cover {
+        svg {
+            width: 36px;
+            height: 36px;
+            margin: 18px 0;
+        }
+    }
+
+    .slogan {
+        h1 {
+            font-size: 36px;
+            padding: 0px;
+        }
+    }
+    .tag-list {
+        li {
+            font-size: $font-size-base;
+            padding: 1px;
+        }
+    }
+}

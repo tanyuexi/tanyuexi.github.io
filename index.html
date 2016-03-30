@@ -1,0 +1,22 @@
+---
+layout: home
+---
+
+<div>
+
+  <h1 class="page-heading">Recent 20 Posts</h1>
+
+  <ul class="post-list">
+    {% for post in site.posts limit:20 %}
+        <li>
+          <span class="post-meta">{{ post.date | date: "%b %-d, %Y" }}</span>
+          <h2>
+            <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
+          </h2>
+        </li>
+    {% endfor %}
+  </ul>
+
+  <p class="rss-subscribe">Subscribe via <a href="{{ "/feed.xml" | prepend: site.baseurl }}">RSS</a></p>
+
+</div>

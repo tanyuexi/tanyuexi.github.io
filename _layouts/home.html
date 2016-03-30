@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    {% include head.html %}
+  </head>
+  <body class="home">
+
+    <div class="cover">
+      <div class="logo-cover">
+        <a href="{{ "/About/" | prepend: site.baseurl }}">
+          {% include logo.svg %}
+        </a>
+      </div>
+      <div class="slogan">
+        <h1>Everyone learns by play!</h1>
+      </div>
+      <div class="tag-list">
+        <ul>
+          {% include tagsByName.html %}
+          {% for tag in tagsByName %}
+          <li><a href="{{ '/Article-List/' | prepend: site.baseurl }}index.html#{{ tag }}">{{ tag }}</a></li>
+          {% endfor %}
+        </ul>
+      </div>
+    </div>
+
+    <div class="page-content">
+      <div class="wrapper">
+        {{ content }}
+      </div>
+    </div>
+
+    {% include footer.html %}
+
+  </body>
+
+</html>
