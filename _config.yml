@@ -9,7 +9,8 @@
 title: "WitGame - Yuexi's Blog"
 email: aliciatan4edu<wbr>+witgame<wbr>@gmail.com
 description: > # this means to ignore newlines until "baseurl:"
-  WitGame, gain wit
+  WitGame, gain wit.<br>
+  Yuexi Tan's personal blog about gamified online education.
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "http://yuexit.github.io" # the base hostname & protocol for your site
 twitter_username:  YuexiTan
