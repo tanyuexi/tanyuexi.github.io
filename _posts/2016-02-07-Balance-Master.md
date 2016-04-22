@@ -6,7 +6,7 @@ date:   2016-02-07 20:00:00 +0800
 tags:  Game-Design
 ---
 
-<img src="{{ "/images/20160207-Cheetah-100x100.png" | prepend: site.baseurl }}">
+<img src="{{ "/images/20160207-Cheetah-100x100.jpg" | prepend: site.baseurl }}">
 
 ## Highlights
 

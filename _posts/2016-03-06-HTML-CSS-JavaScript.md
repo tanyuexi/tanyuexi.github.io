@@ -1,9 +1,9 @@
 ---
 layout: post
-title:  "HTML, CSS and JavaScript - HKUST [Course]"
+title:  "HTML, CSS and JavaScript - HKUST"
 author: Yuexi Tan
 date:   2016-03-06 22:00:00 +0800
-tags:  Web-Development
+tags:  Web-Development Course
 ---
 
 <img src="{{ "/images/20160306-HtmlCssJs-100x100.png" | prepend: site.baseurl }}">

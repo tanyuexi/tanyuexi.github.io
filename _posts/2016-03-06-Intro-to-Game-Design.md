@@ -1,9 +1,9 @@
 ---
 layout: post
-title:  "Introduction to Game Design - CalArts [Course]"
+title:  "Introduction to Game Design - CalArts"
 author: Yuexi Tan
 date:   2016-03-06 17:00:00 +0800
-tags:  Game-Design
+tags:  Game-Design Course
 ---
 
 <img src="{{ "/images/20160306-IntroGameDesign-100x100.jpg" | prepend: site.baseurl }}">
