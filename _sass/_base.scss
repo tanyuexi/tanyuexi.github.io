@@ -2,7 +2,8 @@
  * Reset some basic elements
  */
 html, body, h1, h2, h3, h4, h5, h6,
-p, blockquote, pre, hr,
+p, blockquote, pre, hr, 
+table, td, tr,
 dl, dd, ol, ul, figure, img, div {
     margin: 0;
     padding: 0;
@@ -31,6 +32,7 @@ body {
  */
 h1, h2, h3, h4, h5, h6,
 p, blockquote, pre,
+table, 
 ul, ol, dl, figure,
 %vertical-rhythm {
     margin-bottom: $spacing-unit / 2;
@@ -75,7 +77,15 @@ li {
     }
 }
 
-
+/**
+ * Tables
+ */
+table, td, th {
+    padding: 5px;
+    border: 1px dotted $grey;
+    border-spacing: 0;
+    border-collapse: collapse;
+}
 
 /**
  * Headings

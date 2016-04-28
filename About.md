@@ -10,7 +10,7 @@ permalink: /About/
 
 ## Highlights
 
-+ Yuexi Tan, PhD student in Biology in Tsinghua University
++ Yuexi Tan (谭月茜), PhD student in Biology in Tsinghua University
 + Believe in the power of science, design and computer
 + Gamified online courses are the future
 
