@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Geoffrey Hinton: \"Ask Me Anything\" on Reddit"
+title:  "Geoffrey Hinton: \"Ask Me Anything\" on Reddit [EN]<br>Geoffrey Hinton: 你问我答在 Reddit [英文]"
 author: Yuexi Tan
 date:   2016-04-13 15:00:00 +0800
 tags:  Machine-Learning
@@ -121,6 +121,6 @@ Here is a really valuable fact of life: If some people collaborate on a paper an
 
 Once you accept this, you realize that the only way to avoid credit squabbles is to act in a way that you think is generous and encourage your co-authors to do the same. If everyone insists on getting the credit that they think is rightfully theirs you are likely to get a nasty squabble.
 
-## You have frequently shown that you have a delightful sense of humour. What sort of entertainment do you enjoy? 
+## You have frequently shown that you have a delightful sense of humour. What sort of entertainment do you enjoy?
 
 Fry and Laurie.

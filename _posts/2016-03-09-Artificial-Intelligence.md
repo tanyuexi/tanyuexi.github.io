@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Artificial Intelligence - MIT"
+title:  "Artificial Intelligence - MIT [EN]<br>人工智能 - 麻省理工 [英文]"
 author: Yuexi Tan
 date:   2016-03-09 16:00:00 +0800
 tags:  Machine-Learning Course
@@ -21,7 +21,7 @@ tags:  Machine-Learning Course
 
 **Artificial intelligence is about making models for thinking, perception and action.** We "think, feel and move" everyday, but few can describe how exactly our brains work. When you are able to make a model of human's thinking process, it definetely feels like being God. To put it in other words, artificial intelligence is about asking "if you are God, how would you design the human brain?".
 
-**Mimicking biology may be the best strategy to solve a seemingly complicated problem.** Living things are known to be the most efficient and flexible machines on earth. So I always think that biologists are actually machine dissectors. If you want to do something in a perfect way, just look at the nature. Two things that hit me most in this course are **the genetic algorithm** and **artificial neural networks**. The genetic algorithm has an immense solution space, and an incredibly simple mechanism to pick the best solution. It applys to almost everything, even those with multiple local optima. And the model of neural networks simulates the physical structure of the brain. In theory, we should be able to accomplish all human-doable tasks with it. In fact, it has successfully solved problems like visual recognition. 
+**Mimicking biology may be the best strategy to solve a seemingly complicated problem.** Living things are known to be the most efficient and flexible machines on earth. So I always think that biologists are actually machine dissectors. If you want to do something in a perfect way, just look at the nature. Two things that hit me most in this course are **the genetic algorithm** and **artificial neural networks**. The genetic algorithm has an immense solution space, and an incredibly simple mechanism to pick the best solution. It applys to almost everything, even those with multiple local optima. And the model of neural networks simulates the physical structure of the brain. In theory, we should be able to accomplish all human-doable tasks with it. In fact, it has successfully solved problems like visual recognition.
 
 ## Syllabus
 
