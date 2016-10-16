@@ -3,7 +3,7 @@ layout: post
 title:  "Artificial Intelligence - MIT [EN]<br>人工智能 - 麻省理工 [英文]"
 author: Yuexi Tan
 date:   2016-03-09 16:00:00 +0800
-tags:  Machine-Learning Course
+tags:  AI Note
 ---
 
 <img src="{{ "/images/20160309-ArtificialIntell-320x150.jpg" | prepend: site.baseurl }}">

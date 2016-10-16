@@ -1,9 +1,9 @@
 ---
 layout: post
-title:  "How to Prove it: A Structured Approach - Velleman [CN]<br>如何做证明：一种结构化的方法 - Velleman [中文]"
+title:  "How to Prove it: A Structured Approach - Velleman [CN,unfinished]<br>如何做证明：一种结构化的方法 - Velleman [中文,未完]"
 author: Yuexi Tan
 date:   2016-06-03 17:00:00 +0800
-tags:  Notes
+tags:  Note Math-Stat
 ---
 
 <img src="{{ "/images/20160603-HowToProveIt-279x420.jpg" | prepend: site.baseurl }}">
@@ -590,7 +590,7 @@ $$
 
 我们可以利用 **<mark>韦恩图（Venn diagrams）</mark>** 来帮助我们直观地理解涉及三个集合以下的集合运算：
 
-<img src="{{ "/images/20160603-VennDiagrams.jpg" | prepend: site.baseurl }}">
+<img src="{{ "/images/20160603-VennDiagrams-378×245.jpg" | prepend: site.baseurl }}">
 
 集合论中的 \\(\cap \text{ , } \cup \text{ and } \setminus \\) 可以分别和逻辑连接词 \\(\land \text{ , } \lor \text{ and } \lnot\\) 相对应。但是要注意，它们不是等价的：前者用于集合，后者用于命题。
 

@@ -12,10 +12,11 @@
         </a>
       </div>
       <div class="slogan">
-        <h1>Everyone learns by play!</h1>
+        <h1>Everyone learns by play!<br>学而不玩则废</h1>
       </div>
       <div class="tag-list">
         <ul>
+          <li><a href="{{ '/Article-List/' | prepend: site.baseurl }}index.html">Article tags:</a><li>
           {% include tagsByName.html %}
           {% for tag in tagsByName %}
           <li><a href="{{ '/Article-List/' | prepend: site.baseurl }}index.html#{{ tag }}">{{ tag }}</a></li>

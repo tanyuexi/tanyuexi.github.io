@@ -3,7 +3,7 @@ layout: post
 title:  "Geoffrey Hinton: \"Ask Me Anything\" on Reddit [EN]<br>Geoffrey Hinton: 你问我答在 Reddit [英文]"
 author: Yuexi Tan
 date:   2016-04-13 15:00:00 +0800
-tags:  Machine-Learning
+tags:  AI Note
 ---
 
 <img src="{{ "/images/20160413-RedditML-155x70.png" | prepend: site.baseurl }}">

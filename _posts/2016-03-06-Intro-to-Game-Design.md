@@ -3,7 +3,7 @@ layout: post
 title:  "Introduction to Game Design - CalArts [EN]<br>游戏设计入门 - 加州艺术学院 [英文]"
 author: Yuexi Tan
 date:   2016-03-06 17:00:00 +0800
-tags:  Game-Design Course
+tags:  Game-Devel Note
 ---
 
 <img src="{{ "/images/20160306-IntroGameDesign-100x100.jpg" | prepend: site.baseurl }}">

@@ -3,7 +3,7 @@ layout: post
 title:  "HTML, CSS and JavaScript - HKUST [EN]<br>HTML, CSS 以及 JavaScript - 香港中文大学 [英文]"
 author: Yuexi Tan
 date:   2016-03-06 22:00:00 +0800
-tags:  Web-Development Course
+tags:  Web-Devel Note
 ---
 
 <img src="{{ "/images/20160306-HtmlCssJs-100x100.png" | prepend: site.baseurl }}">

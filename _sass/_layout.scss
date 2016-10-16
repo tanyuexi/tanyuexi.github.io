@@ -241,7 +241,7 @@
     font-size: 32px;   //42px;
     color: $grey-dark;
     letter-spacing: -1px;
-    line-height: 1;
+    line-height: 1.5;
 
     @include media-query($on-laptop) {
         font-size: 28px;   //36px;

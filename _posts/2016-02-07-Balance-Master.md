@@ -3,7 +3,7 @@ layout: post
 title:  "Balance Master: My First Game [EN]<br>时间管理大师：我制作的第一个游戏 [英文]"
 author: Yuexi Tan
 date:   2016-02-07 20:00:00 +0800
-tags:  Game-Design
+tags:  Game-Devel
 ---
 
 <img src="{{ "/images/20160207-Cheetah-100x100.jpg" | prepend: site.baseurl }}">
@@ -13,7 +13,7 @@ tags:  Game-Design
 + *[Balance Master]({{ "/images/20160207-BalanceMaster.pdf" | prepend: site.baseurl }})* (click to see) is a game simulating the real-life problem of multi-task
 + *[Survive!Cheetah]({{ "/images/20160207-SurviveCheetah.pdf" | prepend: site.baseurl }})* (click to see) is an update version of *Balance Master*
 
-## Why creat this game?
+## Why create this game?
 
 This is Week 1 assignment from the course [Introduction to Game Design](https://www.coursera.org/learn/game-design).  The instructions are:
 
