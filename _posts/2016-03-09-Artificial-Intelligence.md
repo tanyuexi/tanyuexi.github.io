@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Artificial Intelligence - MIT [EN]<br>人工智能 - 麻省理工 [英文]"
+title:  "Artificial Intelligence - MIT<br>人工智能 - 麻省理工"
 author: Yuexi Tan
 date:   2016-03-09 16:00:00 +0800
 tags:  AI Note

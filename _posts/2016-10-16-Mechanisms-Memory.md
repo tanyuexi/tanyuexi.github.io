@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Mechanisms of Memory - Sweatt [CN]<br>记忆的机制 - Sweatt [中文]"
+title:  "Mechanisms of Memory - Sweatt<br>记忆的机制 - Sweatt"
 author: Yuexi Tan
 date:   2016-10-16 14:00:00 +0800
 tags:  Neuro-Sci Note

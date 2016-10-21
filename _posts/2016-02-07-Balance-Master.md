@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Balance Master: My First Game [EN]<br>时间管理大师：我制作的第一个游戏 [英文]"
+title:  "Balance Master: My First Game<br>时间管理大师：我制作的第一个游戏"
 author: Yuexi Tan
 date:   2016-02-07 20:00:00 +0800
 tags:  Game-Devel

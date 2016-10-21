@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "How to Prove it: A Structured Approach - Velleman [CN,unfinished]<br>如何做证明：一种结构化的方法 - Velleman [中文,未完]"
+title:  "How to Prove it: A Structured Approach - Velleman<br>如何做证明：一种结构化的方法 - Velleman"
 author: Yuexi Tan
 date:   2016-06-03 17:00:00 +0800
 tags:  Note Math-Stat
