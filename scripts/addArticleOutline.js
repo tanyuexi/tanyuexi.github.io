@@ -22,6 +22,7 @@ window.onload = function add_outline () {
     var newLine = document.createElement("br");
   	var iSection = document.createElement("a");
   	var iSecTxt = h2s[i].firstChild.cloneNode(true);
+    iSecTxt.nodeValue = "+ " + iSecTxt.nodeValue;
   	iSection.href = "#" + h2s[i].id;
   	iSection.appendChild(iSecTxt);
     outline.appendChild(iSection);

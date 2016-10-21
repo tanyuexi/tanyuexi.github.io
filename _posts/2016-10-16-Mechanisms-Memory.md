@@ -14,7 +14,7 @@ tags:  Neuro-Sci Note
 + Our brain is memorizing 24x7. But not all memories are retrievable <br>我们的脑子一直在忙着记东西。但并不是所有的记忆都能被提取出来
 + It takes extra efforts to convert short-term memories to long-term ones. And the brain works in a similar way to the computer! <br>将短时程记忆转化为长时程记忆需要额外的努力。我们的脑子其实在以一种与计算机类似的方式运作！
 
-这是对 J. David Sweatt 所著 *Mechanisms of Memory* （第2版）的阅后笔记，其中掺杂着我的个人理解。在此仅写下我认为可能对人工神经网络的架构设计有启发的观点。
+这是对 J. David Sweatt 所著 *Mechanisms of Memory* （第2版）的阅后笔记，其中掺杂着我的个人理解。在此仅写下我认为可能对人工神经网络的架构设计有启发的观点。原文目录和摘要见[这里]({{ "/misc/20161016-MechanismsMemory.html" | prepend: site.baseurl }})。
 
 ## Some memory needs hippocampus to form. But after that? Farewell <br>某些记忆的形成需要海马。但之后呢？拜拜咯
 

@@ -1,0 +1,1471 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Mechanisms of Memory (J. David Sweatt)</title>
+<style type="text/css">
+    body {}
+li { list-style: none;  margin: 0; }
+p { margin: 0; }
+
+span.foldopened, span.foldclosed  {
+    font-size: xx-small;
+    border-width: 1;
+    font-family: monospace;
+    padding: 0em 0.25em 0em 0.25em;
+    background: #e0e0e0;
+    cursor:pointer;
+}
+span.foldopened  {
+    color: white;
+    VISIBILITY: visible;
+}
+span.foldclosed {
+    color: #666666;
+    VISIBILITY: hidden;
+}
+span.foldspecial {
+    color: #666666;
+    font-size: xx-small;
+    border-style: none solid solid none;
+    border-color: #CCCCCC;
+    border-width: 1;
+    font-family: sans-serif;
+    padding: 0em 0.1em 0em 0.1em;
+    background: #e0e0e0;
+    cursor:pointer;
+}
+span.l { color: red; font-weight: bold; }
+
+a.mapnode:link,
+a.mapnode:visited,
+a.mapnode:active,
+a.mapnode:hover {
+    text-decoration: none; color: black;
+}
+a.mapnode:hover { background: #eeeee0; }
+
+
+</style>
+<!-- ^ Position is not set to relative / absolute here because of Mozilla -->
+</head>
+<body>
+<script type="text/javascript">
+// Here we implement folding. It works fine with MSIE5.5, MSIE6.0 and
+// Mozilla 0.9.6.
+
+if (document.layers) {
+    //Netscape 4 specific code
+    pre = 'document.';
+    post = ''; }
+if (document.getElementById) {
+    //Netscape 6 specific code
+    pre = 'document.getElementById("';
+    post = '").style'; }
+if (document.all) {
+    //IE4+ specific code
+    pre = 'document.all.';
+    post = '.style'; }
+
+function layer_exists(layer) {
+    try {
+	eval(pre + layer + post);
+	return true; }
+    catch (error) {
+	return false; }}
+
+function show_layer(layer) {
+    eval(pre + layer + post).position = 'relative'; 
+    eval(pre + layer + post).visibility = 'visible'; }
+
+function hide_layer(layer) {
+    eval(pre + layer + post).visibility = 'hidden';
+    eval(pre + layer + post).position = 'absolute'; }
+
+function hide_folder(folder) {
+    hide_folding_layer(folder)
+    show_layer('show'+folder);
+
+    scrollBy(0,0); // This is a work around to make it work in Browsers (Explorer, Mozilla)
+}
+
+function show_folder(folder) {
+    // Precondition: all subfolders are folded
+
+    show_layer('hide'+folder);
+    hide_layer('show'+folder);
+    show_layer('fold'+folder);
+
+    scrollBy(0,0); // This is a work around to make it work in Browsers (Explorer, Mozilla)
+
+    var i;
+    for (i=1; layer_exists('fold'+folder+'_'+i); ++i) {
+	show_layer('show'+folder+'_'+i); }
+}
+function show_folder_completely(folder) {
+    // Precondition: all subfolders are folded
+
+    show_layer('hide'+folder);
+    hide_layer('show'+folder);
+    show_layer('fold'+folder);
+
+    scrollBy(0,0); // This is a work around to make it work in Browsers (Explorer, Mozilla)
+
+    var i;
+    for (i=1; layer_exists('fold'+folder+'_'+i); ++i) {
+	show_folder_completely(folder+'_'+i); }
+}
+
+
+
+function hide_folding_layer(folder) {
+    var i;
+    for (i=1; layer_exists('fold'+folder+'_'+i); ++i) {
+	hide_folding_layer(folder+'_'+i); }
+
+    hide_layer('hide'+folder);
+    hide_layer('show'+folder);
+    hide_layer('fold'+folder);
+
+    scrollBy(0,0); // This is a work around to make it work in Browsers (Explorer, Mozilla)
+}
+
+function fold_document() {
+    var i;
+    var folder = '1';
+    for (i=1; layer_exists('fold'+folder+'_'+i); ++i) {
+	hide_folder(folder+'_'+i); }
+}
+
+function unfold_document() {
+    var i;
+    var folder = '1';
+    for (i=1; layer_exists('fold'+folder+'_'+i); ++i) {
+	show_folder_completely(folder+'_'+i); }
+}
+
+</script>
+<SPAN class="foldspecial" onclick="fold_document()">All +</SPAN>
+<SPAN class="foldspecial" onclick="unfold_document()">All -</SPAN>
+<p style="text-align: left">
+      Mechanisms of Memory (J. David Sweatt)
+    </p></span>
+<ul><li><p><span id="show1_1" class="foldclosed" onClick="show_folder('1_1')" style="POSITION: absolute">+</span> <span id="hide1_1" class="foldopened" onClick="hide_folder('1_1')">-</span>
+1 The basics of psychological learning and memory theory</span>
+<ul id="fold1_1" style="POSITION: relative; VISIBILITY: visible;"><li><span id="show1_1_1" class="foldclosed" onClick="show_folder('1_1_1')" style="POSITION: absolute">+</span> <span id="hide1_1_1" class="foldopened" onClick="hide_folder('1_1_1')">-</span>
+1.1 Introduction</span>
+<ul id="fold1_1_1" style="POSITION: relative; VISIBILITY: visible;"><li><span id="show1_1_1_1" class="foldclosed" onClick="show_folder('1_1_1_1')" style="POSITION: absolute">+</span> <span id="hide1_1_1_1" class="foldopened" onClick="hide_folder('1_1_1_1')">-</span>
+A. Categories of Learning and Memory</span>
+<ul id="fold1_1_1_1" style="POSITION: relative; VISIBILITY: visible;"><li><span id="show1_1_1_1_1" class="foldclosed" onClick="show_folder('1_1_1_1_1')" style="POSITION: absolute">+</span> <span id="hide1_1_1_1_1" class="foldopened" onClick="hide_folder('1_1_1_1_1')">-</span>
+Fig2 Human memory and brain regions</span>
+<ul id="fold1_1_1_1_1" style="POSITION: relative; VISIBILITY: visible;"><li><span id="show1_1_1_1_1_1" class="foldclosed" onClick="show_folder('1_1_1_1_1_1')" style="POSITION: absolute">+</span> <span id="hide1_1_1_1_1_1" class="foldopened" onClick="hide_folder('1_1_1_1_1_1')">-</span>
+Declarative (explicit)</span>
+<ul id="fold1_1_1_1_1_1" style="POSITION: relative; VISIBILITY: visible;"><li><span id="show1_1_1_1_1_1_1" class="foldclosed" onClick="show_folder('1_1_1_1_1_1_1')" style="POSITION: absolute">+</span> <span id="hide1_1_1_1_1_1_1" class="foldopened" onClick="hide_folder('1_1_1_1_1_1_1')">-</span>
+Facts and events</span>
+<ul id="fold1_1_1_1_1_1_1" style="POSITION: relative; VISIBILITY: visible;"><li>Medial temporal lobe</span>
+
+</li>
+
+</ul>
+</li>
+
+</ul>
+</li>
+<li><span id="show1_1_1_1_1_2" class="foldclosed" onClick="show_folder('1_1_1_1_1_2')" style="POSITION: absolute">+</span> <span id="hide1_1_1_1_1_2" class="foldopened" onClick="hide_folder('1_1_1_1_1_2')">-</span>
+Non-declarative (implicit)</span>
+<ul id="fold1_1_1_1_1_2" style="POSITION: relative; VISIBILITY: visible;"><li><span id="show1_1_1_1_1_2_1" class="foldclosed" onClick="show_folder('1_1_1_1_1_2_1')" style="POSITION: absolute">+</span> <span id="hide1_1_1_1_1_2_1" class="foldopened" onClick="hide_folder('1_1_1_1_1_2_1')">-</span>
+Procedural (skills and habits)</span>
+<ul id="fold1_1_1_1_1_2_1" style="POSITION: relative; VISIBILITY: visible;"><li>Striatum</span>
+
+</li>
+
+</ul>
+</li>
+<li><span id="show1_1_1_1_1_2_2" class="foldclosed" onClick="show_folder('1_1_1_1_1_2_2')" style="POSITION: absolute">+</span> <span id="hide1_1_1_1_1_2_2" class="foldopened" onClick="hide_folder('1_1_1_1_1_2_2')">-</span>
+Priming</span>
+<ul id="fold1_1_1_1_1_2_2" style="POSITION: relative; VISIBILITY: visible;"><li>Neocortex</span>
+
+</li>
+
+</ul>
+</li>
+<li><span id="show1_1_1_1_1_2_3" class="foldclosed" onClick="show_folder('1_1_1_1_1_2_3')" style="POSITION: absolute">+</span> <span id="hide1_1_1_1_1_2_3" class="foldopened" onClick="hide_folder('1_1_1_1_1_2_3')">-</span>
+Simple classical conditioning</span>
+<ul id="fold1_1_1_1_1_2_3" style="POSITION: relative; VISIBILITY: visible;"><li><span id="show1_1_1_1_1_2_3_1" class="foldclosed" onClick="show_folder('1_1_1_1_1_2_3_1')" style="POSITION: absolute">+</span> <span id="hide1_1_1_1_1_2_3_1" class="foldopened" onClick="hide_folder('1_1_1_1_1_2_3_1')">-</span>
+Emotional responses</span>
+<ul id="fold1_1_1_1_1_2_3_1" style="POSITION: relative; VISIBILITY: visible;"><li>Amygdala</span>
+
+</li>
+
+</ul>
+</li>
+<li><span id="show1_1_1_1_1_2_3_2" class="foldclosed" onClick="show_folder('1_1_1_1_1_2_3_2')" style="POSITION: absolute">+</span> <span id="hide1_1_1_1_1_2_3_2" class="foldopened" onClick="hide_folder('1_1_1_1_1_2_3_2')">-</span>
+Skeletal musculature</span>
+<ul id="fold1_1_1_1_1_2_3_2" style="POSITION: relative; VISIBILITY: visible;"><li>Cerebellum</span>
+
+</li>
+
+</ul>
+</li>
+
+</ul>
+</li>
+<li><span id="show1_1_1_1_1_2_4" class="foldclosed" onClick="show_folder('1_1_1_1_1_2_4')" style="POSITION: absolute">+</span> <span id="hide1_1_1_1_1_2_4" class="foldopened" onClick="hide_folder('1_1_1_1_1_2_4')">-</span>
+Non-associative learning</span>
+<ul id="fold1_1_1_1_1_2_4" style="POSITION: relative; VISIBILITY: visible;"><li>Reflex pathways</span>
+
+</li>
+
+</ul>
+</li>
+
+</ul>
+</li>
+
+</ul>
+</li>
+<li><span id="show1_1_1_1_2" class="foldclosed" onClick="show_folder('1_1_1_1_2')" style="POSITION: absolute">+</span> <span id="hide1_1_1_1_2" class="foldopened" onClick="hide_folder('1_1_1_1_2')">-</span>
+Fig3 Hierarchical organization of memory</span>
+<ul id="fold1_1_1_1_2" style="POSITION: relative; VISIBILITY: visible;"><li><span id="show1_1_1_1_2_1" class="foldclosed" onClick="show_folder('1_1_1_1_2_1')" style="POSITION: absolute">+</span> <span id="hide1_1_1_1_2_1" class="foldopened" onClick="hide_folder('1_1_1_1_2_1')">-</span>
+Unconscious learning</span>
+<ul id="fold1_1_1_1_2_1" style="POSITION: relative; VISIBILITY: visible;"><li><span id="show1_1_1_1_2_1_1" class="foldclosed" onClick="show_folder('1_1_1_1_2_1_1')" style="POSITION: absolute">+</span> <span id="hide1_1_1_1_2_1_1" class="foldopened" onClick="hide_folder('1_1_1_1_2_1_1')">-</span>
+Storage (unconscious)</span>
+<ul id="fold1_1_1_1_2_1_1" style="POSITION: relative; VISIBILITY: visible;"><li><span id="show1_1_1_1_2_1_1_1" class="foldclosed" onClick="show_folder('1_1_1_1_2_1_1_1')" style="POSITION: absolute">+</span> <span id="hide1_1_1_1_2_1_1_1" class="foldopened" onClick="hide_folder('1_1_1_1_2_1_1_1')">-</span>
+Subject to conscious recall</span>
+<ul id="fold1_1_1_1_2_1_1_1" style="POSITION: relative; VISIBILITY: visible;"><li><p>+ Trace conditioning&#xa;+ Operant conditioning&#xa;+ Hippo.-dependent contextual fear conditioning&#xa;+ Taste learning&#xa;+ Conditioned taste aversion</span>
+</li>
+</ul>
+</li>
+<li><span id="show1_1_1_1_2_1_1_2" class="foldclosed" onClick="show_folder('1_1_1_1_2_1_1_2')" style="POSITION: absolute">+</span> <span id="hide1_1_1_1_2_1_1_2" class="foldopened" onClick="hide_folder('1_1_1_1_2_1_1_2')">-</span>
+Unconscious recall</span>
+<ul id="fold1_1_1_1_2_1_1_2" style="POSITION: relative; VISIBILITY: visible;"><li><span id="show1_1_1_1_2_1_1_2_1" class="foldclosed" onClick="show_folder('1_1_1_1_2_1_1_2_1')" style="POSITION: absolute">+</span> <span id="hide1_1_1_1_2_1_1_2_1" class="foldopened" onClick="hide_folder('1_1_1_1_2_1_1_2_1')">-</span>
+Non-associative learning</span>
+<ul id="fold1_1_1_1_2_1_1_2_1" style="POSITION: relative; VISIBILITY: visible;"><li>+ Habituation&#xa;+ Sensitization&#xa;+ Dishabituation</span>
+
+</li>
+
+</ul>
+</li>
+<li><span id="show1_1_1_1_2_1_1_2_2" class="foldclosed" onClick="show_folder('1_1_1_1_2_1_1_2_2')" style="POSITION: absolute">+</span> <span id="hide1_1_1_1_2_1_1_2_2" class="foldopened" onClick="hide_folder('1_1_1_1_2_1_1_2_2')">-</span>
+Associative learning</span>
+<ul id="fold1_1_1_1_2_1_1_2_2" style="POSITION: relative; VISIBILITY: visible;"><li>+ Pavlovian conditioning&#xa;+ Delay eye-blink conditioning&#xa;+ Clued fear conditioning</span>
+
+</li>
+
+</ul>
+</li>
+<li>Motor learning</span>
+
+</li>
+
+</ul>
+</li>
+
+</ul>
+</li>
+
+</ul>
+</li>
+<li><span id="show1_1_1_1_2_2" class="foldclosed" onClick="show_folder('1_1_1_1_2_2')" style="POSITION: absolute">+</span> <span id="hide1_1_1_1_2_2" class="foldopened" onClick="hide_folder('1_1_1_1_2_2')">-</span>
+Conscious learning</span>
+<ul id="fold1_1_1_1_2_2" style="POSITION: relative; VISIBILITY: visible;"><li><span id="show1_1_1_1_2_2_1" class="foldclosed" onClick="show_folder('1_1_1_1_2_2_1')" style="POSITION: absolute">+</span> <span id="hide1_1_1_1_2_2_1" class="foldopened" onClick="hide_folder('1_1_1_1_2_2_1')">-</span>
+Storage (unconscious)</span>
+<ul id="fold1_1_1_1_2_2_1" style="POSITION: relative; VISIBILITY: visible;"><li><span id="show1_1_1_1_2_2_1_1" class="foldclosed" onClick="show_folder('1_1_1_1_2_2_1_1')" style="POSITION: absolute">+</span> <span id="hide1_1_1_1_2_2_1_1" class="foldopened" onClick="hide_folder('1_1_1_1_2_2_1_1')">-</span>
+Subject to conscious recall</span>
+<ul id="fold1_1_1_1_2_2_1_1" style="POSITION: relative; VISIBILITY: visible;"><li>+ Declarative learning&#xa;+ Spatial learning&#xa;+ Conscious associative conditioning</span>
+
+</li>
+
+</ul>
+</li>
+
+</ul>
+</li>
+
+</ul>
+</li>
+<li><span id="show1_1_1_1_2_3" class="foldclosed" onClick="show_folder('1_1_1_1_2_3')" style="POSITION: absolute">+</span> <span id="hide1_1_1_1_2_3" class="foldopened" onClick="hide_folder('1_1_1_1_2_3')">-</span>
+Working memory</span>
+<ul id="fold1_1_1_1_2_3" style="POSITION: relative; VISIBILITY: visible;"><li>Conscious storage and conscious recall</span>
+
+</li>
+
+</ul>
+</li>
+
+</ul>
+</li>
+
+</ul>
+</li>
+<li><span id="show1_1_1_2" class="foldclosed" onClick="show_folder('1_1_1_2')" style="POSITION: absolute">+</span> <span id="hide1_1_1_2" class="foldopened" onClick="hide_folder('1_1_1_2')">-</span>
+B. Memory Exhibits Long-Term and Short-Term Forms</span>
+<ul id="fold1_1_1_2" style="POSITION: relative; VISIBILITY: visible;"><li>All forms of memory can be either short- or long-lasting. Most depends on times of repetition</span>
+
+</li>
+<li>How repetition leads to long-lasting memory? See Ch3</span>
+
+</li>
+<li>Long-term memory needs a period of consolidation. See Ch2,3,6,10</span>
+
+</li>
+<li>Reconsolidation needs new protein synthesis, otherwise lose stored memory</span>
+
+</li>
+<li>Forgetting, extinction and latent inhibition</span>
+
+</li>
+
+</ul>
+</li>
+
+</ul>
+</li>
+<li><span id="show1_1_2" class="foldclosed" onClick="show_folder('1_1_2')" style="POSITION: absolute">+</span> <span id="hide1_1_2" class="foldopened" onClick="hide_folder('1_1_2')">-</span>
+1.2 Short-term memory</span>
+<ul id="fold1_1_2" style="POSITION: relative; VISIBILITY: visible;"><li><span id="show1_1_2_1" class="foldclosed" onClick="show_folder('1_1_2_1')" style="POSITION: absolute">+</span> <span id="hide1_1_2_1" class="foldopened" onClick="hide_folder('1_1_2_1')">-</span>
+A. Sensory Memory and Short-Term Storage</span>
+<ul id="fold1_1_2_1" style="POSITION: relative; VISIBILITY: visible;"><li><p>Short-term memory links the sensory input and long-term memory, or the recall of old memory and further utilization</span>
+<p>Auditory sensory store: echoic memory. Visual store: iconic memory</span>
+</li>
+</ul>
+</li>
+<li><span id="show1_1_2_2" class="foldclosed" onClick="show_folder('1_1_2_2')" style="POSITION: absolute">+</span> <span id="hide1_1_2_2" class="foldopened" onClick="hide_folder('1_1_2_2')">-</span>
+B. Working Memory</span>
+<ul id="fold1_1_2_2" style="POSITION: relative; VISIBILITY: visible;"><li>For utilization. Short-term memory can be for doing nothing</span>
+
+</li>
+
+</ul>
+</li>
+<li><span id="show1_1_2_3" class="foldclosed" onClick="show_folder('1_1_2_3')" style="POSITION: absolute">+</span> <span id="hide1_1_2_3" class="foldopened" onClick="hide_folder('1_1_2_3')">-</span>
+C. The Prefrontal Cortex and Working Memory</span>
+<ul id="fold1_1_2_3" style="POSITION: relative; VISIBILITY: visible;"><li>Working memory works in prefrontal cortex</span>
+
+</li>
+
+</ul>
+</li>
+<li><span id="show1_1_2_4" class="foldclosed" onClick="show_folder('1_1_2_4')" style="POSITION: absolute">+</span> <span id="hide1_1_2_4" class="foldopened" onClick="hide_folder('1_1_2_4')">-</span>
+D. Reverberating Circuit Mechanisms Contrast with Molecular Storage Mechanisms for Long-Term Memory</span>
+<ul id="fold1_1_2_4" style="POSITION: relative; VISIBILITY: visible;"><li>Working memory: action potential firing sustained neural circuit activity</span>
+
+</li>
+<li>Long-term memory: persisting molecular and cellular changes in synaptic structure</span>
+
+</li>
+
+</ul>
+</li>
+
+</ul>
+</li>
+<li><span id="show1_1_3" class="foldclosed" onClick="show_folder('1_1_3')" style="POSITION: absolute">+</span> <span id="hide1_1_3" class="foldopened" onClick="hide_folder('1_1_3')">-</span>
+1.3 Unconscious learning</span>
+<ul id="fold1_1_3" style="POSITION: relative; VISIBILITY: visible;"><li><span id="show1_1_3_1" class="foldclosed" onClick="show_folder('1_1_3_1')" style="POSITION: absolute">+</span> <span id="hide1_1_3_1" class="foldopened" onClick="hide_folder('1_1_3_1')">-</span>
+A. Simple Forms of Learning</span>
+<ul id="fold1_1_3_1" style="POSITION: relative; VISIBILITY: visible;"><li>Dishabituation can be used to distinguish habituation from fatigue</span>
+
+</li>
+<li>Sensitization</span>
+
+</li>
+
+</ul>
+</li>
+<li><span id="show1_1_3_2" class="foldclosed" onClick="show_folder('1_1_3_2')" style="POSITION: absolute">+</span> <span id="hide1_1_3_2" class="foldopened" onClick="hide_folder('1_1_3_2')">-</span>
+B. Unconscious Learning and Unconscious Recall</span>
+<ul id="fold1_1_3_2" style="POSITION: relative; VISIBILITY: visible;"><li>Motor learning</span>
+
+</li>
+<li>Early stage needs consciousness</span>
+
+</li>
+<li>Consciousness might disrupt the action</span>
+
+</li>
+
+</ul>
+</li>
+<li><span id="show1_1_3_3" class="foldclosed" onClick="show_folder('1_1_3_3')" style="POSITION: absolute">+</span> <span id="hide1_1_3_3" class="foldopened" onClick="hide_folder('1_1_3_3')">-</span>
+C. Unconscious Learning and Subject to Conscious Recall</span>
+<ul id="fold1_1_3_3" style="POSITION: relative; VISIBILITY: visible;"><li><p>Associative conditioning: cause-effect</span>
+<p>But mislearned association can happen: superstitious</span>
+<p>Needs contiguity and contingency</span>
+<p>Delay and trace conditioning look similar, but they are quite different. Trace conditioning needs hippocampus</span>
+</li>
+</ul>
+</li>
+<li><span id="show1_1_3_4" class="foldclosed" onClick="show_folder('1_1_3_4')" style="POSITION: absolute">+</span> <span id="hide1_1_3_4" class="foldopened" onClick="hide_folder('1_1_3_4')">-</span>
+D. Operant Conditioning</span>
+<ul id="fold1_1_3_4" style="POSITION: relative; VISIBILITY: visible;"><li>Voluntary movement</span>
+
+</li>
+
+</ul>
+</li>
+<li><span id="show1_1_3_5" class="foldclosed" onClick="show_folder('1_1_3_5')" style="POSITION: absolute">+</span> <span id="hide1_1_3_5" class="foldopened" onClick="hide_folder('1_1_3_5')">-</span>
+E. Currently Popular Associative Learning Paradigms</span>
+<ul id="fold1_1_3_5" style="POSITION: relative; VISIBILITY: visible;"><li>Conditioned fear</span>
+
+</li>
+<li>Conditioned taste aversion: long CS-US interval</span>
+
+</li>
+<li>One trial is enough</span>
+
+</li>
+
+</ul>
+</li>
+
+</ul>
+</li>
+<li><span id="show1_1_4" class="foldclosed" onClick="show_folder('1_1_4')" style="POSITION: absolute">+</span> <span id="hide1_1_4" class="foldopened" onClick="hide_folder('1_1_4')">-</span>
+1.4 Conscious learning-subject to conscious and unconscious recall</span>
+<ul id="fold1_1_4" style="POSITION: relative; VISIBILITY: visible;"><li><span id="show1_1_4_1" class="foldclosed" onClick="show_folder('1_1_4_1')" style="POSITION: absolute">+</span> <span id="hide1_1_4_1" class="foldopened" onClick="hide_folder('1_1_4_1')">-</span>
+A. Declarative Learning</span>
+<ul id="fold1_1_4_1" style="POSITION: relative; VISIBILITY: visible;"><li>Hard to study on non-human model</span>
+
+</li>
+<li>Needs hippocampus</span>
+
+</li>
+
+</ul>
+</li>
+<li>B. Spatial Learning</span>
+
+</li>
+
+</ul>
+</li>
+
+</ul><p><span id="show1_2" class="foldclosed" onClick="show_folder('1_2')" style="POSITION: absolute">+</span> <span id="hide1_2" class="foldopened" onClick="hide_folder('1_2')">-</span>
+2 Studies of human learning and memory</span>
+<ul id="fold1_2" style="POSITION: relative; VISIBILITY: visible;"><li><span id="show1_2_1" class="foldclosed" onClick="show_folder('1_2_1')" style="POSITION: absolute">+</span> <span id="hide1_2_1" class="foldopened" onClick="hide_folder('1_2_1')">-</span>
+2.1 Introduction-historical precedents with studies of human subjects</span>
+<ul id="fold1_2_1" style="POSITION: relative; VISIBILITY: visible;"><li><span id="show1_2_1_1" class="foldclosed" onClick="show_folder('1_2_1_1')" style="POSITION: absolute">+</span> <span id="hide1_2_1_1" class="foldopened" onClick="hide_folder('1_2_1_1')">-</span>
+A. Amnesias</span>
+<ul id="fold1_2_1_1" style="POSITION: relative; VISIBILITY: visible;"><li>Retrograde amnesia: loss of old memories</span>
+
+</li>
+<li>Anterograde amnesia: fail to form new memories</span>
+
+</li>
+
+</ul>
+</li>
+<li><span id="show1_2_1_2" class="foldclosed" onClick="show_folder('1_2_1_2')" style="POSITION: absolute">+</span> <span id="hide1_2_1_2" class="foldopened" onClick="hide_folder('1_2_1_2')">-</span>
+B. Memory Consolidation</span>
+<ul id="fold1_2_1_2" style="POSITION: relative; VISIBILITY: visible;"><li><p>First observation: distraction and interference immediately after training disrupt long-term memory formation</span>
+<p>Memories of less than 2 years old is more susceptible to seizure-associated transient loss</span>
+<p>Double dissociation: deficits in A not B only affect function a not b, thus system A and B have separate and distinct functions</span>
+</li>
+</ul>
+</li>
+
+</ul>
+</li>
+<li><span id="show1_2_2" class="foldclosed" onClick="show_folder('1_2_2')" style="POSITION: absolute">+</span> <span id="hide1_2_2" class="foldopened" onClick="hide_folder('1_2_2')">-</span>
+2.2 The hippocampus in human declarative, episodic and spatial memory</span>
+<ul id="fold1_2_2" style="POSITION: relative; VISIBILITY: visible;"><li><span id="show1_2_2_1" class="foldclosed" onClick="show_folder('1_2_2_1')" style="POSITION: absolute">+</span> <span id="hide1_2_2_1" class="foldopened" onClick="hide_folder('1_2_2_1')">-</span>
+A. Anatomy of the Hippocampal Formation</span>
+<ul id="fold1_2_2_1" style="POSITION: relative; VISIBILITY: visible;"><li>Both downstream and upstream of all cortical association regions</span>
+
+</li>
+<li>CA: Cornu Ammonis, from Greek</span>
+
+</li>
+<li>90% of CA1 are pyramidal neurons</span>
+
+</li>
+<li>CA1-4 and dentate gyrus are one unit for information processing and memory formation. How exactly?</span>
+
+</li>
+<li>Cortical areas immediately adjacent are a functional extension of hippocampus</span>
+
+</li>
+<li>Prefrontal cortex and hippo. are functionally interconneted</span>
+
+</li>
+<li>A. Anatomy of the Hippocampal Formation</span>
+
+</li>
+
+</ul>
+</li>
+<li><span id="show1_2_2_2" class="foldclosed" onClick="show_folder('1_2_2_2')" style="POSITION: absolute">+</span> <span id="hide1_2_2_2" class="foldopened" onClick="hide_folder('1_2_2_2')">-</span>
+B. Lesion Studies in Human Memory Formation</span>
+<ul id="fold1_2_2_2" style="POSITION: relative; VISIBILITY: visible;"><li><p>Patient H.M.: removal of medial temporal lobe lead to failure of new memory formation, but old memories were intact</span>
+<p>Memory consolidation is a central attribute of hippo.: downloads information to the cortex for long-term storage</span>
+<p>Cellular mechanism that is likely to allow hippo. serve its function: long-term potentiation (LTP)</span>
+</li>
+</ul>
+</li>
+<li><span id="show1_2_2_3" class="foldclosed" onClick="show_folder('1_2_2_3')" style="POSITION: absolute">+</span> <span id="hide1_2_2_3" class="foldopened" onClick="hide_folder('1_2_2_3')">-</span>
+C. ImagingStudies</span>
+<ul id="fold1_2_2_3" style="POSITION: relative; VISIBILITY: visible;"><li>Hippo. is also activated in memory acquisition</span>
+
+</li>
+<li>London taxi drivers have larger posterior hippocampus</span>
+
+</li>
+
+</ul>
+</li>
+
+</ul>
+</li>
+<li><span id="show1_2_3" class="foldclosed" onClick="show_folder('1_2_3')" style="POSITION: absolute">+</span> <span id="hide1_2_3" class="foldopened" onClick="hide_folder('1_2_3')">-</span>
+2.3 Motor learning</span>
+<ul id="fold1_2_3" style="POSITION: relative; VISIBILITY: visible;"><li><span id="show1_2_3_1" class="foldclosed" onClick="show_folder('1_2_3_1')" style="POSITION: absolute">+</span> <span id="hide1_2_3_1" class="foldopened" onClick="hide_folder('1_2_3_1')">-</span>
+A. Anatomy</span>
+<ul id="fold1_2_3_1" style="POSITION: relative; VISIBILITY: visible;"><li>Cerebellum-dependent associative memory</span>
+
+</li>
+<li>Basal ganglia-dependent associative memory: also in reward-based learning</span>
+
+</li>
+
+</ul>
+</li>
+<li><span id="show1_2_3_2" class="foldclosed" onClick="show_folder('1_2_3_2')" style="POSITION: absolute">+</span> <span id="hide1_2_3_2" class="foldopened" onClick="hide_folder('1_2_3_2')">-</span>
+B. Habits</span>
+<ul id="fold1_2_3_2" style="POSITION: relative; VISIBILITY: visible;"><li>Striatum-associated system</span>
+
+</li>
+
+</ul>
+</li>
+<li><span id="show1_2_3_3" class="foldclosed" onClick="show_folder('1_2_3_3')" style="POSITION: absolute">+</span> <span id="hide1_2_3_3" class="foldopened" onClick="hide_folder('1_2_3_3')">-</span>
+C. Stereotyped Movements</span>
+<ul id="fold1_2_3_3" style="POSITION: relative; VISIBILITY: visible;"><li>Striatum-associated system</span>
+
+</li>
+<li>Learned or unlearned, sometimes in disease</span>
+
+</li>
+
+</ul>
+</li>
+<li>D. Sequence Learning</span>
+
+</li>
+
+</ul>
+</li>
+<li><span id="show1_2_4" class="foldclosed" onClick="show_folder('1_2_4')" style="POSITION: absolute">+</span> <span id="hide1_2_4" class="foldopened" onClick="hide_folder('1_2_4')">-</span>
+2.4 Prodigious memory</span>
+<ul id="fold1_2_4" style="POSITION: relative; VISIBILITY: visible;"><li>A. Mnemonists</span>
+
+</li>
+<li>B. Savant Syndrome</span>
+
+</li>
+<li><span id="show1_2_4_1" class="foldclosed" onClick="show_folder('1_2_4_1')" style="POSITION: absolute">+</span> <span id="hide1_2_4_1" class="foldopened" onClick="hide_folder('1_2_4_1')">-</span>
+C. You are a Prodigy</span>
+<ul id="fold1_2_4_1" style="POSITION: relative; VISIBILITY: visible;"><li>We may all have prodigious memory storage, just not such recall</span>
+
+</li>
+<li>Hippo. not only for memory formation, but also moment-to-moment cognitive processing</span>
+
+</li>
+
+</ul>
+</li>
+
+</ul>
+</li>
+
+</ul><p><span id="show1_3" class="foldclosed" onClick="show_folder('1_3')" style="POSITION: absolute">+</span> <span id="hide1_3" class="foldopened" onClick="hide_folder('1_3')">-</span>
+3 Non-associative learning and memory</span>
+<ul id="fold1_3" style="POSITION: relative; VISIBILITY: visible;"><li><p><span id="show1_3_1" class="foldclosed" onClick="show_folder('1_3_1')" style="POSITION: absolute">+</span> <span id="hide1_3_1" class="foldopened" onClick="hide_folder('1_3_1')">-</span>
+3.1 Introduction-the rapid turnover of biomolecules</span>
+<ul id="fold1_3_1" style="POSITION: relative; VISIBILITY: visible;"><li>Neuroscientists often have no idea how rapid it is</span>
+
+</li>
+<li>Within 24h, all phosphate bonds were broken down and rebuilt</span>
+
+</li>
+<li>Half-lives of proteins typically are in 2-4h</span>
+
+</li>
+
+</ul><p>3.2 Short-term, long-term, and ultralong-term forms of learning</span>
+<p><span id="show1_3_2" class="foldclosed" onClick="show_folder('1_3_2')" style="POSITION: absolute">+</span> <span id="hide1_3_2" class="foldopened" onClick="hide_folder('1_3_2')">-</span>
+3.3 Use of invertebrate preparations to study simple forms of learning</span>
+<ul id="fold1_3_2" style="POSITION: relative; VISIBILITY: visible;"><li><span id="show1_3_2_1" class="foldclosed" onClick="show_folder('1_3_2_1')" style="POSITION: absolute">+</span> <span id="hide1_3_2_1" class="foldopened" onClick="hide_folder('1_3_2_1')">-</span>
+A.The Cellular Basis of Synaptic Facilitation in Aplysia</span>
+<ul id="fold1_3_2_1" style="POSITION: relative; VISIBILITY: visible;"><li>Increased neurotransmitter release from pre-synapses of sensory neurons</span>
+
+</li>
+<li>Excitatory: glutamate, at the gill-and-siphon sensory neuron-motor neuron synapses</span>
+
+</li>
+<li>Modulatory: serotonin, at siphon sensory neurons by tail sensory neurons after tail shock</span>
+
+</li>
+
+</ul>
+</li>
+<li>Habituation: stimuli without hurt. Sensitization: stimuli with hurt</span>
+
+</li>
+<li>Large neuron, easy to record</span>
+
+</li>
+<li>S-channels: leak potassium channels, keep the resting membrane potential</span>
+
+</li>
+<li>Ikv: potassium channels, recover from the action potential</span>
+
+</li>
+<li>Modulation of the release machinery and synaptic vesicle pools</span>
+
+</li>
+
+</ul><p><span id="show1_3_3" class="foldclosed" onClick="show_folder('1_3_3')" style="POSITION: absolute">+</span> <span id="hide1_3_3" class="foldopened" onClick="hide_folder('1_3_3')">-</span>
+3.4 Short-term facilitation in Aplysia is mediated by changes in the levels of intracellular second messengers</span>
+<ul id="fold1_3_3" style="POSITION: relative; VISIBILITY: visible;"><li><p>Reaction Category 1-Altered levels of Second Messengers: Serotonin binding leads to increasing of cAMP. Activities of cAMP-dependent kinases PKA and PKC enhanced, phosphorylating potassium channels and vesicle release machinery, which increases the release of glutamate into synapse</span>
+</li>
+</ul><p><span id="show1_3_4" class="foldclosed" onClick="show_folder('1_3_4')" style="POSITION: absolute">+</span> <span id="hide1_3_4" class="foldopened" onClick="hide_folder('1_3_4')">-</span>
+3.5 Long-term facilitation in Aplysia involves altered gene expression and persistent protein kinase activation-a second category of reaction</span>
+<ul id="fold1_3_4" style="POSITION: relative; VISIBILITY: visible;"><li><p>Reaction Category 2-Generation of long Half-life Molecules: Long-lasting elevation of cAMP => activation of PKA => phosphorylation of CREB + ERK and MAPK repression of neg. regulator of CREB => altered gene expression (?) i.e. ubiquitin system => proteolytic degradation of the PKA regulatory subunit => increase ratio of active catalytic to reg. subunits => persistent activation of PKA until protein turnover + somehow DAG-responsive effector PKC is also activated</span>
+<p><span id="show1_3_4_1" class="foldclosed" onClick="show_folder('1_3_4_1')" style="POSITION: absolute">+</span> <span id="hide1_3_4_1" class="foldopened" onClick="hide_folder('1_3_4_1')">-</span>
+Intermediate-Term Facilitation in Aplysia</span>
+<ul id="fold1_3_4_1" style="POSITION: relative; VISIBILITY: visible;"><li>Post-synaptic activation of CaMKII => increase of glutamate receptors</span>
+
+</li>
+
+</ul></li>
+</ul><p><span id="show1_3_5" class="foldclosed" onClick="show_folder('1_3_5')" style="POSITION: absolute">+</span> <span id="hide1_3_5" class="foldopened" onClick="hide_folder('1_3_5')">-</span>
+3.6 Long-term synaptic facilitation in Aplysia involves changes in gene expression and resulting anatomical changes</span>
+<ul id="fold1_3_5" style="POSITION: relative; VISIBILITY: visible;"><li>Change of the number of synaptic contacts by cAMP- and MAPK-mediated changes in gene expression</span>
+
+</li>
+<li><span id="show1_3_5_1" class="foldclosed" onClick="show_folder('1_3_5_1')" style="POSITION: absolute">+</span> <span id="hide1_3_5_1" class="foldopened" onClick="hide_folder('1_3_5_1')">-</span>
+Self-Perpetuating Chemical Reactions in Memory Maintenance</span>
+<ul id="fold1_3_5_1" style="POSITION: relative; VISIBILITY: visible;"><li><p>TBL-1. Hypothesis: serotonin => TBL-1 secretion into extracellular space => converts TGF-beta to active form => TGF-beta binds to its receptor => signal transduction that promote expression of TBL-1 => positive feedback loop</span>
+<p>CPEB. Hypothesis: prion-like translation regulator, also marks synapse</span>
+</li>
+</ul>
+</li>
+
+</ul><p><span id="show1_3_6" class="foldclosed" onClick="show_folder('1_3_6')" style="POSITION: absolute">+</span> <span id="hide1_3_6" class="foldopened" onClick="hide_folder('1_3_6')">-</span>
+3.7 Attributes of chemical reactions mediating memory</span>
+<ul id="fold1_3_6" style="POSITION: relative; VISIBILITY: visible;"><li>There is chemical reactions at different time for short-, long- and ultralong-term memory</span>
+
+</li>
+<li>Because the phenotypes are seamless, the different chemical reactions may lead to common effectors</span>
+
+</li>
+<li>Ultralong-term memories have unique mechanism to fight against molecule turnover</span>
+
+</li>
+
+</ul><p>3.8 Sensitization in mammals</span>
+</li>
+</ul><p><span id="show1_4" class="foldclosed" onClick="show_folder('1_4')" style="POSITION: absolute">+</span> <span id="hide1_4" class="foldopened" onClick="hide_folder('1_4')">-</span>
+4 Rodent behavioral learning and memory models</span>
+<ul id="fold1_4" style="POSITION: relative; VISIBILITY: visible;"><li>4.1 Introduction</span>
+
+</li>
+<li><span id="show1_4_1" class="foldclosed" onClick="show_folder('1_4_1')" style="POSITION: absolute">+</span> <span id="hide1_4_1" class="foldopened" onClick="hide_folder('1_4_1')">-</span>
+4.2 Behavioural assessments in rodents</span>
+<ul id="fold1_4_1" style="POSITION: relative; VISIBILITY: visible;"><li><span id="show1_4_1_1" class="foldclosed" onClick="show_folder('1_4_1_1')" style="POSITION: absolute">+</span> <span id="hide1_4_1_1" class="foldopened" onClick="hide_folder('1_4_1_1')">-</span>
+A. Assessing General Activity and Sensory Perception</span>
+<ul id="fold1_4_1_1" style="POSITION: relative; VISIBILITY: visible;"><li><span id="show1_4_1_1_1" class="foldclosed" onClick="show_folder('1_4_1_1_1')" style="POSITION: absolute">+</span> <span id="hide1_4_1_1_1" class="foldopened" onClick="hide_folder('1_4_1_1_1')">-</span>
+Open Field Analysis and Elevated Plus Maze Performance</span>
+<ul id="fold1_4_1_1_1" style="POSITION: relative; VISIBILITY: visible;"><li>Travel distance: hypo- or hyperactivity</span>
+
+</li>
+<li>Center-to-total: anxiety level</span>
+
+</li>
+
+</ul>
+</li>
+<li><span id="show1_4_1_1_2" class="foldclosed" onClick="show_folder('1_4_1_1_2')" style="POSITION: absolute">+</span> <span id="hide1_4_1_1_2" class="foldopened" onClick="hide_folder('1_4_1_1_2')">-</span>
+Rotating Rod Performance</span>
+<ul id="fold1_4_1_1_2" style="POSITION: relative; VISIBILITY: visible;"><li>Coordination</span>
+
+</li>
+<li>Motor Learning</span>
+
+</li>
+
+</ul>
+</li>
+<li><span id="show1_4_1_1_3" class="foldclosed" onClick="show_folder('1_4_1_1_3')" style="POSITION: absolute">+</span> <span id="hide1_4_1_1_3" class="foldopened" onClick="hide_folder('1_4_1_1_3')">-</span>
+Acoustic Startle and Prepulse Inhibition</span>
+<ul id="fold1_4_1_1_3" style="POSITION: relative; VISIBILITY: visible;"><li>General reflexes (startle)</span>
+
+</li>
+<li>Hearing assessment</span>
+
+</li>
+<li>Abnormal in schizophrenic patients</span>
+
+</li>
+
+</ul>
+</li>
+<li><span id="show1_4_1_1_4" class="foldclosed" onClick="show_folder('1_4_1_1_4')" style="POSITION: absolute">+</span> <span id="hide1_4_1_1_4" class="foldopened" onClick="hide_folder('1_4_1_1_4')">-</span>
+Nociception</span>
+<ul id="fold1_4_1_1_4" style="POSITION: relative; VISIBILITY: visible;"><li>Hot plate</span>
+
+</li>
+<li>Hargreave&#x2019;s radiant heat apparatus</span>
+
+</li>
+
+</ul>
+</li>
+<li><span id="show1_4_1_1_5" class="foldclosed" onClick="show_folder('1_4_1_1_5')" style="POSITION: absolute">+</span> <span id="hide1_4_1_1_5" class="foldopened" onClick="hide_folder('1_4_1_1_5')">-</span>
+Vision Tests</span>
+<ul id="fold1_4_1_1_5" style="POSITION: relative; VISIBILITY: visible;"><li>Light&#x2013;Dark Exploration</span>
+
+</li>
+<li>Visual Cliff</span>
+
+</li>
+
+</ul>
+</li>
+
+</ul>
+</li>
+<li><span id="show1_4_1_2" class="foldclosed" onClick="show_folder('1_4_1_2')" style="POSITION: absolute">+</span> <span id="hide1_4_1_2" class="foldopened" onClick="hide_folder('1_4_1_2')">-</span>
+B. Fear Conditioning</span>
+<ul id="fold1_4_1_2" style="POSITION: relative; VISIBILITY: visible;"><li><p>Cue-plus-Contextual Fear Conditioning</span>
+<p><span id="show1_4_1_2_1" class="foldclosed" onClick="show_folder('1_4_1_2_1')" style="POSITION: absolute">+</span> <span id="hide1_4_1_2_1" class="foldopened" onClick="hide_folder('1_4_1_2_1')">-</span>
+Cued Fear Conditioning</span>
+<ul id="fold1_4_1_2_1" style="POSITION: relative; VISIBILITY: visible;"><li>Amygdala-dependent but hippocampus-independent</span>
+
+</li>
+
+</ul><p><span id="show1_4_1_2_2" class="foldclosed" onClick="show_folder('1_4_1_2_2')" style="POSITION: absolute">+</span> <span id="hide1_4_1_2_2" class="foldopened" onClick="hide_folder('1_4_1_2_2')">-</span>
+Contextual Fear Conditioning</span>
+<ul id="fold1_4_1_2_2" style="POSITION: relative; VISIBILITY: visible;"><li>Hippocampus-dependent</span>
+
+</li>
+
+</ul><p>Control: rule out sensory or motor dysfunction from learning and memory deficiency; retrain or overtrain to rule out disability to present fear</span>
+<p>Passive avoidance training</span>
+<p><span id="show1_4_1_2_3" class="foldclosed" onClick="show_folder('1_4_1_2_3')" style="POSITION: absolute">+</span> <span id="hide1_4_1_2_3" class="foldopened" onClick="hide_folder('1_4_1_2_3')">-</span>
+Extinction of Fear Conditioning</span>
+<ul id="fold1_4_1_2_3" style="POSITION: relative; VISIBILITY: visible;"><li>Extinction is not forgetting: footshock in novel context make mouse fear again in old context</span>
+
+</li>
+
+</ul></li>
+</ul>
+</li>
+<li><span id="show1_4_1_3" class="foldclosed" onClick="show_folder('1_4_1_3')" style="POSITION: absolute">+</span> <span id="hide1_4_1_3" class="foldopened" onClick="hide_folder('1_4_1_3')">-</span>
+C. Avoidance Conditioning</span>
+<ul id="fold1_4_1_3" style="POSITION: relative; VISIBILITY: visible;"><li><span id="show1_4_1_3_1" class="foldclosed" onClick="show_folder('1_4_1_3_1')" style="POSITION: absolute">+</span> <span id="hide1_4_1_3_1" class="foldopened" onClick="hide_folder('1_4_1_3_1')">-</span>
+Passive</span>
+<ul id="fold1_4_1_3_1" style="POSITION: relative; VISIBILITY: visible;"><li>Step-through passive avoidance</span>
+
+</li>
+<li>Step-down passive avoidance</span>
+
+</li>
+
+</ul>
+</li>
+<li><span id="show1_4_1_3_2" class="foldclosed" onClick="show_folder('1_4_1_3_2')" style="POSITION: absolute">+</span> <span id="hide1_4_1_3_2" class="foldopened" onClick="hide_folder('1_4_1_3_2')">-</span>
+Active</span>
+<ul id="fold1_4_1_3_2" style="POSITION: relative; VISIBILITY: visible;"><li>Shuttle-box (an example of operant conditioning, enhanced by hippocampal lesions!)</span>
+
+</li>
+<li>Lever-pressing for a reward</span>
+
+</li>
+<li>Conditioned place preference</span>
+
+</li>
+
+</ul>
+</li>
+
+</ul>
+</li>
+<li><span id="show1_4_1_4" class="foldclosed" onClick="show_folder('1_4_1_4')" style="POSITION: absolute">+</span> <span id="hide1_4_1_4" class="foldopened" onClick="hide_folder('1_4_1_4')">-</span>
+D. Eye-Blink Conditioning</span>
+<ul id="fold1_4_1_4" style="POSITION: relative; VISIBILITY: visible;"><li>Long-term synaptic depression (LTD) in the cerebellum</span>
+
+</li>
+
+</ul>
+</li>
+<li><span id="show1_4_1_5" class="foldclosed" onClick="show_folder('1_4_1_5')" style="POSITION: absolute">+</span> <span id="hide1_4_1_5" class="foldopened" onClick="hide_folder('1_4_1_5')">-</span>
+E. Simple Maze Learning</span>
+<ul id="fold1_4_1_5" style="POSITION: relative; VISIBILITY: visible;"><li><p>Searching for engram failed: complex memories are held in (or at least accessed by) broadly distributed loci in the CNS</span>
+<p>Hippocampal &#x201c;place cells&#x201d;</span>
+</li>
+</ul>
+</li>
+<li><span id="show1_4_1_6" class="foldclosed" onClick="show_folder('1_4_1_6')" style="POSITION: absolute">+</span> <span id="hide1_4_1_6" class="foldopened" onClick="hide_folder('1_4_1_6')">-</span>
+F. Spatial Learning</span>
+<ul id="fold1_4_1_6" style="POSITION: relative; VISIBILITY: visible;"><li>The Morris Maze</span>
+
+</li>
+<li>The Barnes Maze</span>
+
+</li>
+
+</ul>
+</li>
+<li><span id="show1_4_1_7" class="foldclosed" onClick="show_folder('1_4_1_7')" style="POSITION: absolute">+</span> <span id="hide1_4_1_7" class="foldopened" onClick="hide_folder('1_4_1_7')">-</span>
+G. Taste Learning</span>
+<ul id="fold1_4_1_7" style="POSITION: relative; VISIBILITY: visible;"><li><span id="show1_4_1_7_1" class="foldclosed" onClick="show_folder('1_4_1_7_1')" style="POSITION: absolute">+</span> <span id="hide1_4_1_7_1" class="foldopened" onClick="hide_folder('1_4_1_7_1')">-</span>
+Conditioned Taste Aversion</span>
+<ul id="fold1_4_1_7_1" style="POSITION: relative; VISIBILITY: visible;"><li>Only novel taste triggers aversion: latent inhibition</span>
+
+</li>
+<li>Insular cortex</span>
+
+</li>
+
+</ul>
+</li>
+
+</ul>
+</li>
+<li><span id="show1_4_1_8" class="foldclosed" onClick="show_folder('1_4_1_8')" style="POSITION: absolute">+</span> <span id="hide1_4_1_8" class="foldopened" onClick="hide_folder('1_4_1_8')">-</span>
+H. Novel Object Recognition</span>
+<ul id="fold1_4_1_8" style="POSITION: relative; VISIBILITY: visible;"><li>Complex cognition task. May have the largest variability among individuals</span>
+
+</li>
+
+</ul>
+</li>
+<li><span id="show1_4_1_9" class="foldclosed" onClick="show_folder('1_4_1_9')" style="POSITION: absolute">+</span> <span id="hide1_4_1_9" class="foldopened" onClick="hide_folder('1_4_1_9')">-</span>
+I. Studying Memory Reconsolidation Using a Fear Conditioning Protocol</span>
+<ul id="fold1_4_1_9" style="POSITION: relative; VISIBILITY: visible;"><li>Reconsolidation uses unique mechanism from that of consolidation</span>
+
+</li>
+
+</ul>
+</li>
+
+</ul>
+</li>
+<li><span id="show1_4_2" class="foldclosed" onClick="show_folder('1_4_2')" style="POSITION: absolute">+</span> <span id="hide1_4_2" class="foldopened" onClick="hide_folder('1_4_2')">-</span>
+4.3 Modern experimental uses of rodent behaviour models</span>
+<ul id="fold1_4_2" style="POSITION: relative; VISIBILITY: visible;"><li><span id="show1_4_2_1" class="foldclosed" onClick="show_folder('1_4_2_1')" style="POSITION: absolute">+</span> <span id="hide1_4_2_1" class="foldopened" onClick="hide_folder('1_4_2_1')">-</span>
+A. The Four Basic Types of Experiments</span>
+<ul id="fold1_4_2_1" style="POSITION: relative; VISIBILITY: visible;"><li><span id="show1_4_2_1_1" class="foldclosed" onClick="show_folder('1_4_2_1_1')" style="POSITION: absolute">+</span> <span id="hide1_4_2_1_1" class="foldopened" onClick="hide_folder('1_4_2_1_1')">-</span>
+Determine</span>
+<ul id="fold1_4_2_1_1" style="POSITION: relative; VISIBILITY: visible;"><li>No manipulation, not an experiment</span>
+
+</li>
+
+</ul>
+</li>
+<li><span id="show1_4_2_1_2" class="foldclosed" onClick="show_folder('1_4_2_1_2')" style="POSITION: absolute">+</span> <span id="hide1_4_2_1_2" class="foldopened" onClick="hide_folder('1_4_2_1_2')">-</span>
+Measure</span>
+<ul id="fold1_4_2_1_2" style="POSITION: relative; VISIBILITY: visible;"><li>Reflects correlation, not causality</span>
+
+</li>
+
+</ul>
+</li>
+<li><span id="show1_4_2_1_3" class="foldclosed" onClick="show_folder('1_4_2_1_3')" style="POSITION: absolute">+</span> <span id="hide1_4_2_1_3" class="foldopened" onClick="hide_folder('1_4_2_1_3')">-</span>
+Block</span>
+<ul id="fold1_4_2_1_3" style="POSITION: relative; VISIBILITY: visible;"><li>Tests necessity: A <= B</span>
+
+</li>
+
+</ul>
+</li>
+<li><span id="show1_4_2_1_4" class="foldclosed" onClick="show_folder('1_4_2_1_4')" style="POSITION: absolute">+</span> <span id="hide1_4_2_1_4" class="foldopened" onClick="hide_folder('1_4_2_1_4')">-</span>
+Mimic</span>
+<ul id="fold1_4_2_1_4" style="POSITION: relative; VISIBILITY: visible;"><li>Tests sufficiency: A => B</span>
+
+</li>
+<li>If B causes C, then if I activate B artificially I should see C happen as a result</span>
+
+</li>
+
+</ul>
+</li>
+
+</ul>
+</li>
+<li><span id="show1_4_2_2" class="foldclosed" onClick="show_folder('1_4_2_2')" style="POSITION: absolute">+</span> <span id="hide1_4_2_2" class="foldopened" onClick="hide_folder('1_4_2_2')">-</span>
+B. Use of Behavioral Paradigms in Block and Measure Experiments</span>
+<ul id="fold1_4_2_2" style="POSITION: relative; VISIBILITY: visible;"><li>Using Behavioral Paradigms as a Stimulus in Measure Experiments</span>
+
+</li>
+<li><span id="show1_4_2_2_1" class="foldclosed" onClick="show_folder('1_4_2_2_1')" style="POSITION: absolute">+</span> <span id="hide1_4_2_2_1" class="foldopened" onClick="hide_folder('1_4_2_2_1')">-</span>
+Using Behavioral Paradigms as an Assay of Learning in Block Experiments</span>
+<ul id="fold1_4_2_2_1" style="POSITION: relative; VISIBILITY: visible;"><li><span id="show1_4_2_2_1_1" class="foldclosed" onClick="show_folder('1_4_2_2_1_1')" style="POSITION: absolute">+</span> <span id="hide1_4_2_2_1_1" class="foldopened" onClick="hide_folder('1_4_2_2_1_1')">-</span>
+Methods</span>
+<ul id="fold1_4_2_2_1_1" style="POSITION: relative; VISIBILITY: visible;"><li>+ Anatomical lesions&#xa;+ Drug infusion&#xa;+ Gene manipulation</span>
+
+</li>
+
+</ul>
+</li>
+<li><span id="show1_4_2_2_1_2" class="foldclosed" onClick="show_folder('1_4_2_2_1_2')" style="POSITION: absolute">+</span> <span id="hide1_4_2_2_1_2" class="foldopened" onClick="hide_folder('1_4_2_2_1_2')">-</span>
+Limitations</span>
+<ul id="fold1_4_2_2_1_2" style="POSITION: relative; VISIBILITY: visible;"><li><p>Non-specificity</span>
+<p>Mixed nature of task: learning, memory and recall</span>
+<p>There may be compensation, causing false negative</span>
+<p>Control: selective deficit in contextual versus cued fear conditioning; selective effects on short-term versus long-term memory; selective deficit in trace versus delay conditioning</span>
+</li>
+</ul>
+</li>
+
+</ul>
+</li>
+
+</ul>
+</li>
+
+</ul>
+</li>
+
+</ul><p><span id="show1_5" class="foldclosed" onClick="show_folder('1_5')" style="POSITION: absolute">+</span> <span id="hide1_5" class="foldopened" onClick="hide_folder('1_5')">-</span>
+5 Associative learning and unlearning</span>
+<ul id="fold1_5" style="POSITION: relative; VISIBILITY: visible;"><li><span id="show1_5_1" class="foldclosed" onClick="show_folder('1_5_1')" style="POSITION: absolute">+</span> <span id="hide1_5_1" class="foldopened" onClick="hide_folder('1_5_1')">-</span>
+5.1 Introduction</span>
+<ul id="fold1_5_1" style="POSITION: relative; VISIBILITY: visible;"><li>A. Classical Associative Conditioning</span>
+
+</li>
+
+</ul>
+</li>
+<li><span id="show1_5_2" class="foldclosed" onClick="show_folder('1_5_2')" style="POSITION: absolute">+</span> <span id="hide1_5_2" class="foldopened" onClick="hide_folder('1_5_2')">-</span>
+5.2 Fear conditioning and the amygdala</span>
+<ul id="fold1_5_2" style="POSITION: relative; VISIBILITY: visible;"><li><span id="show1_5_2_1" class="foldclosed" onClick="show_folder('1_5_2_1')" style="POSITION: absolute">+</span> <span id="hide1_5_2_1" class="foldopened" onClick="hide_folder('1_5_2_1')">-</span>
+A. Long-Term Potentiation in Cued Fear Conditioning</span>
+<ul id="fold1_5_2_1" style="POSITION: relative; VISIBILITY: visible;"><li>Occurs widely throughout excitatory glutamatergic synapses</span>
+
+</li>
+<li>Clear demonstrations of LTP triggered in vivo by environmental signals</span>
+
+</li>
+
+</ul>
+</li>
+
+</ul>
+</li>
+<li><span id="show1_5_3" class="foldclosed" onClick="show_folder('1_5_3')" style="POSITION: absolute">+</span> <span id="hide1_5_3" class="foldopened" onClick="hide_folder('1_5_3')">-</span>
+5.3 Eye-blink conditioning and the cerebellum</span>
+<ul id="fold1_5_3" style="POSITION: relative; VISIBILITY: visible;"><li><span id="show1_5_3_1" class="foldclosed" onClick="show_folder('1_5_3_1')" style="POSITION: absolute">+</span> <span id="hide1_5_3_1" class="foldopened" onClick="hide_folder('1_5_3_1')">-</span>
+Long-term depression</span>
+<ul id="fold1_5_3_1" style="POSITION: relative; VISIBILITY: visible;"><li><p>Purkinje neurons are the only output neurons from the cerebellar cortex, use gamma-amino butyric acid (GABA) as their neurotransmitter, thus they are inhibitory</span>
+<p>LTD at their parallel fiber inputs leads to a net loss of inhibitory output onto motor pattern generators downstream</span>
+</li>
+</ul>
+</li>
+
+</ul>
+</li>
+<li><span id="show1_5_4" class="foldclosed" onClick="show_folder('1_5_4')" style="POSITION: absolute">+</span> <span id="hide1_5_4" class="foldopened" onClick="hide_folder('1_5_4')">-</span>
+5.4 Positive reinforcement learning</span>
+<ul id="fold1_5_4" style="POSITION: relative; VISIBILITY: visible;"><li>A. Reward and Human Psychopathology</span>
+
+</li>
+<li>B. Positive Reinforcement Learning</span>
+
+</li>
+<li><span id="show1_5_4_1" class="foldclosed" onClick="show_folder('1_5_4_1')" style="POSITION: absolute">+</span> <span id="hide1_5_4_1" class="foldopened" onClick="hide_folder('1_5_4_1')">-</span>
+C. Operant Conditioning of Positive Reinforcement</span>
+<ul id="fold1_5_4_1" style="POSITION: relative; VISIBILITY: visible;"><li><p>Frontal cortex, the amygdala, and the nucleus accumbens. These three brain subregions are components of the limbic-corticostriatal loop</span>
+</li>
+</ul>
+</li>
+
+</ul>
+</li>
+<li>5.5 Memory suppression-forgetting vs extinction, and latent inhibition</span>
+
+</li>
+
+</ul><p><span id="show1_6" class="foldclosed" onClick="show_folder('1_6')" style="POSITION: absolute">+</span> <span id="hide1_6" class="foldopened" onClick="hide_folder('1_6')">-</span>
+6 Hippocampal function in cognition</span>
+<ul id="fold1_6" style="POSITION: relative; VISIBILITY: visible;"><li>6.1 Introduction</span>
+
+</li>
+<li><span id="show1_6_1" class="foldclosed" onClick="show_folder('1_6_1')" style="POSITION: absolute">+</span> <span id="hide1_6_1" class="foldopened" onClick="hide_folder('1_6_1')">-</span>
+6.2 Studying the hippocampus</span>
+<ul id="fold1_6_1" style="POSITION: relative; VISIBILITY: visible;"><li>A. Hippocampal Anatomy</span>
+
+</li>
+
+</ul>
+</li>
+<li><span id="show1_6_2" class="foldclosed" onClick="show_folder('1_6_2')" style="POSITION: absolute">+</span> <span id="hide1_6_2" class="foldopened" onClick="hide_folder('1_6_2')">-</span>
+6.3 Hippocampal function in cognition</span>
+<ul id="fold1_6_2" style="POSITION: relative; VISIBILITY: visible;"><li><p><span id="show1_6_2_1" class="foldclosed" onClick="show_folder('1_6_2_1')" style="POSITION: absolute">+</span> <span id="hide1_6_2_1" class="foldopened" onClick="hide_folder('1_6_2_1')">-</span>
+A. Space</span>
+<ul id="fold1_6_2_1" style="POSITION: relative; VISIBILITY: visible;"><li>EEG while exploring novel context: 4-8Hz theta rhythm</span>
+
+</li>
+<li>"Place cells" respond to "place fields" of relative positions</span>
+
+</li>
+
+</ul><p><span id="show1_6_2_2" class="foldclosed" onClick="show_folder('1_6_2_2')" style="POSITION: absolute">+</span> <span id="hide1_6_2_2" class="foldopened" onClick="hide_folder('1_6_2_2')">-</span>
+B. Timing</span>
+<ul id="fold1_6_2_2" style="POSITION: relative; VISIBILITY: visible;"><li><p>Re-entering the place field makes CA1 pyramidal cells' firing rate higher, latency of respond shorter, dendritic action potential back-propagation increasing</span>
+<p>Memory for Real Time&#x2014;Episodic Memory, Ordering, and the CS-US Interval</span>
+<p>Trace fear conditioning is dependent on NMDA receptor function in CA1 pyramidal neurons</span>
+<p>Hypothesis: the maintenance of a representation of a sensory stimulus, in the absence of any continued presentation of the stimulus itself</span>
+</li>
+</ul><p><span id="show1_6_2_3" class="foldclosed" onClick="show_folder('1_6_2_3')" style="POSITION: absolute">+</span> <span id="hide1_6_2_3" class="foldopened" onClick="hide_folder('1_6_2_3')">-</span>
+C. Multimodal Associations&#x2014;The Hippocampus as a Generalized Association &#xd; Machine and Multimodal Sensory Integrator</span>
+<ul id="fold1_6_2_3" style="POSITION: relative; VISIBILITY: visible;"><li><p>Arc as an activity-dependent molecular marker to track the activity of specific ensembles of pyramidal neurons</span>
+<p>CA1 pyramidal cells respond selectively to a certain combination of features</span>
+</li>
+</ul><p>D. The Hippocampus is also Required for Memory Consolidation</span>
+</li>
+</ul>
+</li>
+
+</ul><p><span id="show1_7" class="foldclosed" onClick="show_folder('1_7')" style="POSITION: absolute">+</span> <span id="hide1_7" class="foldopened" onClick="hide_folder('1_7')">-</span>
+7 Long-term potentiation-a candidate cellular mechanism for information storage in the central nervous system</span>
+<ul id="fold1_7" style="POSITION: relative; VISIBILITY: visible;"><li><p><span id="show1_7_1" class="foldclosed" onClick="show_folder('1_7_1')" style="POSITION: absolute">+</span> <span id="hide1_7_1" class="foldopened" onClick="hide_folder('1_7_1')">-</span>
+7.1 Hebb's postulate</span>
+<ul id="fold1_7_1" style="POSITION: relative; VISIBILITY: visible;"><li><p>Broadly accepted hypothesis: Memories are stored as alterations in the strength of synaptic connections between neurons in the CNS</span>
+<p>Hebb said: "When an axon of cell A ... excites cell B and repeatedly or persistently takes part in  ring it, some growth process or metabolic change takes place in one or both cells so that A&#x2019;s ef ciency as one of the cells  ring B is increased." (1949)</span>
+</li>
+</ul><p><span id="show1_7_2" class="foldclosed" onClick="show_folder('1_7_2')" style="POSITION: absolute">+</span> <span id="hide1_7_2" class="foldopened" onClick="hide_folder('1_7_2')">-</span>
+7.2 A breakthrough discovery--long-term potentiation in hippocampus</span>
+<ul id="fold1_7_2" style="POSITION: relative; VISIBILITY: visible;"><li><span id="show1_7_2_1" class="foldclosed" onClick="show_folder('1_7_2_1')" style="POSITION: absolute">+</span> <span id="hide1_7_2_1" class="foldopened" onClick="hide_folder('1_7_2_1')">-</span>
+A. The Hippocampal Circuit and Measuring Synaptic Transmission in the Hippocampal Slice</span>
+<ul id="fold1_7_2_1" style="POSITION: relative; VISIBILITY: visible;"><li><span id="show1_7_2_1_1" class="foldclosed" onClick="show_folder('1_7_2_1_1')" style="POSITION: absolute">+</span> <span id="hide1_7_2_1_1" class="foldopened" onClick="hide_folder('1_7_2_1_1')">-</span>
+Types of transmitters</span>
+<ul id="fold1_7_2_1_1" style="POSITION: relative; VISIBILITY: visible;"><li><p>Open ligand (neurotransmitter)-gated ion channels</span>
+<p>A more subtle role&#x2014;modulating neuronal function through eliciting intracellular second-messenger generation. Almost all neurotransmitters have specific subtypes of receptors that act in this fashion</span>
+<p><span id="show1_7_2_1_1_1" class="foldclosed" onClick="show_folder('1_7_2_1_1_1')" style="POSITION: absolute">+</span> <span id="hide1_7_2_1_1_1" class="foldopened" onClick="hide_folder('1_7_2_1_1_1')">-</span>
+Second messenger</span>
+<ul id="fold1_7_2_1_1_1" style="POSITION: relative; VISIBILITY: visible;"><li><p>cAMP/PKA</span>
+<p>PLC/DAG/PKC</span>
+<p>PLC/IP3/CaMKII</span>
+<p>PLA2</span>
+<p>Important targets are: pre-synaptic proteins associated with neurotransmitter release, membrane K+ channels, Ca2+ channels and Na+ channels, nuclear transcription factors regulating gene expression, the protein synthesis machinery, and the cytoskeleton</span>
+</li>
+</ul></li>
+</ul>
+</li>
+
+</ul>
+</li>
+<li><span id="show1_7_2_2" class="foldclosed" onClick="show_folder('1_7_2_2')" style="POSITION: absolute">+</span> <span id="hide1_7_2_2" class="foldopened" onClick="hide_folder('1_7_2_2')">-</span>
+B. Long-Term Potentiation of Synaptic Responses</span>
+<ul id="fold1_7_2_2" style="POSITION: relative; VISIBILITY: visible;"><li>EPSP: excitatory post-synaptic potential</span>
+
+</li>
+
+</ul>
+</li>
+<li><span id="show1_7_2_3" class="foldclosed" onClick="show_folder('1_7_2_3')" style="POSITION: absolute">+</span> <span id="hide1_7_2_3" class="foldopened" onClick="hide_folder('1_7_2_3')">-</span>
+C. Short-Term Plasticity&#x2014;Paired-Pulse Facilitation and Post-Tetanic Potentiation</span>
+<ul id="fold1_7_2_3" style="POSITION: relative; VISIBILITY: visible;"><li><p>PPF: when two single stimulus pulses are applied with interpulse intervals ranging from 20&#x2013;300 milliseconds, the second EPSP produced is larger than the first</span>
+<p>PTP: for example, in experiments where LTP is induced with one or two one-second, 100Hz tetani, a large and transient increase in synaptic efficacy is produced immediately after high-frequency tetanus</span>
+<p>NMDA-independent</span>
+</li>
+</ul>
+</li>
+
+</ul><p><span id="show1_7_3" class="foldclosed" onClick="show_folder('1_7_3')" style="POSITION: absolute">+</span> <span id="hide1_7_3" class="foldopened" onClick="hide_folder('1_7_3')">-</span>
+7.3 NMDA Receptor-Dependence of Long-Term Potentiation</span>
+<ul id="fold1_7_3" style="POSITION: relative; VISIBILITY: visible;"><li>Tetanus-induced and natural forms of LTP is NMDA-dependent</span>
+
+</li>
+<li><span id="show1_7_3_1" class="foldclosed" onClick="show_folder('1_7_3_1')" style="POSITION: absolute">+</span> <span id="hide1_7_3_1" class="foldopened" onClick="hide_folder('1_7_3_1')">-</span>
+A. Pairing Long-Term Potentiation</span>
+<ul id="fold1_7_3_1" style="POSITION: relative; VISIBILITY: visible;"><li><p>Calcium influx via NMDA or maybe intracellular calcium</span>
+<p>NMDA: glutamate dependence (pre-synaptic activation) *and* voltage dependence (post-synaptic activation), able to detect coincidence, rule out non-correlations</span>
+</li>
+</ul>
+</li>
+<li><span id="show1_7_3_2" class="foldclosed" onClick="show_folder('1_7_3_2')" style="POSITION: absolute">+</span> <span id="hide1_7_3_2" class="foldopened" onClick="hide_folder('1_7_3_2')">-</span>
+B. Dendritic Action Potentials</span>
+<ul id="fold1_7_3_2" style="POSITION: relative; VISIBILITY: visible;"><li><p>Glutamate slightly precede back-propagation action potential (pairing): opening of NMDA receptor</span>
+<p>Back-propagation action potential arrives before the excitatory post-synaptic potential (backward pairing): synaptic depression</span>
+</li>
+</ul>
+</li>
+
+</ul><p><span id="show1_7_4" class="foldclosed" onClick="show_folder('1_7_4')" style="POSITION: absolute">+</span> <span id="hide1_7_4" class="foldopened" onClick="hide_folder('1_7_4')">-</span>
+7.4 NMDA Receptor-Independent Long-Term Potentiation</span>
+<ul id="fold1_7_4" style="POSITION: relative; VISIBILITY: visible;"><li><span id="show1_7_4_1" class="foldclosed" onClick="show_folder('1_7_4_1')" style="POSITION: absolute">+</span> <span id="hide1_7_4_1" class="foldopened" onClick="hide_folder('1_7_4_1')">-</span>
+A. 200 Hz Long-Term Potentiation</span>
+<ul id="fold1_7_4_1" style="POSITION: relative; VISIBILITY: visible;"><li>From 100 to 200Hz: From dependent to independent on NMDA receptor - temporal integration?</span>
+
+</li>
+
+</ul>
+</li>
+<li>B. Tetra-Ethyl Ammonium Long-Term Potentiation</span>
+
+</li>
+<li>C. Mossy Fiber Long-Term Potentiation in Area CA3</span>
+
+</li>
+
+</ul><p><span id="show1_7_5" class="foldclosed" onClick="show_folder('1_7_5')" style="POSITION: absolute">+</span> <span id="hide1_7_5" class="foldopened" onClick="hide_folder('1_7_5')">-</span>
+7.5 A Role for Calcium Influx in NMDA Receptor-Dependent Long-Term Potentiation</span>
+<ul id="fold1_7_5" style="POSITION: relative; VISIBILITY: visible;"><li>Post-synaptic calcium elevation triggers LTP</span>
+
+</li>
+
+</ul><p><span id="show1_7_6" class="foldclosed" onClick="show_folder('1_7_6')" style="POSITION: absolute">+</span> <span id="hide1_7_6" class="foldopened" onClick="hide_folder('1_7_6')">-</span>
+7.6 Pre-Synaptic Versus Post-Synaptic Mechanisms</span>
+<ul id="fold1_7_6" style="POSITION: relative; VISIBILITY: visible;"><li><p>Increasing glutamate concentrations in the synapse (pre-synaptic) or by increasing the responsiveness to glutamate by the post-synaptic cell?</span>
+</li>
+</ul><p><span id="show1_7_7" class="foldclosed" onClick="show_folder('1_7_7')" style="POSITION: absolute">+</span> <span id="hide1_7_7" class="foldopened" onClick="hide_folder('1_7_7')">-</span>
+7.7 Long-Term Potentiation can Include an Increased Action Potential Firing Component</span>
+<ul id="fold1_7_7" style="POSITION: relative; VISIBILITY: visible;"><li><p>Most CA1 interneurons are inhibitory using GABA</span>
+<p>Interneurons and pyramidal neurons receive same input (glutamatergic Schaffer collateral projections)</span>
+<p>Effect of interneurons arrives slightly delayed</span>
+<p>Schaffer collateral projections: LTP at pyramidal simultaneously produces LTD at interneurons (and other Schaffer collateral inputs to the same interneurons)</span>
+<p>Thus, the interneuron LTD appears to be serving to modulate the behavior of an entire small local circuit of neuronal connections</span>
+</li>
+</ul><p><span id="show1_7_8" class="foldclosed" onClick="show_folder('1_7_8')" style="POSITION: absolute">+</span> <span id="hide1_7_8" class="foldopened" onClick="hide_folder('1_7_8')">-</span>
+7.8 Long-Term Potentiation can be Divided into Phases</span>
+<ul id="fold1_7_8" style="POSITION: relative; VISIBILITY: visible;"><li><p>Immediate (STP, independent of protein kinase activity), early (by persistently activated protein kinases), and late (change of gene expression?) LTP</span>
+<p>A. Early-Long-Term Potentiation and Late-Long-Term Potentiation&#x2014;Types Versus Phases</span>
+</li>
+</ul><p><span id="show1_7_9" class="foldclosed" onClick="show_folder('1_7_9')" style="POSITION: absolute">+</span> <span id="hide1_7_9" class="foldopened" onClick="hide_folder('1_7_9')">-</span>
+7.9 Modulation of Long-Term Potentiation Induction</span>
+<ul id="fold1_7_9" style="POSITION: relative; VISIBILITY: visible;"><li><p>Norepinephrine, DA, and ACh-mimicking compounds can all modulate the induction of LTP at Schaffer collateral synapses</span>
+<p>BDNF can also modulate the induction of LTP</span>
+</li>
+</ul><p><span id="show1_7_10" class="foldclosed" onClick="show_folder('1_7_10')" style="POSITION: absolute">+</span> <span id="hide1_7_10" class="foldopened" onClick="hide_folder('1_7_10')">-</span>
+7.10 Depotentiation and Long-Term Depression</span>
+<ul id="fold1_7_10" style="POSITION: relative; VISIBILITY: visible;"><li>Depotentiation exists so that the whole brain will not be saturated</span>
+
+</li>
+<li>Cerebellar LTD's behavioral role is much better understood than the hippocampal plasticity</span>
+
+</li>
+
+</ul><p><span id="show1_7_11" class="foldclosed" onClick="show_folder('1_7_11')" style="POSITION: absolute">+</span> <span id="hide1_7_11" class="foldopened" onClick="hide_folder('1_7_11')">-</span>
+7.11 A Role for Long-Term Potentiation in Hippocampal Information Processing, Hippocampus-Dependent Timing, and&#xd;Consolidation of Long-Term Memory</span>
+<ul id="fold1_7_11" style="POSITION: relative; VISIBILITY: visible;"><li><span id="show1_7_11_1" class="foldclosed" onClick="show_folder('1_7_11_1')" style="POSITION: absolute">+</span> <span id="hide1_7_11_1" class="foldopened" onClick="hide_folder('1_7_11_1')">-</span>
+A. Long-Term Potentiation in Hippocampal Information Processing</span>
+<ul id="fold1_7_11_1" style="POSITION: relative; VISIBILITY: visible;"><li><p>Blocking NMDA receptors is not the closest thing possible as selectively blocking LTP</span>
+<p>LTP is not necessary for hippocampal place field formation. However, loss of LTP is associated with a decreased stability of place fields</span>
+<p>NMDA receptor-dependent LTP in area CA1 of the hippocampus also appears to be necessary for multimodal associative learning</span>
+<p>NMDA receptor-dependent processes are necessary for reconstituting spatial locations using partial visual cues</span>
+</li>
+</ul>
+</li>
+<li><span id="show1_7_11_2" class="foldclosed" onClick="show_folder('1_7_11_2')" style="POSITION: absolute">+</span> <span id="hide1_7_11_2" class="foldopened" onClick="hide_folder('1_7_11_2')">-</span>
+B. Timing-Dependent Information Storage in the Hippocampus</span>
+<ul id="fold1_7_11_2" style="POSITION: relative; VISIBILITY: visible;"><li>CaMKII is particularly enriched at the PSD (post-synaptic density)</span>
+
+</li>
+
+</ul>
+</li>
+<li><span id="show1_7_11_3" class="foldclosed" onClick="show_folder('1_7_11_3')" style="POSITION: absolute">+</span> <span id="hide1_7_11_3" class="foldopened" onClick="hide_folder('1_7_11_3')">-</span>
+C. Consolidation&#x2014;Storage of Information within the Hippocampus for Down-Loading to the Cortex</span>
+<ul id="fold1_7_11_3" style="POSITION: relative; VISIBILITY: visible;"><li><p>ERK activation, CREB activation, Arc induction, C/EBP induction and NMDA receptor are necessary for hippocampus-dependent memory consolidation, which are also known to be necessary for LTP induction, strongly implicate LTP as a component of memory consolidation</span>
+</li>
+</ul>
+</li>
+<li><span id="show1_7_11_4" class="foldclosed" onClick="show_folder('1_7_11_4')" style="POSITION: absolute">+</span> <span id="hide1_7_11_4" class="foldopened" onClick="hide_folder('1_7_11_4')">-</span>
+D. A Model for Long-Term Potentiation in Consolidation of Long-Term Memory</span>
+<ul id="fold1_7_11_4" style="POSITION: relative; VISIBILITY: visible;"><li><p>LTP does not equal memory. Rather, it is a critical component of the complicated process of memory formation</span>
+</li>
+</ul>
+</li>
+
+</ul></li>
+</ul><p><span id="show1_8" class="foldclosed" onClick="show_folder('1_8')" style="POSITION: absolute">+</span> <span id="hide1_8" class="foldopened" onClick="hide_folder('1_8')">-</span>
+8 The NMDA receptor</span>
+<ul id="fold1_8" style="POSITION: relative; VISIBILITY: visible;"><li><p><span id="show1_8_1" class="foldclosed" onClick="show_folder('1_8_1')" style="POSITION: absolute">+</span> <span id="hide1_8_1" class="foldopened" onClick="hide_folder('1_8_1')">-</span>
+8.1 Introduction</span>
+<ul id="fold1_8_1" style="POSITION: relative; VISIBILITY: visible;"><li><p>Voltage-dependent Mg2+ block of the channel pore. Depolarization of the membrane in which the NMDA receptor resides is necessary to drive the divalent Mg2+ cation out of the pore, which then allows calcium ions to flow through</span>
+<p><span id="show1_8_1_1" class="foldclosed" onClick="show_folder('1_8_1_1')" style="POSITION: absolute">+</span> <span id="hide1_8_1_1" class="foldopened" onClick="hide_folder('1_8_1_1')">-</span>
+A. Structure of the NMDA Receptor</span>
+<ul id="fold1_8_1_1" style="POSITION: relative; VISIBILITY: visible;"><li><p>NMDA receptor subunits: NR1, NR2A, NR2B, NR2C, and NR2D</span>
+<p>NMDA receptor is in fact a large multiprotein complex: many different types of scaffolding proteins and signal transduction molecules</span>
+</li>
+</ul></li>
+</ul><p><span id="show1_8_2" class="foldclosed" onClick="show_folder('1_8_2')" style="POSITION: absolute">+</span> <span id="hide1_8_2" class="foldopened" onClick="hide_folder('1_8_2')">-</span>
+8.2 NMDA Receptor Regulatory Component 1&#x2014;Mechanisms Upstream of the NMDA Receptor that Directly Regulate NMDA Receptor Function</span>
+<ul id="fold1_8_2" style="POSITION: relative; VISIBILITY: visible;"><li>A. Kinase Regulation of the NMDA Receptor</span>
+
+</li>
+<li>B. Redox Regulation of the NMDA Receptor</span>
+
+</li>
+<li>C. Polyamine Regulation of the NMDA Receptor</span>
+
+</li>
+
+</ul><p><span id="show1_8_3" class="foldclosed" onClick="show_folder('1_8_3')" style="POSITION: absolute">+</span> <span id="hide1_8_3" class="foldopened" onClick="hide_folder('1_8_3')">-</span>
+8.3 NMDA Receptor Regulatory Component 2&#x2014;Mechanisms Upstream of the NMDA Receptor that Control Membrane&#xd;Depolarization</span>
+<ul id="fold1_8_3" style="POSITION: relative; VISIBILITY: visible;"><li>A. Dendritic Potassium Channels&#x2014;A-type Currents</span>
+
+</li>
+<li>B. Voltage-Dependent Sodium Channels</span>
+
+</li>
+<li>C. AMPA Receptor Function</span>
+
+</li>
+<li>D. GABA Receptors</span>
+
+</li>
+
+</ul><p><span id="show1_8_4" class="foldclosed" onClick="show_folder('1_8_4')" style="POSITION: absolute">+</span> <span id="hide1_8_4" class="foldopened" onClick="hide_folder('1_8_4')">-</span>
+8.4 NMDA Receptor Regulation Component 3&#x2014;The Components of the Synaptic Infrastructure that are Necessary for the NMDA Receptor and the Synaptic Signal Transduction Machinery to Function Normally</span>
+<ul id="fold1_8_4" style="POSITION: relative; VISIBILITY: visible;"><li><p>A. Cell Adhesion Molecules and the Actin Matrix</span>
+<p>B. Pre-Synaptic Processes</span>
+<p>C. Anchoring and Interacting Proteins of the Post-Synaptic Compartment&#x2014;Post-Synaptic Density Proteins</span>
+<p>D. AMPA Receptors</span>
+<p><span id="show1_8_4_1" class="foldclosed" onClick="show_folder('1_8_4_1')" style="POSITION: absolute">+</span> <span id="hide1_8_4_1" class="foldopened" onClick="hide_folder('1_8_4_1')">-</span>
+E. CaMKII&#x2014;the Calcium/Calmodulin-Dependent Protein Kinase II</span>
+<ul id="fold1_8_4_1" style="POSITION: relative; VISIBILITY: visible;"><li><p>One purpose of the NMDA receptor/PSD-95/cytoskeleton complex is to help localize CaMKII to the PSD domain</span>
+</li>
+</ul></li>
+</ul></li>
+</ul><p><span id="show1_9" class="foldclosed" onClick="show_folder('1_9')" style="POSITION: absolute">+</span> <span id="hide1_9" class="foldopened" onClick="hide_folder('1_9')">-</span>
+9 Biochemical mechanisms for information storage at the cellular level</span>
+<ul id="fold1_9" style="POSITION: relative; VISIBILITY: visible;"><li><span id="show1_9_1" class="foldclosed" onClick="show_folder('1_9_1')" style="POSITION: absolute">+</span> <span id="hide1_9_1" class="foldopened" onClick="hide_folder('1_9_1')">-</span>
+9.1 Targets of the Calcium Trigger</span>
+<ul id="fold1_9_1" style="POSITION: relative; VISIBILITY: visible;"><li>A. CaMKII</span>
+
+</li>
+<li>B. Two Additional Targets of CaM&#x2014;Adenylyl Cyclase and Nitric Oxide Synthase</span>
+
+</li>
+<li>C. Another Major Target of Calcium&#x2014;PKC</span>
+
+</li>
+<li>D. Section Summary&#x2014;Mechanisms for Generating Persisting Signals in Long-Term Potentiation and Memory</span>
+
+</li>
+
+</ul>
+</li>
+<li><span id="show1_9_2" class="foldclosed" onClick="show_folder('1_9_2')" style="POSITION: absolute">+</span> <span id="hide1_9_2" class="foldopened" onClick="hide_folder('1_9_2')">-</span>
+9.2 Targets of the Persisting Signals</span>
+<ul id="fold1_9_2" style="POSITION: relative; VISIBILITY: visible;"><li>A. AMPA Receptors in E-LTP</span>
+
+</li>
+<li>B. Direct Phosphorylation of the AMPA Receptor</span>
+
+</li>
+<li>C. Regulation of Steady-State Levels of AMPA Receptors</span>
+
+</li>
+<li>D. Silent Synapses</span>
+
+</li>
+<li>E. Pre-Synaptic Changes&#x2014;Increased Release</span>
+
+</li>
+<li>F. Post-Synaptic Changes in Excitability?</span>
+
+</li>
+
+</ul>
+</li>
+<li><span id="show1_9_3" class="foldclosed" onClick="show_folder('1_9_3')" style="POSITION: absolute">+</span> <span id="hide1_9_3" class="foldopened" onClick="hide_folder('1_9_3')">-</span>
+9.3 Dendritic Protein Synthesis</span>
+<ul id="fold1_9_3" style="POSITION: relative; VISIBILITY: visible;"><li><p>Temporal integration mechanisms of this sort involving synaptic tagging and the generation of other persisting but transient signals allow for the cell to build an optimal time window for the efficacy of repeated stimuli</span>
+</li>
+</ul>
+</li>
+<li>9.4 An Overview of the Role of Protein Synthesis in Memory</span>
+
+</li>
+
+</ul><p><span id="show1_10" class="foldclosed" onClick="show_folder('1_10')" style="POSITION: absolute">+</span> <span id="hide1_10" class="foldopened" onClick="hide_folder('1_10')">-</span>
+10 Molecular genetic mechanisms for long-term information storage at the cellular level</span>
+<ul id="fold1_10" style="POSITION: relative; VISIBILITY: visible;"><li>10.1 Introduction</span>
+
+</li>
+<li><span id="show1_10_1" class="foldclosed" onClick="show_folder('1_10_1')" style="POSITION: absolute">+</span> <span id="hide1_10_1" class="foldopened" onClick="hide_folder('1_10_1')">-</span>
+10.2 Altered Gene Expression in Late-Long-Term Potentiation and Long-Term Memory</span>
+<ul id="fold1_10_1" style="POSITION: relative; VISIBILITY: visible;"><li><p>Prediction One: blocking changes in gene transcription should block L-LTP induction</span>
+<p>Prediction Two: changes in gene and protein expression should occur with L-LTP-inducing stimulation and memory formation</span>
+<p>Prediction Three: artificially increasing the capacity of the CNS for transcription of the appropriate genes should lead to an enhancement of L-LTP and long-term memory</span>
+</li>
+</ul>
+</li>
+<li><span id="show1_10_2" class="foldclosed" onClick="show_folder('1_10_2')" style="POSITION: absolute">+</span> <span id="hide1_10_2" class="foldopened" onClick="hide_folder('1_10_2')">-</span>
+10.3 Signaling Mechanisms</span>
+<ul id="fold1_10_2" style="POSITION: relative; VISIBILITY: visible;"><li><span id="show1_10_2_1" class="foldclosed" onClick="show_folder('1_10_2_1')" style="POSITION: absolute">+</span> <span id="hide1_10_2_1" class="foldopened" onClick="hide_folder('1_10_2_1')">-</span>
+A. A Core Signal Transduction Cascade Linking Calcium to the Transcription Factor CREB</span>
+<ul id="fold1_10_2_1" style="POSITION: relative; VISIBILITY: visible;"><li><p>The activity of CREB is regulated by phosphorylation at Ser133, which can be phosphorylated by PKA, CaMKII and CaMKIV, MSK1, and RSK2 (among many others). The binding of CREB binding protein (CBP) is also necessary. CBP binding and activation is itself regulated by phosphorylation, in particular phosphorylation and activation by CaMKIV is relevant in the present context</span>
+</li>
+</ul>
+</li>
+<li><span id="show1_10_2_2" class="foldclosed" onClick="show_folder('1_10_2_2')" style="POSITION: absolute">+</span> <span id="hide1_10_2_2" class="foldopened" onClick="hide_folder('1_10_2_2')">-</span>
+B. Modulatory Influences that Impinge on this Cascade</span>
+<ul id="fold1_10_2_2" style="POSITION: relative; VISIBILITY: visible;"><li><p>One of the most important co-regulators of this cascade is CaMKIV</span>
+<p>BDNF is released with L-LTP inducing stimulation and likely contributes to L-LTP induction and long-term memory by two means. First, it may act via ras to help directly activate the MEK/ERK pathway, a mechanism for augmenting ERK-dependent gene expression. In addition, BDNF, by mechanisms still being worked out, controls phospho-ERK translocation into the nucleus, providing a gate-keeping role for triggering lasting changes</span>
+<p>Dopamine co-application during theta-frequency synaptic activity augments the induction of L-LTP</span>
+</li>
+</ul>
+</li>
+<li><span id="show1_10_2_3" class="foldclosed" onClick="show_folder('1_10_2_3')" style="POSITION: absolute">+</span> <span id="hide1_10_2_3" class="foldopened" onClick="hide_folder('1_10_2_3')">-</span>
+C. Additional Transcription Factors besides CREB that are Involved in Memory Formation</span>
+<ul id="fold1_10_2_3" style="POSITION: relative; VISIBILITY: visible;"><li><p>Elk-1 phosphorylation increases with L-LTP-inducing stimulation, a mechanism which likely triggers SRE-mediated changes in gene expression. One specific candidate target for this pathway is the transcription factor zif268</span>
+<p>NFkB is a transcription factor that normally resides in the cytoplasm, bound to an inhibitory partner IkB (inhibitor of kappaB). NFkB is activated when the kinase IKK phosphorylates IkB, which leads to loss of IkB by ubiquitin-mediated proteolysis. The free, active, NFkB can then translocate to the nucleus and affect transcription of its target genes</span>
+</li>
+</ul>
+</li>
+<li><span id="show1_10_2_4" class="foldclosed" onClick="show_folder('1_10_2_4')" style="POSITION: absolute">+</span> <span id="hide1_10_2_4" class="foldopened" onClick="hide_folder('1_10_2_4')">-</span>
+D. Gene Targets in Late-Long-Term Potentiation</span>
+<ul id="fold1_10_2_4" style="POSITION: relative; VISIBILITY: visible;"><li><span id="show1_10_2_4_1" class="foldclosed" onClick="show_folder('1_10_2_4_1')" style="POSITION: absolute">+</span> <span id="hide1_10_2_4_1" class="foldopened" onClick="hide_folder('1_10_2_4_1')">-</span>
+Transcription Factors</span>
+<ul id="fold1_10_2_4_1" style="POSITION: relative; VISIBILITY: visible;"><li><p>Zif268 (aka krox24 and NGFI-A)</span>
+<p>fos/jun regulation may be more of a general activity-related read-out as opposed to a specific signal associated with memory per se</span>
+<p>Late (several hours post-training) elevation of C/EBP is necessary for memory consolidation</span>
+</li>
+</ul>
+</li>
+<li><span id="show1_10_2_4_2" class="foldclosed" onClick="show_folder('1_10_2_4_2')" style="POSITION: absolute">+</span> <span id="hide1_10_2_4_2" class="foldopened" onClick="hide_folder('1_10_2_4_2')">-</span>
+Signaling Molecules</span>
+<ul id="fold1_10_2_4_2" style="POSITION: relative; VISIBILITY: visible;"><li><p>BDNF, which couples to the ERK/CREB cascade, could trigger a self-perpetuating feedback mechanism for perpetually maintaining increased synaptic strength</span>
+<p>t-PA is a secreted protease that has the capacity to modulate the extracellular matrix structure. Potentially, t-PA could serve in a long-term regulatory role through increasing active products in the extracellular space via its known role of converting pro-hormones into hormones</span>
+</li>
+</ul>
+</li>
+<li><span id="show1_10_2_4_3" class="foldclosed" onClick="show_folder('1_10_2_4_3')" style="POSITION: absolute">+</span> <span id="hide1_10_2_4_3" class="foldopened" onClick="hide_folder('1_10_2_4_3')">-</span>
+Structural Proteins</span>
+<ul id="fold1_10_2_4_3" style="POSITION: relative; VISIBILITY: visible;"><li><p>AMPA receptor</span>
+<p>The metabotropic receptor scaffolding protein HOMER</span>
+<p>Arc mRNA is rapidly induced by LTP-inducing stimulation and memory formation. This mRNA is selectively localized to recently-active synaptic regions, and is subject to selective expression by local protein synthesis mechanisms</span>
+</li>
+</ul>
+</li>
+
+</ul>
+</li>
+<li>E. mRNA Targeting and Transport</span>
+
+</li>
+<li>F. Effects of the Gene Products on Synaptic Structure</span>
+
+</li>
+
+</ul>
+</li>
+<li><span id="show1_10_3" class="foldclosed" onClick="show_folder('1_10_3')" style="POSITION: absolute">+</span> <span id="hide1_10_3" class="foldopened" onClick="hide_folder('1_10_3')">-</span>
+10.4 Experience-Dependent Epigenetic Modifications in the Central Nervous System</span>
+<ul id="fold1_10_3" style="POSITION: relative; VISIBILITY: visible;"><li>A. What is Epigenetics?</span>
+
+</li>
+<li>B. What are Epigenetic Marks and What do they do?</span>
+
+</li>
+<li>C. Epigenetic Tagging of Histones</span>
+
+</li>
+<li>D. Signaling Systems that Control Histone Modifications</span>
+
+</li>
+<li>E. Epigenetic Mechanisms in Learning and Memory</span>
+
+</li>
+<li>F. Environmental Enrichment and Recovery of Lost Memories</span>
+
+</li>
+<li>G. Section Summary</span>
+
+</li>
+
+</ul>
+</li>
+<li>10.5 Neurogenesis in the Adult Central Nervous System</span>
+
+</li>
+
+</ul><p><span id="show1_11" class="foldclosed" onClick="show_folder('1_11')" style="POSITION: absolute">+</span> <span id="hide1_11" class="foldopened" onClick="hide_folder('1_11')">-</span>
+11 Inherited disorders of human memory-mental retardation syndromes</span>
+<ul id="fold1_11" style="POSITION: relative; VISIBILITY: visible;"><li>11.1 Neurofibromatosis, Coffin-Lowry Syndrome, and the ras/ERK Cascade</span>
+
+</li>
+<li>11.2 Angelman Syndrome</span>
+
+</li>
+<li><span id="show1_11_1" class="foldclosed" onClick="show_folder('1_11_1')" style="POSITION: absolute">+</span> <span id="hide1_11_1" class="foldopened" onClick="hide_folder('1_11_1')">-</span>
+11.3 Fragile X Syndromes</span>
+<ul id="fold1_11_1" style="POSITION: relative; VISIBILITY: visible;"><li>A. Fragile X Mental Retardation Syndrome Type 1</span>
+
+</li>
+<li>B. Fragile X Mental Retardation Type 2</span>
+
+</li>
+
+</ul>
+</li>
+
+</ul><p><span id="show1_12" class="foldclosed" onClick="show_folder('1_12')" style="POSITION: absolute">+</span> <span id="hide1_12" class="foldopened" onClick="hide_folder('1_12')">-</span>
+12 Aging related memory disorders-Alzheimer's disease</span>
+<ul id="fold1_12" style="POSITION: relative; VISIBILITY: visible;"><li><span id="show1_12_1" class="foldclosed" onClick="show_folder('1_12_1')" style="POSITION: absolute">+</span> <span id="hide1_12_1" class="foldopened" onClick="hide_folder('1_12_1')">-</span>
+12.1 Aging-Related Memory Decline</span>
+<ul id="fold1_12_1" style="POSITION: relative; VISIBILITY: visible;"><li>Most noticeable in humans is the decline in hippocampus-dependent forms of memory</span>
+
+</li>
+<li>A. Mild Cognitive Impairment</span>
+
+</li>
+<li>B. Age-Related Dementias</span>
+
+</li>
+
+</ul>
+</li>
+<li><span id="show1_12_2" class="foldclosed" onClick="show_folder('1_12_2')" style="POSITION: absolute">+</span> <span id="hide1_12_2" class="foldopened" onClick="hide_folder('1_12_2')">-</span>
+12.2 What is Alzheimer&#x2019;s Disease?</span>
+<ul id="fold1_12_2" style="POSITION: relative; VISIBILITY: visible;"><li>A. Stages of Alzheimer&#x2019;s Disease</span>
+
+</li>
+<li>B. Pathological Hallmarks of Alzheimer&#x2019;s Disease</span>
+
+</li>
+<li>C. A beta 42 as the Cause of Alzheimer&#x2019;s Disease</span>
+
+</li>
+
+</ul>
+</li>
+<li><span id="show1_12_3" class="foldclosed" onClick="show_folder('1_12_3')" style="POSITION: absolute">+</span> <span id="hide1_12_3" class="foldopened" onClick="hide_folder('1_12_3')">-</span>
+12.3 Genes&#x2014;Familial and Late-Onset Alzheimer&#x2019;s Disease</span>
+<ul id="fold1_12_3" style="POSITION: relative; VISIBILITY: visible;"><li>A. APP Mutations</span>
+
+</li>
+<li>B. Presenilin Mutations</span>
+
+</li>
+<li>C. ApoE4 Alleles in Alzheimer&#x2019;s Disease</span>
+
+</li>
+
+</ul>
+</li>
+<li>12.4 Apolipoprotein E in the Nervous System</span>
+
+</li>
+<li><span id="show1_12_4" class="foldclosed" onClick="show_folder('1_12_4')" style="POSITION: absolute">+</span> <span id="hide1_12_4" class="foldopened" onClick="hide_folder('1_12_4')">-</span>
+12.5 Mouse Models for Alzheimer&#x2019;s Disease</span>
+<ul id="fold1_12_4" style="POSITION: relative; VISIBILITY: visible;"><li>A. The Tg2576 Mouse</span>
+
+</li>
+
+</ul>
+</li>
+
+</ul><p>Appendix</span>
+</li>
+</ul><SCRIPT type="text/javascript">
+fold_document();
+</SCRIPT>
+</body>
+</html>
