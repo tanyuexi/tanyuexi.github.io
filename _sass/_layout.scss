@@ -102,9 +102,10 @@
             display: none;
         }
 
-        &:hover .trigger {
+        // &:hover .trigger {
+        &:active .trigger {
             display: block;
-            padding-bottom: 5px;
+            padding-bottom: 0; //5px;
         }
 
         .page-link {
