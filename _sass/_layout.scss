@@ -97,18 +97,15 @@
             }
         }
 
-        &:not(:hover), &:not(:active) {
-          .trigger {
-              clear: both;
-              display: none;
-          }
+        .trigger {
+            clear: both;
+            display: none;
         }
 
-        &:hover, &:active {
-          .trigger {
-              display: block;
-              padding-bottom: 0; //5px;
-          }
+        // &:hover .trigger {
+        input#togglebox:checked + .trigger {
+            display: block;
+            padding-bottom: 0;
         }
 
         .page-link {
