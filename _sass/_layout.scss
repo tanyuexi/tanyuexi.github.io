@@ -97,14 +97,18 @@
             }
         }
 
-        &:not(:hover) .trigger {
-            clear: both;
-            display: none;
+        &:not(:hover), &:not(:active) {
+          .trigger {
+              clear: both;
+              display: none;
+          }
         }
 
-        &:hover .trigger {
-            display: block;
-            padding-bottom: 0; //5px;
+        &:hover, &:active {
+          .trigger {
+              display: block;
+              padding-bottom: 0; //5px;
+          }
         }
 
         .page-link {
