@@ -97,13 +97,12 @@
             }
         }
 
-        .trigger {
+        &:not(:hover) .trigger {
             clear: both;
             display: none;
         }
 
-        // &:hover .trigger {
-        &:active .trigger {
+        &:hover .trigger {
             display: block;
             padding-bottom: 0; //5px;
         }
