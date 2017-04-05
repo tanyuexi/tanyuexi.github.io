@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Introduction to Game Development - MSU<br>游戏开发入门 - 密歇根州立大学"
+title:  "游戏开发入门 - 密歇根州立大学<br>Introduction to Game Development - MSU"
 author: Yuexi Tan
 date:   2016-03-08 12:00:00 +0800
 tags:  Game-Devel Note

@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Geoffrey Hinton: \"Ask Me Anything\" on Reddit<br>Geoffrey Hinton: 你问我答在 Reddit"
+title:  "Geoffrey Hinton: 你问我答在 Reddit [网络]<br>Geoffrey Hinton: \"Ask Me Anything\" on Reddit [Web]"
 author: Yuexi Tan
 date:   2016-04-13 15:00:00 +0800
 tags:  AI Note

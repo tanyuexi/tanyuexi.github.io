@@ -38,7 +38,7 @@
 .slogan {
     h1 {
         color: $color-text-conv;
-        font-family: Fantasy, Arial;
+        font-family: Fantasy, Times;
         font-size: 70px;
         padding: 20px 0px;
     }
@@ -75,7 +75,7 @@
     li {
         font-size: $font-size-base * 1.5;
         display: inline-block;
-        padding: 5px 20px;
+        padding: 2px 10px;
     }
     @extend .color-conv;
 }
@@ -99,7 +99,7 @@
     .tag-list {
         li {
             font-size: $font-size-base;
-            padding: 1px;
+            padding: 1px 2px;
         }
     }
 }

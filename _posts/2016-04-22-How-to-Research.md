@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Research: How to Spot and Avoid the Pitfalls<br>科研：坑的识别与绕过"
+title:  "科研：坑的识别与绕过<br>Research: How to Spot and Avoid the Pitfalls"
 author: Yuexi Tan
 date:   2016-04-22 13:00:00 +0800
 tags:  Opinion

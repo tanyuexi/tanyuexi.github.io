@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "The Visual Display of Quantitative Information - Tufte<br>定量信息的视觉显示 - Tufte"
+title:  "定量信息的视觉显示 [书籍]<br>The Visual Display of Quantitative Information [Book]"
 author: Yuexi Tan
 date:   2016-09-12 20:00:00 +0800
 tags:  Note Math-Stat

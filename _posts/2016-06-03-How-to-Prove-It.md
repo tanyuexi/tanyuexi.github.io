@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "How to Prove it: A Structured Approach - Velleman<br>如何做证明：一种结构化的方法 - Velleman"
+title:  "如何做证明：一种结构化的方法 [书籍]<br>How to Prove it: A Structured Approach [Book]"
 author: Yuexi Tan
 date:   2016-06-03 17:00:00 +0800
 tags:  Note Math-Stat
@@ -22,7 +22,7 @@ tags:  Note Math-Stat
 
 ## Introduction
 
-数学的核心方法是 **<mark>演绎推理（deductive reasoning）</mark>** ：你需要通过现有的信息，推理出想知道的信息。而演绎推理在数学中通常以 **<mark>证明（proof）</mark>** 的形式呈现。接下来举几个例子，让你感受下证明是什么。看不太懂没关系，等你看完第三章就会明白了。
+数学的核心方法是 <mark>演绎推理（deductive reasoning）</mark> ：你需要通过现有的信息，推理出想知道的信息。而演绎推理在数学中通常以 <mark>证明（proof）</mark> 的形式呈现。接下来举几个例子，让你感受下证明是什么。看不太懂没关系，等你看完第三章就会明白了。
 
 让我们来做一些关于质数的证明吧！回忆：质数是大于 1 的、不能被比它小的正整数整除的整数。但是在动手证明之前，我们要先知道该证明什么啊（就像读研）。因为许多灵感都来自于观察，所以我们可以先列出一些例子：
 
@@ -42,13 +42,13 @@ n & \text{ Is } n \text{ prime? } & 2^n - 1 & \text{Is } 2^n - 1 \text{ prime? }
 \end{array}
 $$
 
-通过观察上表，我们可以提出许多 **<mark>猜想（conjecture）</mark>**，比如 ：
+通过观察上表，我们可以提出许多 <mark>猜想（conjecture）</mark>，比如 ：
 
 **猜想 1** Suppose \\(n\\) is an integer larger than 1 and \\(n\\) is prime. Then \\(2^n - 1\\) is prime.
 
 **猜想 2** Suppose \\(n\\) is an integer larger than 1 and \\(n\\) is not prime. Then \\(2^n - 1\\) is not prime.
 
-对于猜想 1，我们只需要继续填写列表就会发现：当 n 为 11 时，猜想错误。因此，11 是猜想 1 的一个 **<mark>反例（counterexample）</mark>**。确定“一个猜想是错误的”很容易，只需一个反例。但要确定“一个猜想是正确的”，只能通过 **<mark>证明（prove）</mark>**。
+对于猜想 1，我们只需要继续填写列表就会发现：当 n 为 11 时，猜想错误。因此，11 是猜想 1 的一个 <mark>反例（counterexample）</mark>。确定“一个猜想是错误的”很容易，只需一个反例。但要确定“一个猜想是正确的”，只能通过 <mark>证明（prove）</mark>。
 
 **猜想 2 的证明** 既然 \\(n\\) 不是质数，那么存在正整数 \\(a\\) 和 \\(b\\)，使得 \\(a < n，b < n\\)，且 \\(n = ab\\)。令 \\(x = 2^b-1\\) 且 \\(y = 1 + 2^b + 2^{2b} + \cdots + 2^{(a-1)b}\\)，则
 
@@ -68,7 +68,7 @@ $$
 
 上面的证明的思路是寻找一个联系了前提和结论的数的形式，直接套用定义。
 
-被证明为真的猜想就可以成为 **<mark>定理（theorem）</mark>** 了，即：
+被证明为真的猜想就可以成为 <mark>定理（theorem）</mark> 了，即：
 
 **Theorem 1** 如果 \\(n\\) 是一个大于 1 的整数且 \\(n\\) 是质数，那么 \\(2^n - 1\\) 是质数。
 
@@ -124,7 +124,7 @@ $$
    要么女仆有罪，要么厨子有罪。<br>
    因此，要么男管家有罪，要么厨子有罪。
 
-在每个例子中，前两句话都是 **<mark>前提（premises）</mark>**，最后一句话是 **<mark>结论（conclusion）</mark>**。只有当前提全为真能“迫使”结论也必为真时，这个论证才是 **<mark>有效（valid）</mark>** 的。因此，第一个论证是有效的，而第二个论证是无效的。注意，无论前提或结论在事实上是真是假，都不影响论证的有效性。即，论证的有效性只取决于论证的形式，与论证的内容无关。可将第一个论证抽象成以下形式：
+在每个例子中，前两句话都是 <mark>前提（premises）</mark>，最后一句话是 <mark>结论（conclusion）</mark>。只有当前提全为真能“迫使”结论也必为真时，这个论证才是 <mark>有效（valid）</mark> 的。因此，第一个论证是有效的，而第二个论证是无效的。注意，无论前提或结论在事实上是真是假，都不影响论证的有效性。即，论证的有效性只取决于论证的形式，与论证的内容无关。可将第一个论证抽象成以下形式：
 
 P or Q. <br>
 not Q. <br>
@@ -409,7 +409,7 @@ $$
 \end{array}
 $$
 
-**Example 1.2.6** 我们把像 \\(P \lor \lnot P\\) 这样恒为真的命题叫 **<mark>重言式（tautology）</mark>**，而像 \\(P \land \lnot P\\) 这样恒为假的命题叫 **<mark>矛盾式（contradiction）</mark>**。那么，以下的命题中，哪些是重言式，哪些是矛盾式？
+**Example 1.2.6** 我们把像 \\(P \lor \lnot P\\) 这样恒为真的命题叫 <mark>重言式（tautology）</mark>，而像 \\(P \land \lnot P\\) 这样恒为假的命题叫 <mark>矛盾式（contradiction）</mark>。那么，以下的命题中，哪些是重言式，哪些是矛盾式？
 
 $$
 P \lor (Q \lor \lnot P), \quad P \land \lnot(Q \lor \lnot Q), \quad P \lor \lnot(Q \lor \lnot Q)
@@ -486,19 +486,19 @@ $$
 1. \\(P(x) \land (D(y,x) \lor D(z,x))\\)
 2. \\(M(x)\land W(y) \land L(x,y) \land \lnot L(y,x)\\)
 
-因为之前的命题不含变量，要么为真要么为假，所以需要讨论的情况很简单。但是，当命题中含有变量时，命题的真假就取决于变量的取值了。例如 \\(P(x)\\) 表示“\\(x\\) is a prime number”，当 \\(x=2\\) 时，命题为真；当 \\(x=4\\) 时，命题却为假了。为了解决这个问题，我们需要引入 **<mark>真值集合（truth set）</mark>** 的概念。真值集合就是令“\\(P(x)\\) 为真”的 \\(x\\) 的取值集合，即：
+因为之前的命题不含变量，要么为真要么为假，所以需要讨论的情况很简单。但是，当命题中含有变量时，命题的真假就取决于变量的取值了。例如 \\(P(x)\\) 表示“\\(x\\) is a prime number”，当 \\(x=2\\) 时，命题为真；当 \\(x=4\\) 时，命题却为假了。为了解决这个问题，我们需要引入 <mark>真值集合（truth set）</mark> 的概念。真值集合就是令“\\(P(x)\\) 为真”的 \\(x\\) 的取值集合，即：
 
 $$
 \text{Truth set of } P(x) = \{x \mid P(x)\}.
 $$
 
-接下来，回顾一下集合论的基本知识。**<mark>集合（set）</mark>** 里的东西叫 **<mark>元素（element）</mark>**。比如，集合 \\(\\{ 3,7,14 \\}\\) 的元素包括 3，7 和 14，元素的顺序可以为任意。注意，\\(x \neq \\{x\\}\\)，因为前者是一个元素，而后者是一个集合。\\(7 \in A \\) 表示“7 是此集合的一个元素”，\\(11 \notin A \\) 表示“11 不是此集合的元素”。如果显式地表示所有质数的集合，即“B = the set of all \\(x\\) such that \\(x\\) is a prime number”，则为：
+接下来，回顾一下集合论的基本知识。<mark>集合（set）</mark> 里的东西叫 <mark>元素（element）</mark>。比如，集合 \\(\\{ 3,7,14 \\}\\) 的元素包括 3，7 和 14，元素的顺序可以为任意。注意，\\(x \neq \\{x\\}\\)，因为前者是一个元素，而后者是一个集合。\\(7 \in A \\) 表示“7 是此集合的一个元素”，\\(11 \notin A \\) 表示“11 不是此集合的元素”。如果显式地表示所有质数的集合，即“B = the set of all \\(x\\) such that \\(x\\) is a prime number”，则为：
 
 $$
 B=\{x \mid x \text{ is a prime number }\}
 $$
 
-其中，命题“\\(x\\) is a prime number”是集合的 **<mark>元素测试（elementhood test）</mark>**。要想知道某个东西是否为集合中的元素，只需要看它能不能令元素测试为真。
+其中，命题“\\(x\\) is a prime number”是集合的 <mark>元素测试（elementhood test）</mark>。要想知道某个东西是否为集合中的元素，只需要看它能不能令元素测试为真。
 
 **Example 1.3.2** 用元素测试的形式重写以下集合：
 
@@ -510,7 +510,7 @@ $$
 1. \\(E = \\{n \mid n \text{ is a positive even integer}\\}\\)
 2. \\(P = \\{z \mid z \text{ was a president of the United States}\\}\\)
 
-在命题 \\(y \in \\{x \mid x^2 < 9\\}\\) 中，\\(y\\) 是一个 **<mark>自由变量（free variable）</mark>**，表示此命题试图说明的东西，改变它的取值会改变命题的意思并影响它的真值。而 \\(x\\) 是一个 **<mark>约束变量（bound variable）</mark>**，也可称为 **<mark>虚变量（dummy variable）</mark>** ，它只不过是为了便于我们表达意思而引入的变量，改变它的变量名并不影响命题的意思或真值。我们称 \\(\\{x \mid \cdots \\}\\) **<mark>约束（bind）</mark>** 了变量 \\(x\\)。
+在命题 \\(y \in \\{x \mid x^2 < 9\\}\\) 中，\\(y\\) 是一个 <mark>自由变量（free variable）</mark>，表示此命题试图说明的东西，改变它的取值会改变命题的意思并影响它的真值。而 \\(x\\) 是一个 <mark>约束变量（bound variable）</mark>，也可称为 <mark>虚变量（dummy variable）</mark> ，它只不过是为了便于我们表达意思而引入的变量，改变它的变量名并不影响命题的意思或真值。我们称 \\(\\{x \mid \cdots \\}\\) <mark>约束（bind）</mark> 了变量 \\(x\\)。
 
 注意：\\(\\{x \mid P(x)\\}\\) 只是个集合而不是命题，\\(y \in \\{x \mid P(x)\\}\\) 才是个命题，且它与 \\(P(y)\\) 是同一个意思。随着讲述的深入，清楚地区分“东西的表达式”和“命题的表达式”将变得越来越重要。
 
@@ -536,7 +536,7 @@ $$
 1. \\(\\{x \mid \text{Shakespeare wrote } x\\} = \\{ \text{Hamlet, Macbeth, Twelfth Night,} \cdots\\}\\)
 2. \\(\\{n \mid n \text{ is an even prime number}\\}\\)
 
-当命题包括自由变量时，我们通常会不自觉地根据上下文推断它是什么类型的东西，或者说是它的所有可能取值的全集，即，**<mark>谈论域（universe of discourse）</mark>**。比如：\\(\mathbb{R} = \\{x \mid x \text{ is a real number}\\}\\)。有时候，显式地写出谈论域会更好，比如将 \\(\\{x \mid x^2 < 9\\}\\) 写为 \\(\\{x \in \mathbb{R} \mid x^2 < 9\\}\\)。当自由变量的真值集合为整个谈论域时，命题是重言式。相反的，当自由变量的真值集合为空集 \\(\emptyset\\) 时，命题是矛盾式。
+当命题包括自由变量时，我们通常会不自觉地根据上下文推断它是什么类型的东西，或者说是它的所有可能取值的全集，即，<mark>谈论域（universe of discourse）</mark>。比如：\\(\mathbb{R} = \\{x \mid x \text{ is a real number}\\}\\)。有时候，显式地写出谈论域会更好，比如将 \\(\\{x \mid x^2 < 9\\}\\) 写为 \\(\\{x \in \mathbb{R} \mid x^2 < 9\\}\\)。当自由变量的真值集合为整个谈论域时，命题是重言式。相反的，当自由变量的真值集合为空集 \\(\emptyset\\) 时，命题是矛盾式。
 
 ### 1.4 Operations on Sets
 
@@ -588,7 +588,7 @@ A \cup B =\{x \mid \text{either } x \text{ is a man or } x \text{ has brown hair
 A \setminus B =\{x \mid x \text{ is a man and } x \text{ does not have brown hair}\}
 $$
 
-我们可以利用 **<mark>韦恩图（Venn diagrams）</mark>** 来帮助我们直观地理解涉及三个集合以下的集合运算：
+我们可以利用 <mark>韦恩图（Venn diagrams）</mark> 来帮助我们直观地理解涉及三个集合以下的集合运算：
 
 <img src="{{ "/images/20160603-VennDiagrams-378×245.jpg" | prepend: site.baseurl }}">
 
@@ -612,7 +612,7 @@ $$
 2. \\(x \in A \land \lnot (x \in B \land x \in C)\\)
 3. \\((x \in A \land x \in B) \lor (x \in A \land x \in C)\\)
 
-**Definition 1.4.5** 设 A 和 B 是集合。如果 A 的每个元素都同时是 B 的元素，那么 A 是 B 的 **<mark>子集（subset）</mark>**，记作 \\(A \subseteq B\\)。如果 A 和 B 没有共同元素，即 \\(A \cap B = \emptyset\\)，则称 A 和 B **<mark>互斥（disjoint）</mark>**。
+**Definition 1.4.5** 设 A 和 B 是集合。如果 A 的每个元素都同时是 B 的元素，那么 A 是 B 的 <mark>子集（subset）</mark>，记作 \\(A \subseteq B\\)。如果 A 和 B 没有共同元素，即 \\(A \cap B = \emptyset\\)，则称 A 和 B <mark>互斥（disjoint）</mark>。
 
 **Example 1.4.6** 设 \\(A = {\text{red, green}}, B = {\text{red, yellow, green, purple}} \text{ and } C = {\text{blue, purple}}\\)。因为 A 的两个元素 red 和 green 均在 B 中，所以 \\(A \subseteq B\\)。因为 \\(A \cap C = \emptyset\\)，所以 A 和 C 互斥。
 
@@ -620,7 +620,7 @@ $$
 
 ### 1.5 The Conditional and Biconditional Connectives
 
-接下来介绍一个新的逻辑连接词：\\(\to\\)。我们用 \\(P \to Q\\) 来表示"If P then Q"。这种命题称为 **<mark>条件命题（conditional statement）</mark>**，P 称为 **<mark>前件（antecedent）</mark>**，Q 称为 **<mark>后件（consequent）</mark>**。
+接下来介绍一个新的逻辑连接词：\\(\to\\)。我们用 \\(P \to Q\\) 来表示"If P then Q"。这种命题称为 <mark>条件命题（conditional statement）</mark>，P 称为 <mark>前件（antecedent）</mark>，Q 称为 <mark>后件（consequent）</mark>。
 
 **Example 1.5.1** 分析以下命题的逻辑结构：
 
@@ -726,11 +726,11 @@ $$
 
 ### 2.1 Quantifiers
 
-我们已经知道，命题 P(x) 含有一个自由变量 x，当 x 取某些值时命题为真，而当 x 取另一些值时命题为假。有时我们会关心，有多少个取值能令 P(x) 为真。更具体地，我们想说“对于 x 所有可能的取值，命题 P(x) 都为真”，或者“至少存在一个 x 的取值，令命题 P(x) 为真”。因此，我们引进了两个新的符号来帮助我们表达这些意思。它们称为 **<mark>量词（quantifiers）</mark>**。
+我们已经知道，命题 P(x) 含有一个自由变量 x，当 x 取某些值时命题为真，而当 x 取另一些值时命题为假。有时我们会关心，有多少个取值能令 P(x) 为真。更具体地，我们想说“对于 x 所有可能的取值，命题 P(x) 都为真”，或者“至少存在一个 x 的取值，令命题 P(x) 为真”。因此，我们引进了两个新的符号来帮助我们表达这些意思。它们称为 <mark>量词（quantifiers）</mark>。
 
-\\(\forall x P(x)\\) 的意思是：对于所有的 x，P(x)。\\(\forall\\) 是 **<mark>全称量词（universal quantifier）</mark>**。即，P(x) 的真值集合为 \\(U\\)。
+\\(\forall x P(x)\\) 的意思是：对于所有的 x，P(x)。\\(\forall\\) 是 <mark>全称量词（universal quantifier）</mark>。即，P(x) 的真值集合为 \\(U\\)。
 
-\\(\exists x P(x)\\) 的意思是：存在一个 x，令 P(x)。\\(\exists\\) 是 **<mark>存在量词（existential quantifier）</mark>**。即，P(x) 的真值集合为 \\(\emptyset\\)。
+\\(\exists x P(x)\\) 的意思是：存在一个 x，令 P(x)。\\(\exists\\) 是 <mark>存在量词（existential quantifier）</mark>。即，P(x) 的真值集合为 \\(\emptyset\\)。
 
 **Example 2.1.1** 以下的式子什么意思？它们是真是假？
 
@@ -841,7 +841,7 @@ $$
 
 有约束变量的式子其实可以写成我们熟悉的无约束变量的形式。比如 \\(\exists x \in A P(x) = \exists x (x \in A \land P(x))\\)。
 
-之前，我们都是依靠真值表来判断命题的真假。而这一招无法用在含有量词的命题上。怎么办呢？第三章再介绍。现在我们只需要记住：**<mark>所有的数学命题结构都可以用我们已知的这些符号来表示</mark>**（\\(\land, \lor, \lnot, \to, \leftrightarrow, \forall, \exists\\)）。这是很神奇很重要的一点。
+之前，我们都是依靠真值表来判断命题的真假。而这一招无法用在含有量词的命题上。怎么办呢？第三章再介绍。现在我们只需要记住：<mark>所有的数学命题结构都可以用我们已知的这些符号来表示</mark>（\\(\land, \lor, \lnot, \to, \leftrightarrow, \forall, \exists\\)）。这是很神奇很重要的一点。
 
 **Example 2.2.3** 分析以下命题的逻辑结构：
 
@@ -870,7 +870,7 @@ $$
 
 ### 2.3 More Operations on Sets
 
-形如 \\(P = \\{ p_{i} \mid i \in I \\}\\) 的集合可称为 **<mark>已索引族（indexed family）</mark>**，而 I 称为 **<mark>索引集（index set）</mark>**。其中，i 可以是包括数字的任何东西。
+形如 \\(P = \\{ p_{i} \mid i \in I \\}\\) 的集合可称为 <mark>已索引族（indexed family）</mark>，而 I 称为 <mark>索引集（index set）</mark>。其中，i 可以是包括数字的任何东西。
 
 **Example 2.3.1** 分析以下命题的逻辑结构，写出所使用的集合论概念的定义。
 
@@ -888,7 +888,7 @@ $$
 
 为了方便，我们经常会将一族集合定义为已索引族。比如 \\(\mathcal{F} = \\{ C_{s} \mid s \in S \\}\\)，其中 s 是某个学生，\\(C_{s}\\) 是该生的所有课程。一种重要的集合族是幂集：
 
-**Definition 2.3.2** 设 A 是一个集合，则 A 的 **<mark>幂集（power set）</mark>** 是 A 的所有子集的集合，记作
+**Definition 2.3.2** 设 A 是一个集合，则 A 的 <mark>幂集（power set）</mark> 是 A 的所有子集的集合，记作
 
 $$
 \mathcal{P}(A) = \{x \mid x \subseteq A\}
@@ -973,7 +973,7 @@ $$
 
 做证明就像玩拼图，你想怎么拼就怎么拼，没有任何规则。当然，在实际操作时，你不会每拼一块就留空一块、等到最后在来把洞填满，也不会从上到下、从左到右地严格按顺序拼。更可能的是，你先把四条边拼好，然后把一些容易完成的区域拼成大块儿，再把大块儿整合起来。有时候你会发现某些地方对不上，说明你犯了错误，需要退回重来。只有当拼图最后完成时对整个大局有了认识，你才知道，原来那条蓝线是湖边而不是天际。
 
-数学家们通常用 **<mark>定理（theorem）</mark>** 的形式来表示一个数学问题的答案：如果这个定理的 **<mark>假设（hypotheses）</mark>** 是真的，那么某些结论一定是真的。通常，这些假设和结论中包含着自由变量，它们可以为谈论域中的任何元素。变量的一个取值称为 **<mark>实例（instance）</mark>**。只有对于定理的每一个实例来说，当假设为真其结论也为真时，定理才为真。哪怕仅存在一个实例，令假设为真时结论却为假，这个定理也是假的。这种实例称为 **<mark>反例（counterexample）</mark>**。
+数学家们通常用 <mark>定理（theorem）</mark> 的形式来表示一个数学问题的答案：如果这个定理的 <mark>假设（hypotheses）</mark> 是真的，那么某些结论一定是真的。通常，这些假设和结论中包含着自由变量，它们可以为谈论域中的任何元素。变量的一个取值称为 <mark>实例（instance）</mark>。只有对于定理的每一个实例来说，当假设为真其结论也为真时，定理才为真。哪怕仅存在一个实例，令假设为真时结论却为假，这个定理也是假的。这种实例称为 <mark>反例（counterexample）</mark>。
 
 **Example 3.1.1** 考虑以下定理。
 
@@ -992,7 +992,7 @@ $$
 **若要证明一个形如 \\(P \to Q\\) 的结论，** <br>
 先假设 P 为真，然后证明 Q 为真。
 
-由于证明一个命题通常需要多次转换，我们把在某一时刻已知为真或被假设为真的命题称为 **<mark>假定（given）</mark>**，把待证明的命题称为 **<mark>目标（goal）</mark>**。于是我们可以先利用假定完成目标的证明，然后再回头证明假定为真。
+由于证明一个命题通常需要多次转换，我们把在某一时刻已知为真或被假设为真的命题称为 <mark>假定（given）</mark>，把待证明的命题称为 <mark>目标（goal）</mark>。于是我们可以先利用假定完成目标的证明，然后再回头证明假定为真。
 
 **Example 3.1.2** 设 a 和 b 是实数，证明：如果 \\(0 < a < b\\)，则 \\(a^2 < b^2\\)。
 

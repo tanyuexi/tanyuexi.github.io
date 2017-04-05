@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "HTML, CSS and JavaScript - HKUST<br>HTML, CSS 以及 JavaScript - 香港中文大学"
+title:  "HTML, CSS 以及 JavaScript [课程]<br>HTML, CSS and JavaScript [Course]"
 author: Yuexi Tan
 date:   2016-03-06 22:00:00 +0800
 tags:  Web-Devel Note

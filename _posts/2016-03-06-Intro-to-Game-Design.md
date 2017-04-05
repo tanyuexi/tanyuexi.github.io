@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Introduction to Game Design - CalArts<br>游戏设计入门 - 加州艺术学院"
+title:  "游戏设计入门 - 加州艺术学院<br>Introduction to Game Design - CalArts"
 author: Yuexi Tan
 date:   2016-03-06 17:00:00 +0800
 tags:  Game-Devel Note
