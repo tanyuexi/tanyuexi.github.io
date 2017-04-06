@@ -21,7 +21,7 @@ tags:  Neuro-Sci Note
 
 原文作者：Eric R. Kandel, Yadin Dudai 和 Mark R. Mayford
 
-英文原文：<http://dx.doi.org/10.1016/j.cell.2014.03.001>
+英文原文：[10.1016/j.cell.2014.03.001](http://dx.doi.org/10.1016/j.cell.2014.03.001)
 
 ## Abstract <br>摘要
 
