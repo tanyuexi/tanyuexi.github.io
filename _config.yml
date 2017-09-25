@@ -6,11 +6,11 @@
 # 'jekyll serve'. If you change this file, please restart the server process.
 
 # Site settings
-title: "Yuexi's Blog"
-# email: alicia.tan.4edu@gmail.com
-email: tanyuexi@gmail.com
+title: "Yuexi's Blog 月茜的博客"
+email: alicia.tan.4edu@gmail.com
+#email: tanyuexi@gmail.com
 description: > # this means to ignore newlines until "baseurl:"
-  Yuexi (Alicia) Tan's personal blog.<br>
+  Yuexi Tan (Alicia)'s personal blog <br>
   谭月茜的个人博客
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "http://yuexit.github.io" # the base hostname & protocol for your site

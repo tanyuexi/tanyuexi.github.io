@@ -7,6 +7,7 @@ tags:  Note Math-Stat
 ---
 
 <img src="{{ "/images/20160603-HowToProveIt-279x420.jpg" | prepend: site.baseurl }}">
+<script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
 
 ## Highlights
 
