@@ -8,7 +8,7 @@ tags:  Note
 
 Udacity course link: <https://classroom.udacity.com/courses/ud170>
 
-## NumPy and Pandas for 1D Data
+## NumPy arrays
 
 Be careful when operating NumPy arrays.
 
@@ -31,6 +31,8 @@ slice = a[:3]
 slice[0] = 100   # Change even in slicing! Diff from list
 print a   # [100,2,3,4]
 ```
+
+## Pandas series
 
 Pandas series is similar to NumPy array, but with extra functionality.
 
@@ -65,9 +67,7 @@ def add_one(x):
 print s.apply(add_one)   # apply(): vectorized operation
 ```
 
-## NumPy and Pandas for 2D Data
-
-NumPy array: 2D.
+## NumPy array: 2D
 
 ```python
 import numpy as np
@@ -103,7 +103,7 @@ b = np.array([[1, 1, 1], [2, 2, 2], [3, 3, 3]])
 print a + b
 ```
 
-NumPy axis:
+## NumPy axis
 
 ```python
 import numpy as np
@@ -119,7 +119,7 @@ print a.sum(axis=0)   # [12 15 18]
 print a.sum(axis=1)   # [ 6 15 24]
 ```
 
-Accessing data from a Pandas DataFrame:
+## Accessing data from a Pandas DataFrame
 
 ```python
 import pandas as pd
@@ -171,7 +171,7 @@ print df.values.sum()
 # Instead of axis=0/1, can use axis='index'/'columns'
 ```
 
-Read in Pandas DataFrame:
+## Read in Pandas DataFrame
 
 ```python
 import pandas as pd
@@ -180,7 +180,7 @@ filename = '/datasets/ud170/subway/nyc_subway_weather.csv'
 subway_df = pd.read_csv(filename)
 ```
 
-DataFrame vectorized operations:
+## DataFrame vectorized operations
 
 ```python
 import pandas as pd
@@ -289,7 +289,7 @@ Ivan        A     A
 James       B     B
 ```
 
-Adding a DataFrame to a Series:
+## Adding a DataFrame to a Series:
 
 ```python
 import pandas as pd
@@ -443,7 +443,7 @@ print df.add(s, axis='columns')
 3  41  82  123  164
 ```
 
-Pandas groupby():
+## Pandas groupby()
 
 ```python
 import matplotlib.pyplot as plt
@@ -516,7 +516,7 @@ True     16
 Name: value, dtype: int64
 ```
 
-Combining Pandas DataFrames:
+## Combining Pandas DataFrames
 
 ```python
 df1.merge(df2,
@@ -563,7 +563,9 @@ print first_even['even'] # Now 'even' is still a column in the DataFrame
 Name: even, dtype: bool
 ```
 
-Plotting for DataFrames with Matplotlib ([doc](http://matplotlib.org/api/pyplot_api.html)):
+## Plotting for DataFrames with Matplotlib
+
+Matplotlib doc is [here](http://matplotlib.org/api/pyplot_api.html).
 
 ```python
 import numpy as np
@@ -575,3 +577,18 @@ plt.plot(x, y)
 ```
 
 <img src="{{ "/images/20170915-NumPyPandas-512x384.png" | prepend: site.baseurl }}">
+
+## 3D data in NumPy
+
+NumPy arrays can have arbitrarily many dimensions. Just like you can create a 1D array from a list, and a 2D array from a list of lists, you can create a 3D array from a list of lists of lists, and so on. For example, the following code would create a 3D array:
+
+```python
+a = np.array([
+    [['A1a', 'A1b', 'A1c'], ['A2a', 'A2b', 'A2c']],
+    [['B1a', 'B1b', 'B1c'], ['B2a', 'B2b', 'B2c']]
+])
+```
+
+## 3D data in Pandas
+
+Pandas has a data structure called a Panel, which is similar to a DataFrame or a Series, but for 3D data. If you would like, you can learn more about Panels [here](http://pandas.pydata.org/pandas-docs/stable/dsintro.html#panel).
