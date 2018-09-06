@@ -160,10 +160,15 @@ This is the docstrings for big chunk of comments
 
 ```python
 # if, elif and else
-if number % 2 == 0:
-    print("The number " + str(number) + " is even.")
+if x < 0:
+    x = 0
+    print('Negative changed to zero')
+elif x == 0:
+    print('Zero')
+elif x == 1:
+    print('Single')
 else:
-    print("The number " + str(number) + " is odd.")
+    print('More')
 
 # Boolean expressions
 if (not do_not_email) and (location == "USA" or location == "CAN"):
@@ -270,6 +275,10 @@ hand = []
 
 while sum(hand) <= 17:   # 'while' loop
     hand.append(card_deck.pop())
+    if len(hand) < 3:
+        continue
+    else:
+        break
 ```
 
 ## Files and Modules

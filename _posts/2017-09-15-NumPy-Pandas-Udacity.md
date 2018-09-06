@@ -6,7 +6,9 @@ date:   2017-09-15 16:00:00 +1000
 tags:  Note
 ---
 
-Udacity course link: <https://classroom.udacity.com/courses/ud170>
+<img src="{{ "/images/20170915-NumpyPandas-Course-319x158.png" | prepend: site.baseurl }}">
+
+Udacity course link: <https://www.udacity.com/course/intro-to-data-analysis--ud170>
 
 ## NumPy arrays
 
