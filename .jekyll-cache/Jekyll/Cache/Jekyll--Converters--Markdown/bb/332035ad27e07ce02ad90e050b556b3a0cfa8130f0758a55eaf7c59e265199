@@ -1,0 +1,195 @@
+I"�0<p><img src="/images/20180628-SQL-Course-331x198.png" /></p>
+
+<p>Course source: Udacity - <a href="https://www.udacity.com/course/sql-for-data-analysis--ud198">https://www.udacity.com/course/sql-for-data-analysis--ud198</a></p>
+
+<h2 id="statements">Statements</h2>
+
+<p><strong>SELECT … FROM …</strong> shows part/all of data in a table.</p>
+
+<p><strong>LIMIT</strong> limits reading to the first few rows.</p>
+
+<p><strong>ORDER BY … [DESC]</strong> sort rows by column(s).</p>
+
+<p><strong>WHERE</strong> filters rows by column.</p>
+
+<p><em>Examples:</em></p>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">SELECT</span> <span class="n">colname</span> <span class="k">FROM</span> <span class="n">tablename</span><span class="p">;</span>
+
+
+<span class="k">SELECT</span> <span class="n">colname</span>
+<span class="k">FROM</span> <span class="n">tablename</span><span class="p">;</span>   <span class="cm">/* white spaces allowed in commands */</span>
+
+
+<span class="k">SELECT</span> <span class="n">colname1</span><span class="p">,</span> <span class="n">colname2</span>    <span class="cm">/* select multiple columns */</span>
+<span class="k">FROM</span> <span class="n">tablename</span><span class="p">;</span>
+
+
+<span class="k">SELECT</span> <span class="o">*</span>     <span class="cm">/* select all columns */</span>
+<span class="k">FROM</span> <span class="n">tablename</span>
+<span class="k">LIMIT</span> <span class="mi">10</span><span class="p">;</span>   <span class="cm">/* only first 10 rows */</span>
+
+
+<span class="k">SELECT</span> <span class="o">*</span>
+<span class="k">FROM</span> <span class="n">tablename</span>
+<span class="k">ORDER</span> <span class="k">BY</span> <span class="n">colname</span>   <span class="cm">/* sort rows ascending by column */</span>
+<span class="k">LIMIT</span> <span class="mi">10</span><span class="p">;</span>
+
+
+<span class="k">SELECT</span> <span class="o">*</span>
+<span class="k">FROM</span> <span class="n">tablename</span>
+<span class="k">ORDER</span> <span class="k">BY</span> <span class="n">colname</span> <span class="k">DESC</span>   <span class="cm">/* sort rows descending by column */</span>
+<span class="k">LIMIT</span> <span class="mi">10</span><span class="p">;</span>
+
+
+<span class="k">SELECT</span> <span class="o">*</span>
+<span class="k">FROM</span> <span class="n">tablename</span>
+<span class="k">ORDER</span> <span class="k">BY</span> <span class="n">colname1</span> <span class="k">DESC</span><span class="p">,</span> <span class="n">colname2</span>   <span class="cm">/* sort rows asc./desc. by multiple columns */</span>
+<span class="k">LIMIT</span> <span class="mi">10</span><span class="p">;</span>
+
+
+<span class="k">SELECT</span> <span class="o">*</span>
+<span class="k">FROM</span> <span class="n">tablename</span>
+<span class="k">WHERE</span> <span class="n">colname1</span> <span class="o">&gt;=</span> <span class="mi">100</span>  <span class="cm">/* only select rows with numerical colname1 &gt;= 100 */</span>
+<span class="k">LIMIT</span> <span class="mi">10</span><span class="p">;</span>
+
+
+<span class="k">SELECT</span> <span class="o">*</span>
+<span class="k">FROM</span> <span class="n">tablename</span>
+<span class="k">WHERE</span> <span class="n">colname1</span> <span class="o">=</span> <span class="s1">'Yes'</span>  <span class="cm">/* only select rows with non-numerical colname1 'Yes' */</span>
+<span class="k">LIMIT</span> <span class="mi">10</span><span class="p">;</span>
+
+
+<span class="k">SELECT</span> <span class="n">id</span><span class="p">,</span> <span class="n">account_id</span><span class="p">,</span>
+       <span class="n">poster_amt_usd</span><span class="o">/</span><span class="p">(</span><span class="n">standard_amt_usd</span> <span class="o">+</span> <span class="n">gloss_amt_usd</span><span class="p">)</span> <span class="k">AS</span> <span class="n">post_per</span>
+<span class="k">FROM</span> <span class="n">orders</span><span class="p">;</span>   <span class="cm">/* arithmetic operation and results put in a new column */</span>
+</code></pre></div></div>
+
+<h2 id="logical-operators">Logical Operators</h2>
+
+<p><strong>LIKE</strong> - This allows you to perform operations similar to using <strong>WHERE</strong> and <strong>=</strong>, but for cases when you might not know exactly what you are looking for.</p>
+
+<p><strong>IN</strong> - This allows you to perform operations similar to using <strong>WHERE</strong> and <strong>=</strong>, but for more than one condition.</p>
+
+<p><strong>NOT</strong> - This is used with <strong>IN</strong> and <strong>LIKE</strong> to select all of the rows NOT LIKE or NOT IN a certain condition.</p>
+
+<p><strong>AND</strong> &amp; <strong>BETWEEN</strong> - These allow you to combine operations where all combined conditions must be true.</p>
+
+<p><strong>OR</strong> - This allow you to combine operations where at least one of the combined conditions must be true.</p>
+
+<p><em>Examples:</em></p>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">SELECT</span> <span class="o">*</span>
+<span class="k">FROM</span> <span class="n">demo</span><span class="p">.</span><span class="n">web_events_full</span>
+<span class="k">WHERE</span> <span class="n">ref_url</span> <span class="k">LIKE</span> <span class="s1">'%google%'</span><span class="p">;</span>   <span class="cm">/* % means any characters of any length */</span>
+
+
+<span class="k">SELECT</span> <span class="o">*</span>
+<span class="k">FROM</span> <span class="n">demo</span><span class="p">.</span><span class="n">web_events_full</span>
+<span class="k">WHERE</span> <span class="n">ref_url</span> <span class="k">NOT</span> <span class="k">LIKE</span> <span class="s1">'%google%'</span><span class="p">;</span>   <span class="cm">/* NOT LIKE */</span>
+
+
+<span class="k">SELECT</span> <span class="o">*</span>
+<span class="k">FROM</span> <span class="n">tablename</span>
+<span class="k">WHERE</span> <span class="n">name</span> <span class="k">IN</span> <span class="p">(</span><span class="s1">'string1'</span><span class="p">,</span><span class="s1">'string2'</span><span class="p">);</span>  <span class="cm">/* contains any of the strings */</span>
+
+
+<span class="k">SELECT</span> <span class="o">*</span>
+<span class="k">FROM</span> <span class="n">tablename</span>
+<span class="k">WHERE</span> <span class="n">name</span> <span class="k">IN</span> <span class="p">(</span><span class="s1">'string1'</span><span class="p">,</span><span class="s1">'string2'</span><span class="p">);</span>  <span class="cm">/* NOT IN */</span>
+
+
+<span class="k">SELECT</span> <span class="o">*</span>
+<span class="k">FROM</span> <span class="n">tablename</span>
+<span class="k">WHERE</span> <span class="n">id</span> <span class="k">IN</span> <span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="mi">121</span><span class="p">);</span>  <span class="cm">/* contains any of the numbers */</span>
+
+
+<span class="k">SELECT</span> <span class="o">*</span>
+<span class="k">FROM</span> <span class="n">web_events</span>
+<span class="k">WHERE</span> <span class="n">channel</span> <span class="k">IN</span> <span class="p">(</span><span class="s1">'organic'</span><span class="p">,</span> <span class="s1">'adwords'</span><span class="p">)</span> <span class="k">AND</span>
+      <span class="n">occurred_at</span> <span class="k">BETWEEN</span> <span class="s1">'2016-01-01'</span> <span class="k">AND</span> <span class="s1">'2017-01-01'</span>
+<span class="k">ORDER</span> <span class="k">BY</span> <span class="n">occurred_at</span> <span class="k">DESC</span><span class="p">;</span>
+<span class="cm">/* While BETWEEN is generally inclusive of endpoints,
+   it assumes the time is at 00:00:00 (i.e. midnight) for dates */</span>
+
+
+<span class="k">SELECT</span> <span class="o">*</span>
+<span class="k">FROM</span> <span class="n">accounts</span>
+<span class="k">WHERE</span> <span class="p">(</span><span class="n">name</span> <span class="k">LIKE</span> <span class="s1">'C%'</span> <span class="k">OR</span> <span class="n">name</span> <span class="k">LIKE</span> <span class="s1">'W%'</span><span class="p">)</span>
+          <span class="k">AND</span> <span class="p">((</span><span class="n">primary_poc</span> <span class="k">LIKE</span> <span class="s1">'%ana%'</span> <span class="k">OR</span> <span class="n">primary_poc</span> <span class="k">LIKE</span> <span class="s1">'%Ana%'</span><span class="p">)</span>
+          <span class="k">AND</span> <span class="n">primary_poc</span> <span class="k">NOT</span> <span class="k">LIKE</span> <span class="s1">'%eana%'</span><span class="p">);</span>
+<span class="cm">/* Use parentheses to assure the order of operation */</span>
+</code></pre></div></div>
+
+<h2 id="sql-coding-conventions">SQL Coding Conventions</h2>
+
+<ul>
+  <li>
+    <p>Capitalizing commands, leave everything else lowercase.</p>
+  </li>
+  <li>
+    <p>Avoid spaces in table and variable names.</p>
+  </li>
+  <li>
+    <p>White spaces are ignored in commands.</p>
+  </li>
+  <li>
+    <p>SQL isn’t case sensitive.</p>
+  </li>
+  <li>
+    <p>Best to put semicolons at the end of Statements.</p>
+  </li>
+  <li>
+    <p>The order of the key words does matter!</p>
+  </li>
+</ul>
+
+<h2 id="database-normalization">Database Normalization</h2>
+
+<p>There are essentially three ideas that are aimed at database normalization:</p>
+
+<ul>
+  <li>
+    <p>Are the tables storing logical groupings of the data?</p>
+  </li>
+  <li>
+    <p>Can I make changes in a single location, rather than in many tables for the same information?</p>
+  </li>
+  <li>
+    <p>Can I access and manipulate data quickly and efficiently?</p>
+  </li>
+</ul>
+
+<p>This is discussed in detail <a href="http://sqlmag.com/database-performance-tuning/sql-design-why-you-need-database-normalization">here</a>.</p>
+
+<h2 id="join">JOIN</h2>
+
+<p>The whole goal of <strong>JOIN</strong> statements is to allow us to pull from more than one table at a time.
+An Entity-Relationship Diagram (ERD) shows the relationships between tables:</p>
+
+<p><img src="/images/20180628-SQL-ERD-812x560.png" /></p>
+
+<p>The <strong>PK</strong> here stands for primary key.
+This is the first column in each of our tables that has a unique value for every row.
+A foreign key (<strong>FK</strong>) is when we see a primary key in another table.</p>
+
+<p><em>Examples:</em></p>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">SELECT</span> <span class="n">orders</span><span class="p">.</span><span class="o">*</span>
+<span class="k">FROM</span> <span class="n">orders</span>   <span class="cm">/* table from which to pull data */</span>
+<span class="k">JOIN</span> <span class="n">accounts</span>   <span class="cm">/* table to merge */</span>
+<span class="k">ON</span> <span class="n">orders</span><span class="p">.</span><span class="n">account_id</span> <span class="o">=</span> <span class="n">accounts</span><span class="p">.</span><span class="n">id</span><span class="p">;</span>   <span class="cm">/* how to merge */</span>
+<span class="cm">/* Notice this result is the same as if you switched the tables in the FROM and
+   JOIN. Additionally, which side of the = a column is listed doesn't matter. */</span>
+
+
+<span class="k">SELECT</span> <span class="n">orders</span><span class="p">.</span><span class="n">standard_qty</span><span class="p">,</span> <span class="n">orders</span><span class="p">.</span><span class="n">gloss_qty</span><span class="p">,</span>
+      <span class="n">orders</span><span class="p">.</span><span class="n">poster_qty</span><span class="p">,</span>  <span class="n">accounts</span><span class="p">.</span><span class="n">website</span><span class="p">,</span>
+      <span class="n">accounts</span><span class="p">.</span><span class="n">primary_poc</span>
+<span class="k">FROM</span> <span class="n">orders</span>
+<span class="k">JOIN</span> <span class="n">accounts</span>
+<span class="k">ON</span> <span class="n">orders</span><span class="p">.</span><span class="n">account_id</span> <span class="o">=</span> <span class="n">accounts</span><span class="p">.</span><span class="n">id</span>
+<span class="cm">/* Notice that we need to specify every table a column comes from in the
+   SELECT statement. */</span>
+</code></pre></div></div>
+:ET

@@ -1,0 +1,640 @@
+I"��<script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
+
+<p><img src="/images/20170926-DLND-Course-362x135.png" /></p>
+
+<p>Udacity course link: <a href="https://www.udacity.com/course/deep-learning-nanodegree--nd101">https://www.udacity.com/course/deep-learning-nanodegree--nd101</a></p>
+
+<h2 id="applying-deep-learning">Applying deep learning</h2>
+
+<ul>
+  <li><a href="https://github.com/lengstrom/fast-style-transfer">fast style transfer</a></li>
+  <li><a href="http://selfdrivingcars.mit.edu/deeptrafficjs/">DeepTraffic</a></li>
+  <li><a href="https://github.com/yenchenlin/DeepLearningFlappyBird">DeepLearningFlappyBird</a></li>
+</ul>
+
+<h2 id="resource">Resource</h2>
+
+<ul>
+  <li><a href="https://www.manning.com/books/grokking-deep-learning">Grokking Deep Learning</a> by Andrew Trask. Use our exclusive discount code <strong>traskud17</strong> for 40% off. This provides a very gentle introduction to Deep Learning and covers the intuition more than the theory.</li>
+  <li><a href="http://neuralnetworksanddeeplearning.com/">Neural Networks And Deep Learning</a> by Michael Nielsen. This book is more rigorous than Grokking Deep Learning and includes a lot of fun, interactive visualizations to play with.</li>
+  <li><a href="http://www.deeplearningbook.org/">The Deep Learning Textbook</a> from Ian Goodfellow, Yoshua Bengio, and Aaron Courville. This online book has lot of material and is the most rigorous of the three books suggested.</li>
+  <li><a href="http://pandas.pydata.org/pandas-docs/stable/10min.html#min">10 minutes to Pandas</a></li>
+  <li><a href="http://scikit-learn.org/stable/tutorial/basic/tutorial.html">Scikit-Learn official tutorial</a></li>
+  <li><a href="http://matplotlib.org/users/pyplot_tutorial.html">Matplotlib official tutorial</a></li>
+</ul>
+
+<h2 id="linear-regression">Linear regression</h2>
+
+<p>Conduct linear regression using scikit-learn:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&gt;&gt;&gt;</span> <span class="kn">from</span> <span class="nn">sklearn.linear_model</span> <span class="kn">import</span> <span class="n">LinearRegression</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">model</span> <span class="o">=</span> <span class="n">LinearRegression</span><span class="p">()</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">model</span><span class="p">.</span><span class="n">fit</span><span class="p">(</span><span class="n">x_values</span><span class="p">,</span> <span class="n">y_values</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="k">print</span><span class="p">(</span><span class="n">model</span><span class="p">.</span><span class="n">predict</span><span class="p">([</span> <span class="p">[</span><span class="mi">127</span><span class="p">],</span> <span class="p">[</span><span class="mi">248</span><span class="p">]</span> <span class="p">]))</span>
+<span class="p">[[</span> <span class="mf">438.94308857</span><span class="p">,</span> <span class="mf">127.14839521</span><span class="p">]]</span>
+</code></pre></div></div>
+
+<p>The model returned an array of predictions, one prediction for each input array. The first input, <code class="language-plaintext highlighter-rouge">[127]</code>, got a prediction of <code class="language-plaintext highlighter-rouge">438.94308857</code>. The seconds input, <code class="language-plaintext highlighter-rouge">[248]</code>, got a prediction of <code class="language-plaintext highlighter-rouge">127.14839521</code>. The reason for predicting on an array like <code class="language-plaintext highlighter-rouge">[127]</code> and not just <code class="language-plaintext highlighter-rouge">127</code>, is because you can have a model that makes a prediction using multiple features.</p>
+
+<p>For Pandas DataFrames, single square brackets return a Pandas Series, while double square brackets return a DataFrame. Example:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="n">pd</span>
+<span class="kn">from</span> <span class="nn">sklearn.linear_model</span> <span class="kn">import</span> <span class="n">LinearRegression</span>
+
+<span class="c1"># Load the data
+</span><span class="n">bmi_life_data</span> <span class="o">=</span> <span class="n">pd</span><span class="p">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s">"bmi_and_life_expectancy.csv"</span><span class="p">)</span>
+
+<span class="c1"># Fit the model and Assign it to bmi_life_model
+</span><span class="n">bmi_life_model</span> <span class="o">=</span> <span class="n">LinearRegression</span><span class="p">()</span>
+<span class="n">bmi_life_model</span><span class="p">.</span><span class="n">fit</span><span class="p">(</span><span class="n">bmi_life_data</span><span class="p">[[</span><span class="s">'BMI'</span><span class="p">]],</span>   <span class="c1"># Must be double brackets
+</span>    <span class="n">bmi_life_data</span><span class="p">[[</span><span class="s">'Life expectancy'</span><span class="p">]])</span>      <span class="c1"># [col1, col2, ...] as a list
+</span>
+<span class="c1"># Predict life expectancy for a BMI value of 21.07931
+</span><span class="n">laos_life_exp</span> <span class="o">=</span> <span class="n">bmi_life_model</span><span class="p">.</span><span class="n">predict</span><span class="p">(</span><span class="mf">21.07931</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>Multivariable linear regression works the same.</p>
+
+<p>Warnings:</p>
+
+<ul>
+  <li>Linear Regression Works Best When the Data is Linear</li>
+  <li>Linear Regression is Sensitive to Outliers</li>
+</ul>
+
+<h2 id="data-in-numpy">Data in NumPy</h2>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&gt;&gt;&gt;</span> <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="n">np</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">s</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="n">array</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">s</span><span class="p">.</span><span class="n">shape</span>
+<span class="p">()</span>   <span class="c1"># scalar: 0 dimension
+</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">v</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">])</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">v</span><span class="p">.</span><span class="n">shape</span>
+<span class="p">(</span><span class="mi">3</span><span class="p">,)</span>   <span class="c1"># vector: 1 dimension
+</span><span class="o">&gt;&gt;&gt;</span> <span class="n">v</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+<span class="mi">2</span>
+
+<span class="o">&gt;&gt;&gt;</span> <span class="n">m</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">],</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">],</span> <span class="p">[</span><span class="mi">7</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">9</span><span class="p">]])</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">m</span><span class="p">.</span><span class="n">shape</span>
+<span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>   <span class="c1"># matrix: 2 dimension
+</span><span class="o">&gt;&gt;&gt;</span> <span class="n">m</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">2</span><span class="p">]</span>
+<span class="mi">6</span>
+
+<span class="o">&gt;&gt;&gt;</span> <span class="n">t</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="n">array</span><span class="p">([[[[</span><span class="mi">1</span><span class="p">],[</span><span class="mi">2</span><span class="p">]],[[</span><span class="mi">3</span><span class="p">],[</span><span class="mi">4</span><span class="p">]],[[</span><span class="mi">5</span><span class="p">],[</span><span class="mi">6</span><span class="p">]]],[[[</span><span class="mi">7</span><span class="p">],[</span><span class="mi">8</span><span class="p">]],</span>\
+    <span class="p">[[</span><span class="mi">9</span><span class="p">],[</span><span class="mi">10</span><span class="p">]],[[</span><span class="mi">11</span><span class="p">],[</span><span class="mi">12</span><span class="p">]]],[[[</span><span class="mi">13</span><span class="p">],[</span><span class="mi">14</span><span class="p">]],[[</span><span class="mi">15</span><span class="p">],[</span><span class="mi">16</span><span class="p">]],[[</span><span class="mi">17</span><span class="p">],[</span><span class="mi">17</span><span class="p">]]]])</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">t</span><span class="p">.</span><span class="n">shape</span>
+<span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">t</span><span class="p">[</span><span class="mi">2</span><span class="p">][</span><span class="mi">1</span><span class="p">][</span><span class="mi">1</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
+<span class="mi">16</span>
+
+<span class="o">&gt;&gt;&gt;</span> <span class="n">v</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">])</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">v</span><span class="p">.</span><span class="n">shape</span>
+<span class="p">(</span><span class="mi">4</span><span class="p">,)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">x</span> <span class="o">=</span> <span class="n">v</span><span class="p">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">4</span><span class="p">)</span>   <span class="c1"># reshape
+</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">x</span> <span class="o">=</span> <span class="n">v</span><span class="p">[</span><span class="bp">None</span><span class="p">,</span> <span class="p">:]</span>   <span class="c1"># add a new dimension of size 1 for the associated axis
+</span></code></pre></div></div>
+
+<h2 id="element-wise-multiplication">Element-wise Multiplication</h2>
+
+<p>You saw some element-wise multiplication already. You accomplish that with the <code class="language-plaintext highlighter-rouge">multiply</code> function or the <code class="language-plaintext highlighter-rouge">*</code> operator. Just to revisit, it would look like this:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">m</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">],[</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">]])</span>
+<span class="n">m</span>
+<span class="c1"># displays the following result:
+# array([[1, 2, 3],
+#        [4, 5, 6]])
+</span>
+<span class="n">n</span> <span class="o">=</span> <span class="n">m</span> <span class="o">*</span> <span class="mf">0.25</span>
+<span class="n">n</span>
+<span class="c1"># displays the following result:
+# array([[ 0.25,  0.5 ,  0.75],
+#        [ 1.  ,  1.25,  1.5 ]])
+</span>
+<span class="n">m</span> <span class="o">*</span> <span class="n">n</span>
+<span class="c1"># displays the following result:
+# array([[ 0.25,  1.  ,  2.25],
+#        [ 4.  ,  6.25,  9.  ]])
+</span>
+<span class="n">np</span><span class="p">.</span><span class="n">multiply</span><span class="p">(</span><span class="n">m</span><span class="p">,</span> <span class="n">n</span><span class="p">)</span>   <span class="c1"># equivalent to m * n
+# displays the following result:
+# array([[ 0.25,  1.  ,  2.25],
+#        [ 4.  ,  6.25,  9.  ]])
+</span></code></pre></div></div>
+
+<h2 id="matrix-product">Matrix Product</h2>
+
+<p>To find the matrix product, you use NumPy’s <code class="language-plaintext highlighter-rouge">matmul</code> function.</p>
+
+<p>If you have compatible shapes, then it’s as simple as this:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">],[</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">8</span><span class="p">]])</span>
+<span class="n">a</span>
+<span class="c1"># displays the following result:
+# array([[1, 2, 3, 4],
+#        [5, 6, 7, 8]])
+</span><span class="n">a</span><span class="p">.</span><span class="n">shape</span>
+<span class="c1"># displays the following result:
+# (2, 4)
+</span>
+<span class="n">b</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">],[</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">],[</span><span class="mi">7</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">9</span><span class="p">],[</span><span class="mi">10</span><span class="p">,</span><span class="mi">11</span><span class="p">,</span><span class="mi">12</span><span class="p">]])</span>
+<span class="n">b</span>
+<span class="c1"># displays the following result:
+# array([[ 1,  2,  3],
+#        [ 4,  5,  6],
+#        [ 7,  8,  9],
+#        [10, 11, 12]])
+</span><span class="n">b</span><span class="p">.</span><span class="n">shape</span>
+<span class="c1"># displays the following result:
+# (4, 3)
+</span>
+<span class="n">c</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="n">matmul</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>
+<span class="n">c</span>
+<span class="c1"># displays the following result:
+# array([[ 70,  80,  90],
+#        [158, 184, 210]])
+</span><span class="n">c</span><span class="p">.</span><span class="n">shape</span>
+<span class="c1"># displays the following result:
+# (2, 3)
+</span></code></pre></div></div>
+
+<p>If your matrices have incompatible shapes, you’ll get an error, like the following:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">np</span><span class="p">.</span><span class="n">matmul</span><span class="p">(</span><span class="n">b</span><span class="p">,</span> <span class="n">a</span><span class="p">)</span>
+<span class="c1"># displays the following error:
+# ValueError: shapes (4,3) and (2,4) not aligned: 3 (dim 1) != 2 (dim 0)
+</span></code></pre></div></div>
+
+<h2 id="numpys-dot-function">NumPy’s dot function</h2>
+
+<p>You may sometimes see NumPy’s dot function in places where you would expect a <code class="language-plaintext highlighter-rouge">matmul</code>. It turns out that the results of <code class="language-plaintext highlighter-rouge">dot</code> and <code class="language-plaintext highlighter-rouge">matmul</code> are the same <em>if the matrices are two dimensional</em>.</p>
+
+<p>So these two results are equivalent:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">],[</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">]])</span>
+<span class="n">a</span>
+<span class="c1"># displays the following result:
+# array([[1, 2],
+#        [3, 4]])
+</span>
+<span class="n">np</span><span class="p">.</span><span class="n">dot</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="n">a</span><span class="p">)</span>
+<span class="c1"># displays the following result:
+# array([[ 7, 10],
+#        [15, 22]])
+</span>
+<span class="n">a</span><span class="p">.</span><span class="n">dot</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>  <span class="c1"># you can call `dot` directly on the `ndarray`
+# displays the following result:
+# array([[ 7, 10],
+#        [15, 22]])
+</span>
+<span class="n">np</span><span class="p">.</span><span class="n">matmul</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="n">a</span><span class="p">)</span>
+<span class="c1"># array([[ 7, 10],
+#        [15, 22]])
+</span></code></pre></div></div>
+
+<p>While these functions return the same results for two dimensional data, you should be careful about which you choose when working with other data shapes. You can read more about the differences, and find links to other NumPy functions, in the <code class="language-plaintext highlighter-rouge">matmul</code> and <code class="language-plaintext highlighter-rouge">dot</code> documentation.</p>
+
+<h2 id="transpose">Transpose</h2>
+
+<p>Getting the transpose of a matrix is really easy in NumPy. Simply access its <code class="language-plaintext highlighter-rouge">T</code> attribute. There is also a <code class="language-plaintext highlighter-rouge">transpose()</code> function which returns the same thing, but you’ll rarely see that used anywhere because typing <code class="language-plaintext highlighter-rouge">T</code> is so much easier. :)</p>
+
+<p>For example:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">m</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">],</span> <span class="p">[</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">8</span><span class="p">],</span> <span class="p">[</span><span class="mi">9</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">11</span><span class="p">,</span><span class="mi">12</span><span class="p">]])</span>
+<span class="n">m</span>
+<span class="c1"># displays the following result:
+# array([[ 1,  2,  3,  4],
+#        [ 5,  6,  7,  8],
+#        [ 9, 10, 11, 12]])
+</span>
+<span class="n">m</span><span class="p">.</span><span class="n">T</span>
+<span class="c1"># displays the following result:
+# array([[ 1,  5,  9],
+#        [ 2,  6, 10],
+#        [ 3,  7, 11],
+#        [ 4,  8, 12]])
+</span></code></pre></div></div>
+
+<p>NumPy does this without actually moving any data in memory - it simply changes the way it indexes the original matrix - so it’s quite efficient.</p>
+
+<p>However, that also means you need to be careful with how you modify objects, because they are sharing the same data. For example, with the same matrix <code class="language-plaintext highlighter-rouge">m</code> from above, let’s make a new variable <code class="language-plaintext highlighter-rouge">m_t</code> that stores <code class="language-plaintext highlighter-rouge">m</code>’s transpose. Then look what happens if we modify a value in <code class="language-plaintext highlighter-rouge">m_t</code>:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">m_t</span> <span class="o">=</span> <span class="n">m</span><span class="p">.</span><span class="n">T</span>
+<span class="n">m_t</span><span class="p">[</span><span class="mi">3</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="mi">200</span>
+<span class="n">m_t</span>
+<span class="c1"># displays the following result:
+# array([[ 1,   5, 9],
+#        [ 2,   6, 10],
+#        [ 3,   7, 11],
+#        [ 4, 200, 12]])
+</span>
+<span class="n">m</span>
+<span class="c1"># displays the following result:
+# array([[ 1,  2,  3,   4],
+#        [ 5,  6,  7, 200],
+#        [ 9, 10, 11,  12]])
+</span></code></pre></div></div>
+
+<p>Notice how it modified both the transpose and the original matrix, too! That’s because they are sharing the same copy of data. So remember to consider the transpose just as a different view of your matrix, rather than a different matrix entirely.</p>
+
+<p>Create a 2 dimensional array from a one dimensional list: <code class="language-plaintext highlighter-rouge">np.reshape([2,4,6,1],((-1,2)))</code></p>
+
+<h2 id="gradient-descent">Gradient descent</h2>
+
+<p>One weight update can be calculated as:</p>
+
+\[\Delta{w_i} = \eta \delta{x_i}
+​​\]
+
+<p>with the error term \(\delta\) as</p>
+
+\[\delta = ( y − \hat{y} ) f​'(h) = ( y − \hat{y} ) f'(\sum{w_i x_i})\]
+
+<p>Remember, in the above equation \(\eta\) is the learning rate, \((y - \hat{y})\) is the output error, and \(f’(h)\) refers to the derivative of the activation function, \(f(h)\) . We’ll call that derivative the output gradient.</p>
+
+<p>The derivative of sigmoid function has a nice feature:</p>
+
+<p><img src="/images/20170926-DlndUdacity-DerivativeSigmoid-503x273.jpg" /></p>
+
+<p><img src="/images/20170926-DlndUdacity-SigmoidFunction-500x200.png" /></p>
+
+<p>Now I’ll write this out in code for the case of only one output unit. We’ll also be using the sigmoid as the activation function \(f(h)\) .</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># Defining the sigmoid function for activations
+</span><span class="k">def</span> <span class="nf">sigmoid</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="k">return</span> <span class="mi">1</span><span class="o">/</span><span class="p">(</span><span class="mi">1</span><span class="o">+</span><span class="n">np</span><span class="p">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">x</span><span class="p">))</span>
+
+<span class="c1"># Derivative of the sigmoid function
+</span><span class="k">def</span> <span class="nf">sigmoid_prime</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">sigmoid</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">sigmoid</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+
+<span class="c1"># Input data
+</span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="n">array</span><span class="p">([</span><span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.3</span><span class="p">])</span>
+<span class="c1"># Target
+</span><span class="n">y</span> <span class="o">=</span> <span class="mf">0.2</span>
+<span class="c1"># Input to output weights
+</span><span class="n">weights</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="n">array</span><span class="p">([</span><span class="o">-</span><span class="mf">0.8</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">])</span>
+
+<span class="c1"># The learning rate, eta in the weight step equation
+</span><span class="n">learnrate</span> <span class="o">=</span> <span class="mf">0.5</span>
+
+<span class="c1"># the linear combination performed by the node (h in f(h) and f'(h))
+</span><span class="n">h</span> <span class="o">=</span> <span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="n">weights</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">*</span><span class="n">weights</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+<span class="c1"># or h = np.dot(x, weights)
+</span>
+<span class="c1"># The neural network output (y-hat)
+</span><span class="n">nn_output</span> <span class="o">=</span> <span class="n">sigmoid</span><span class="p">(</span><span class="n">h</span><span class="p">)</span>
+
+<span class="c1"># output error (y - y-hat)
+</span><span class="n">error</span> <span class="o">=</span> <span class="n">y</span> <span class="o">-</span> <span class="n">nn_output</span>
+
+<span class="c1"># output gradient (f'(h))
+</span><span class="n">output_grad</span> <span class="o">=</span> <span class="n">sigmoid_prime</span><span class="p">(</span><span class="n">h</span><span class="p">)</span>
+
+<span class="c1"># error term (lowercase delta)
+</span><span class="n">error_term</span> <span class="o">=</span> <span class="n">error</span> <span class="o">*</span> <span class="n">output_grad</span>
+
+<span class="c1"># Gradient descent step
+</span><span class="n">del_w</span> <span class="o">=</span> <span class="p">[</span> <span class="n">learnrate</span> <span class="o">*</span> <span class="n">error_term</span> <span class="o">*</span> <span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span>
+          <span class="n">learnrate</span> <span class="o">*</span> <span class="n">error_term</span> <span class="o">*</span> <span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">]]</span>
+<span class="c1"># or del_w = learnrate * error_term * x
+</span></code></pre></div></div>
+
+<p>Batch learning:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="n">np</span>
+<span class="kn">from</span> <span class="nn">data_prep</span> <span class="kn">import</span> <span class="n">features</span><span class="p">,</span> <span class="n">targets</span><span class="p">,</span> <span class="n">features_test</span><span class="p">,</span> <span class="n">targets_test</span>
+
+<span class="k">def</span> <span class="nf">sigmoid</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="s">"""
+    Calculate sigmoid
+    """</span>
+    <span class="k">return</span> <span class="mi">1</span> <span class="o">/</span> <span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="n">np</span><span class="p">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">x</span><span class="p">))</span>
+
+<span class="c1"># Use to same seed to make debugging easier
+</span><span class="n">np</span><span class="p">.</span><span class="n">random</span><span class="p">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">42</span><span class="p">)</span>
+
+<span class="n">n_records</span><span class="p">,</span> <span class="n">n_features</span> <span class="o">=</span> <span class="n">features</span><span class="p">.</span><span class="n">shape</span>
+<span class="n">last_loss</span> <span class="o">=</span> <span class="bp">None</span>
+
+<span class="c1"># Initialize weights
+</span><span class="n">weights</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="n">random</span><span class="p">.</span><span class="n">normal</span><span class="p">(</span><span class="n">scale</span><span class="o">=</span><span class="mi">1</span> <span class="o">/</span> <span class="n">n_features</span><span class="o">**</span><span class="p">.</span><span class="mi">5</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="n">n_features</span><span class="p">)</span>
+
+<span class="c1"># Neural Network hyperparameters
+</span><span class="n">epochs</span> <span class="o">=</span> <span class="mi">1000</span>
+<span class="n">learnrate</span> <span class="o">=</span> <span class="mf">0.5</span>
+
+<span class="k">for</span> <span class="n">e</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">epochs</span><span class="p">):</span>
+    <span class="n">del_w</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">weights</span><span class="p">.</span><span class="n">shape</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">features</span><span class="p">.</span><span class="n">values</span><span class="p">,</span> <span class="n">targets</span><span class="p">):</span>
+        <span class="c1"># Loop through all records, x is the input, y is the target
+</span>
+        <span class="c1"># Activation of the output unit
+</span>        <span class="c1">#   Notice we multiply the inputs and the weights here
+</span>        <span class="c1">#   rather than storing h as a separate variable
+</span>        <span class="n">output</span> <span class="o">=</span> <span class="n">sigmoid</span><span class="p">(</span><span class="n">np</span><span class="p">.</span><span class="n">dot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">weights</span><span class="p">))</span>
+
+        <span class="c1"># The error, the target minus the network output
+</span>        <span class="n">error</span> <span class="o">=</span> <span class="n">y</span> <span class="o">-</span> <span class="n">output</span>
+
+        <span class="c1"># The error term
+</span>        <span class="c1">#   Notice we calulate f'(h) here instead of defining a separate
+</span>        <span class="c1">#   sigmoid_prime function. This just makes it faster because we
+</span>        <span class="c1">#   can re-use the result of the sigmoid function stored in
+</span>        <span class="c1">#   the output variable
+</span>        <span class="n">error_term</span> <span class="o">=</span> <span class="n">error</span> <span class="o">*</span> <span class="n">output</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">output</span><span class="p">)</span>
+
+        <span class="c1"># The gradient descent step, the error times the gradient times the inputs
+</span>        <span class="n">del_w</span> <span class="o">+=</span> <span class="n">error_term</span> <span class="o">*</span> <span class="n">x</span>
+
+    <span class="c1"># Update the weights here. The learning rate times the
+</span>    <span class="c1"># change in weights, divided by the number of records to average
+</span>    <span class="n">weights</span> <span class="o">+=</span> <span class="n">learnrate</span> <span class="o">*</span> <span class="n">del_w</span> <span class="o">/</span> <span class="n">n_records</span>
+
+    <span class="c1"># Printing out the mean square error on the training set
+</span>    <span class="k">if</span> <span class="n">e</span> <span class="o">%</span> <span class="p">(</span><span class="n">epochs</span> <span class="o">/</span> <span class="mi">10</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="n">out</span> <span class="o">=</span> <span class="n">sigmoid</span><span class="p">(</span><span class="n">np</span><span class="p">.</span><span class="n">dot</span><span class="p">(</span><span class="n">features</span><span class="p">,</span> <span class="n">weights</span><span class="p">))</span>
+        <span class="n">loss</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="n">mean</span><span class="p">((</span><span class="n">out</span> <span class="o">-</span> <span class="n">targets</span><span class="p">)</span> <span class="o">**</span> <span class="mi">2</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">last_loss</span> <span class="ow">and</span> <span class="n">last_loss</span> <span class="o">&lt;</span> <span class="n">loss</span><span class="p">:</span>
+            <span class="k">print</span><span class="p">(</span><span class="s">"Train loss: "</span><span class="p">,</span> <span class="n">loss</span><span class="p">,</span> <span class="s">"  WARNING - Loss Increasing"</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">print</span><span class="p">(</span><span class="s">"Train loss: "</span><span class="p">,</span> <span class="n">loss</span><span class="p">)</span>
+        <span class="n">last_loss</span> <span class="o">=</span> <span class="n">loss</span>
+
+<span class="c1"># Calculate accuracy on test data
+</span><span class="n">tes_out</span> <span class="o">=</span> <span class="n">sigmoid</span><span class="p">(</span><span class="n">np</span><span class="p">.</span><span class="n">dot</span><span class="p">(</span><span class="n">features_test</span><span class="p">,</span> <span class="n">weights</span><span class="p">))</span>
+<span class="n">predictions</span> <span class="o">=</span> <span class="n">tes_out</span> <span class="o">&gt;</span> <span class="mf">0.5</span>
+<span class="n">accuracy</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="n">mean</span><span class="p">(</span><span class="n">predictions</span> <span class="o">==</span> <span class="n">targets_test</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="s">"Prediction accuracy: {:.3f}"</span><span class="p">.</span><span class="nb">format</span><span class="p">(</span><span class="n">accuracy</span><span class="p">))</span>
+
+<span class="s">'''
+Train loss:  0.2627609385
+Train loss:  0.209286194093
+Train loss:  0.200842929081
+Train loss:  0.198621564755
+Train loss:  0.197798513967
+Train loss:  0.197425779122
+Train loss:  0.197235077462
+Train loss:  0.197129456251
+Train loss:  0.197067663413
+Train loss:  0.197030058018
+Prediction accuracy: 0.725
+'''</span>
+</code></pre></div></div>
+
+<h2 id="making-a-column-vector">Making a column vector</h2>
+
+<p>You see above that sometimes you’ll want a column vector, even though by default Numpy arrays work like row vectors. It’s possible to get the transpose of an array like so <code class="language-plaintext highlighter-rouge">arr.T</code>, but for a 1D array, the transpose will return a row vector. Instead, use <code class="language-plaintext highlighter-rouge">arr[:,None]</code>` to create a column vector:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">print</span><span class="p">(</span><span class="n">features</span><span class="p">)</span>
+<span class="o">&gt;</span> <span class="n">array</span><span class="p">([</span> <span class="mf">0.49671415</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.1382643</span> <span class="p">,</span>  <span class="mf">0.64768854</span><span class="p">])</span>
+
+<span class="k">print</span><span class="p">(</span><span class="n">features</span><span class="p">.</span><span class="n">T</span><span class="p">)</span>
+<span class="o">&gt;</span> <span class="n">array</span><span class="p">([</span> <span class="mf">0.49671415</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.1382643</span> <span class="p">,</span>  <span class="mf">0.64768854</span><span class="p">])</span>
+
+<span class="k">print</span><span class="p">(</span><span class="n">features</span><span class="p">[:,</span> <span class="bp">None</span><span class="p">])</span>
+<span class="o">&gt;</span> <span class="n">array</span><span class="p">([[</span> <span class="mf">0.49671415</span><span class="p">],</span>
+       <span class="p">[</span><span class="o">-</span><span class="mf">0.1382643</span> <span class="p">],</span>
+       <span class="p">[</span> <span class="mf">0.64768854</span><span class="p">]])</span>
+</code></pre></div></div>
+
+<h2 id="backpropagation">Backpropagation</h2>
+
+<p>For example, in the output layer, you have errors \(\delta^o_k\) attributed to each output unit \(k\). Then, the error attributed to hidden unit \(j\) is the output errors, scaled by the weights between the output and hidden layers (and the gradient):</p>
+
+\[\delta^h_j = \sum W_{jk} \delta^o_k f'(h_j)\]
+
+<p>Then, the gradient descent step is the same as before, just with the new errors:</p>
+
+\[\Delta w_{ij} = \eta \delta^h_j x_i\]
+
+<p>where \(w_{ij}\) are the weights between the inputs and hidden layer and \(x_i\) are input unit values. This form holds for however many layers there are. The weight steps are equal to the step size times the output error of the layer times the values of the inputs to that layer</p>
+
+\[\Delta w_{pq} = \eta \delta_{output} V_{in}\]
+
+<p>Here, you get the output error, \(\delta_{output}\), by propagating the errors backwards from higher layers. And the input values, \(V_{in}\) are the inputs to the layer, the hidden layer activations to the output unit for example.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="n">np</span>
+
+
+<span class="k">def</span> <span class="nf">sigmoid</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="s">"""
+    Calculate sigmoid
+    """</span>
+    <span class="k">return</span> <span class="mi">1</span> <span class="o">/</span> <span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="n">np</span><span class="p">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">x</span><span class="p">))</span>
+
+
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="n">array</span><span class="p">([</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.2</span><span class="p">])</span>
+<span class="n">target</span> <span class="o">=</span> <span class="mf">0.6</span>
+<span class="n">learnrate</span> <span class="o">=</span> <span class="mf">0.5</span>
+
+<span class="n">weights_input_hidden</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="n">array</span><span class="p">([[</span><span class="mf">0.5</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.6</span><span class="p">],</span>
+                                 <span class="p">[</span><span class="mf">0.1</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.2</span><span class="p">],</span>
+                                 <span class="p">[</span><span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.7</span><span class="p">]])</span>
+
+<span class="n">weights_hidden_output</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="n">array</span><span class="p">([</span><span class="mf">0.1</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.3</span><span class="p">])</span>
+
+<span class="c1">## Forward pass
+</span><span class="n">hidden_layer_input</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="n">dot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">weights_input_hidden</span><span class="p">)</span>
+<span class="n">hidden_layer_output</span> <span class="o">=</span> <span class="n">sigmoid</span><span class="p">(</span><span class="n">hidden_layer_input</span><span class="p">)</span>
+
+<span class="n">output_layer_in</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="n">dot</span><span class="p">(</span><span class="n">hidden_layer_output</span><span class="p">,</span> <span class="n">weights_hidden_output</span><span class="p">)</span>
+<span class="n">output</span> <span class="o">=</span> <span class="n">sigmoid</span><span class="p">(</span><span class="n">output_layer_in</span><span class="p">)</span>
+
+<span class="c1">## Backwards pass
+## TODO: Calculate output error
+</span><span class="n">error</span> <span class="o">=</span> <span class="n">target</span> <span class="o">-</span> <span class="n">output</span>
+
+<span class="c1"># TODO: Calculate error term for output layer
+</span><span class="n">output_error_term</span> <span class="o">=</span> <span class="n">error</span> <span class="o">*</span> <span class="n">output</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">output</span><span class="p">)</span>
+
+<span class="c1"># TODO: Calculate error term for hidden layer
+</span><span class="n">hidden_error_term</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="n">dot</span><span class="p">(</span><span class="n">weights_hidden_output</span><span class="p">,</span> <span class="n">output_error_term</span><span class="p">)</span> <span class="o">*</span> \
+                    <span class="n">hidden_layer_output</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">hidden_layer_output</span><span class="p">)</span>
+
+<span class="c1"># TODO: Calculate change in weights for hidden layer to output layer
+</span><span class="n">delta_w_h_o</span> <span class="o">=</span> <span class="n">learnrate</span> <span class="o">*</span> <span class="n">output_error_term</span> <span class="o">*</span> <span class="n">hidden_layer_output</span>
+
+<span class="c1"># TODO: Calculate change in weights for input layer to hidden layer
+</span><span class="n">delta_w_i_h</span> <span class="o">=</span> <span class="n">learnrate</span> <span class="o">*</span> <span class="n">hidden_error_term</span> <span class="o">*</span> <span class="n">x</span><span class="p">[:,</span> <span class="bp">None</span><span class="p">]</span>
+
+<span class="k">print</span><span class="p">(</span><span class="s">'Change in weights for hidden layer to output layer:'</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">delta_w_h_o</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="s">'Change in weights for input layer to hidden layer:'</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">delta_w_i_h</span><span class="p">)</span>
+
+<span class="s">'''
+Change in weights for hidden layer to output layer:
+[ 0.00804047  0.00555918]
+Change in weights for input layer to hidden layer:
+[[  1.77005547e-04  -5.11178506e-04]
+ [  3.54011093e-05  -1.02235701e-04]
+ [ -7.08022187e-05   2.04471402e-04]]
+'''</span>
+</code></pre></div></div>
+
+<h2 id="backpropagation-with-batch-learning">Backpropagation with batch Learning</h2>
+
+<p>Now we’ve seen that the error term for the output layer is</p>
+
+\[\delta_k = (y_k - \hat{y_k}) f'(a_k)\]
+
+<p>and the error term for the hidden layer is</p>
+
+\[\delta_j = \sum [w_{jk} \delta_k] f'(h_j)\]
+
+<p>For now we’ll only consider a simple network with one hidden layer and one output unit. Here’s the general algorithm for updating the weights with backpropagation:</p>
+
+<ul>
+  <li>
+    <p>Set the weight steps for each layer to zero</p>
+
+    <ul>
+      <li>
+        <p>The input to hidden weights \(\Delta w_{ij} = 0\)</p>
+      </li>
+      <li>
+        <p>The hidden to output weights \(\Delta W_j = 0\)</p>
+      </li>
+    </ul>
+  </li>
+  <li>
+    <p>For each record in the training data:</p>
+
+    <ul>
+      <li>
+        <p>Make a forward pass through the network, calculating the output \(\hat{y}\)</p>
+      </li>
+      <li>
+        <p>Calculate the error gradient in the output unit, \(\delta^o = (y - \hat{y}) f’(z)\) where \(z = \sum W_j a_j\), the input to the output unit.</p>
+      </li>
+      <li>
+        <p>Propagate the errors to the hidden layer \(\delta^h_j = \delta^o W_j f’(h_j)\)</p>
+      </li>
+      <li>
+        <p>Update the weight steps,</p>
+
+        <ul>
+          <li>
+            <p>\(\Delta W_j = \Delta W_j + \delta^o a_j\)</p>
+          </li>
+          <li>
+            <p>\(\Delta w_{ij} = \Delta w_{ij} + \delta^h_j a_i\)</p>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li>
+    <p>Update the weights, where \(\eta\) is the learning rate and \(m\) is the number of records:</p>
+
+    <ul>
+      <li>
+        <p>\(W_j = W_j + \eta \Delta W_j / m\)</p>
+      </li>
+      <li>
+        <p>\(w_{ij} = w_{ij} + \eta \Delta w_{ij} / m\)</p>
+      </li>
+    </ul>
+  </li>
+  <li>
+    <p>Repeat for \(e\) epochs.</p>
+  </li>
+</ul>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="n">np</span>
+<span class="kn">from</span> <span class="nn">data_prep</span> <span class="kn">import</span> <span class="n">features</span><span class="p">,</span> <span class="n">targets</span><span class="p">,</span> <span class="n">features_test</span><span class="p">,</span> <span class="n">targets_test</span>
+
+<span class="n">np</span><span class="p">.</span><span class="n">random</span><span class="p">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">21</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">sigmoid</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="s">"""
+    Calculate sigmoid
+    """</span>
+    <span class="k">return</span> <span class="mi">1</span> <span class="o">/</span> <span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="n">np</span><span class="p">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">x</span><span class="p">))</span>
+
+
+<span class="c1"># Hyperparameters
+</span><span class="n">n_hidden</span> <span class="o">=</span> <span class="mi">2</span>  <span class="c1"># number of hidden units
+</span><span class="n">epochs</span> <span class="o">=</span> <span class="mi">900</span>
+<span class="n">learnrate</span> <span class="o">=</span> <span class="mf">0.005</span>
+
+<span class="n">n_records</span><span class="p">,</span> <span class="n">n_features</span> <span class="o">=</span> <span class="n">features</span><span class="p">.</span><span class="n">shape</span>
+<span class="n">last_loss</span> <span class="o">=</span> <span class="bp">None</span>
+<span class="c1"># Initialize weights
+</span><span class="n">weights_input_hidden</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="n">random</span><span class="p">.</span><span class="n">normal</span><span class="p">(</span><span class="n">scale</span><span class="o">=</span><span class="mi">1</span> <span class="o">/</span> <span class="n">n_features</span> <span class="o">**</span> <span class="p">.</span><span class="mi">5</span><span class="p">,</span>
+                                        <span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="n">n_features</span><span class="p">,</span> <span class="n">n_hidden</span><span class="p">))</span>
+<span class="n">weights_hidden_output</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="n">random</span><span class="p">.</span><span class="n">normal</span><span class="p">(</span><span class="n">scale</span><span class="o">=</span><span class="mi">1</span> <span class="o">/</span> <span class="n">n_features</span> <span class="o">**</span> <span class="p">.</span><span class="mi">5</span><span class="p">,</span>
+                                         <span class="n">size</span><span class="o">=</span><span class="n">n_hidden</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">e</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">epochs</span><span class="p">):</span>
+    <span class="n">del_w_input_hidden</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">weights_input_hidden</span><span class="p">.</span><span class="n">shape</span><span class="p">)</span>
+    <span class="n">del_w_hidden_output</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">weights_hidden_output</span><span class="p">.</span><span class="n">shape</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">features</span><span class="p">.</span><span class="n">values</span><span class="p">,</span> <span class="n">targets</span><span class="p">):</span>
+        <span class="c1">## Forward pass ##
+</span>        <span class="c1"># TODO: Calculate the output
+</span>        <span class="n">hidden_input</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="n">dot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">weights_input_hidden</span><span class="p">)</span>
+        <span class="n">hidden_output</span> <span class="o">=</span> <span class="n">sigmoid</span><span class="p">(</span><span class="n">hidden_input</span><span class="p">)</span>
+        <span class="n">output</span> <span class="o">=</span> <span class="n">sigmoid</span><span class="p">(</span><span class="n">np</span><span class="p">.</span><span class="n">dot</span><span class="p">(</span><span class="n">hidden_output</span><span class="p">,</span> <span class="n">weights_hidden_output</span><span class="p">))</span>
+
+        <span class="c1">## Backward pass ##
+</span>        <span class="c1"># TODO: Calculate the network's prediction error
+</span>        <span class="n">error</span> <span class="o">=</span> <span class="n">y</span> <span class="o">-</span> <span class="n">output</span>
+
+        <span class="c1"># TODO: Calculate error term for the output unit
+</span>        <span class="n">output_error_term</span> <span class="o">=</span> <span class="n">error</span> <span class="o">*</span> <span class="n">output</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">output</span><span class="p">)</span>
+
+        <span class="c1">## propagate errors to hidden layer
+</span>
+        <span class="c1"># TODO: Calculate the hidden layer's contribution to the error
+</span>        <span class="n">hidden_error</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="n">dot</span><span class="p">(</span><span class="n">output_error_term</span><span class="p">,</span> <span class="n">weights_hidden_output</span><span class="p">)</span>
+
+        <span class="c1"># TODO: Calculate the error term for the hidden layer
+</span>        <span class="n">hidden_error_term</span> <span class="o">=</span> <span class="n">hidden_error</span> <span class="o">*</span> <span class="n">hidden_output</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">hidden_output</span><span class="p">)</span>
+
+        <span class="c1"># TODO: Update the change in weights
+</span>        <span class="n">del_w_hidden_output</span> <span class="o">+=</span> <span class="n">hidden_output</span> <span class="o">*</span> <span class="n">output_error_term</span>
+        <span class="n">del_w_input_hidden</span> <span class="o">+=</span> <span class="n">x</span><span class="p">[:,</span> <span class="bp">None</span><span class="p">]</span> <span class="o">*</span> <span class="n">hidden_error_term</span>
+
+    <span class="c1"># TODO: Update weights
+</span>    <span class="n">weights_input_hidden</span> <span class="o">+=</span> <span class="n">learnrate</span> <span class="o">*</span> <span class="n">del_w_input_hidden</span> <span class="o">/</span> <span class="n">n_records</span>
+    <span class="n">weights_hidden_output</span> <span class="o">+=</span> <span class="n">learnrate</span> <span class="o">*</span> <span class="n">del_w_hidden_output</span> <span class="o">/</span> <span class="n">n_records</span>
+
+    <span class="c1"># Printing out the mean square error on the training set
+</span>    <span class="k">if</span> <span class="n">e</span> <span class="o">%</span> <span class="p">(</span><span class="n">epochs</span> <span class="o">/</span> <span class="mi">10</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="n">hidden_output</span> <span class="o">=</span> <span class="n">sigmoid</span><span class="p">(</span><span class="n">np</span><span class="p">.</span><span class="n">dot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">weights_input_hidden</span><span class="p">))</span>
+        <span class="n">out</span> <span class="o">=</span> <span class="n">sigmoid</span><span class="p">(</span><span class="n">np</span><span class="p">.</span><span class="n">dot</span><span class="p">(</span><span class="n">hidden_output</span><span class="p">,</span>
+                             <span class="n">weights_hidden_output</span><span class="p">))</span>
+        <span class="n">loss</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="n">mean</span><span class="p">((</span><span class="n">out</span> <span class="o">-</span> <span class="n">targets</span><span class="p">)</span> <span class="o">**</span> <span class="mi">2</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">last_loss</span> <span class="ow">and</span> <span class="n">last_loss</span> <span class="o">&lt;</span> <span class="n">loss</span><span class="p">:</span>
+            <span class="k">print</span><span class="p">(</span><span class="s">"Train loss: "</span><span class="p">,</span> <span class="n">loss</span><span class="p">,</span> <span class="s">"  WARNING - Loss Increasing"</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">print</span><span class="p">(</span><span class="s">"Train loss: "</span><span class="p">,</span> <span class="n">loss</span><span class="p">)</span>
+        <span class="n">last_loss</span> <span class="o">=</span> <span class="n">loss</span>
+
+<span class="c1"># Calculate accuracy on test data
+</span><span class="n">hidden</span> <span class="o">=</span> <span class="n">sigmoid</span><span class="p">(</span><span class="n">np</span><span class="p">.</span><span class="n">dot</span><span class="p">(</span><span class="n">features_test</span><span class="p">,</span> <span class="n">weights_input_hidden</span><span class="p">))</span>
+<span class="n">out</span> <span class="o">=</span> <span class="n">sigmoid</span><span class="p">(</span><span class="n">np</span><span class="p">.</span><span class="n">dot</span><span class="p">(</span><span class="n">hidden</span><span class="p">,</span> <span class="n">weights_hidden_output</span><span class="p">))</span>
+<span class="n">predictions</span> <span class="o">=</span> <span class="n">out</span> <span class="o">&gt;</span> <span class="mf">0.5</span>
+<span class="n">accuracy</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="n">mean</span><span class="p">(</span><span class="n">predictions</span> <span class="o">==</span> <span class="n">targets_test</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="s">"Prediction accuracy: {:.3f}"</span><span class="p">.</span><span class="nb">format</span><span class="p">(</span><span class="n">accuracy</span><span class="p">))</span>
+
+<span class="s">'''
+Train loss:  0.251357252426
+Train loss:  0.249965407188
+Train loss:  0.248620052189
+Train loss:  0.247319932172
+Train loss:  0.246063804656
+Train loss:  0.244850441793
+Train loss:  0.243678632019
+Train loss:  0.242547181518
+Train loss:  0.241454915502
+Train loss:  0.240400679325
+Prediction accuracy: 0.725
+
+Nice job!  That's right!
+'''</span>
+</code></pre></div></div>
+:ET

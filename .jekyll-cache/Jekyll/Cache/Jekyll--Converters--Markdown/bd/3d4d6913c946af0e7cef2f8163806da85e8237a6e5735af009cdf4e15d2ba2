@@ -1,0 +1,31 @@
+I"È	<p><img src="/images/20160207-Cheetah-100x100.jpg" /></p>
+
+<h2 id="highlights">Highlights</h2>
+
+<ul>
+  <li><em><a href="/images/20160207-BalanceMaster.pdf">Balance Master</a></em> (click to see) is a game simulating the real-life problem of multi-task</li>
+  <li><em><a href="/images/20160207-SurviveCheetah.pdf">Survive!Cheetah</a></em> (click to see) is an update version of <em>Balance Master</em></li>
+</ul>
+
+<h2 id="why-create-this-game">Why create this game?</h2>
+
+<p>This is Week 1 assignment from the course <a href="https://www.coursera.org/learn/game-design">Introduction to Game Design</a>.  The instructions are:</p>
+
+<blockquote>
+  <p>This week you are asked to make a simple game on a single sheet of paper. Your game should include:</p>
+
+  <ol>
+    <li>A clearly articulated goal, and</li>
+    <li>A degree of difficulty enhanced by chance and/or skill.</li>
+    <li>Additionally, you must keep the following limitations in mind:</li>
+  </ol>
+
+  <p>The game should all fit on one piece of paper, ideally letter-sized or A4 so people can print it out, if they wish.  The game should be a one-player game.  A short description and instructions for your game should be at the top of the page.  The only extra thing anyone should need to play are two six-sided dice, which are an optional element you may include in your game. (If you donâ€™t have dice, there are websites that can simulate dice rolls, such as <a href="https://www.random.org/dice">https://www.random.org/dice</a> .)</p>
+</blockquote>
+
+<p>I have been thinking about creating a game that helps people manage their life for a long time - <em><a href="/images/20160207-BalanceMaster.pdf">Balance Master</a></em> (click to see).  Because my boyfriend used to do a very bad job on keeping our relationship along with his study.  I think by playing a game, he may understand the core of the problem better and develop his own strategy to improve the situation.</p>
+
+<h2 id="how-was-the-game-developed">How was the game developed?</h2>
+
+<p>I was inspired by simulation games like <a href="http://www.positech.co.uk/democracy3/">Democracy 3</a>, in which players can manipulate the elements of a system and see the effects along time - they need to balance everything.  And I think time-management is exactly about balancing.  This is my first try on game design, so Balance Master is surely imperfect.  An new version has been developed: <em><a href="/images/20160207-SurviveCheetah.pdf">Survive!Cheetah</a></em> (click to see).</p>
+:ET

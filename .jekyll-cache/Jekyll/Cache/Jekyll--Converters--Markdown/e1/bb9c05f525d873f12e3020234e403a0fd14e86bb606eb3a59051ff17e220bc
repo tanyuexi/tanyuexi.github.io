@@ -1,0 +1,577 @@
+I"ò4<p><img src="/images/20170915-NumpyPandas-Course-319x158.png" /></p>
+
+<p>Udacity course link: <a href="https://www.udacity.com/course/intro-to-data-analysis--ud170">https://www.udacity.com/course/intro-to-data-analysis--ud170</a></p>
+
+<h2 id="numpy-arrays">NumPy arrays</h2>
+
+<p>Be careful when operating NumPy arrays.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="n">np</span>
+<span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">])</span>
+<span class="n">b</span> <span class="o">=</span> <span class="n">a</span>
+<span class="n">a</span> <span class="o">+=</span> <span class="n">np</span><span class="p">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">])</span>   <span class="c1"># In-place, use `b = a.copy()` to avoid
+</span><span class="k">print</span> <span class="n">b</span>   <span class="c1"># [2,3,4,5]
+</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="n">np</span>
+<span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">])</span>
+<span class="n">b</span> <span class="o">=</span> <span class="n">a</span>
+<span class="n">a</span> <span class="o">=</span> <span class="n">a</span> <span class="o">+</span> <span class="n">np</span><span class="p">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">])</span>   <span class="c1"># Not in-place
+</span><span class="k">print</span> <span class="n">b</span>   <span class="c1"># [1,2,3,4]
+</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="n">np</span>
+<span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">])</span>
+<span class="nb">slice</span> <span class="o">=</span> <span class="n">a</span><span class="p">[:</span><span class="mi">3</span><span class="p">]</span>
+<span class="nb">slice</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">100</span>   <span class="c1"># Change even in slicing! Diff from list
+</span><span class="k">print</span> <span class="n">a</span>   <span class="c1"># [100,2,3,4]
+</span></code></pre></div></div>
+
+<h2 id="pandas-series">Pandas series</h2>
+
+<p>Pandas series is similar to NumPy array, but with extra functionality.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="n">pd</span>
+<span class="n">tmp</span> <span class="o">=</span> <span class="n">pd</span><span class="p">.</span><span class="n">Series</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">4</span><span class="p">],</span><span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="s">'a'</span><span class="p">,</span><span class="s">'c'</span><span class="p">,</span><span class="s">'b'</span><span class="p">,</span><span class="s">'d'</span><span class="p">])</span>
+<span class="k">print</span> <span class="n">tmp</span>
+<span class="c1"># Output:
+</span><span class="n">a</span>    <span class="mi">1</span>
+<span class="n">c</span>    <span class="mi">3</span>
+<span class="n">b</span>    <span class="mi">2</span>
+<span class="n">d</span>    <span class="mi">4</span>
+<span class="n">dtype</span><span class="p">:</span> <span class="n">int64</span>
+
+<span class="k">print</span> <span class="n">tmp</span><span class="p">.</span><span class="n">loc</span><span class="p">[</span><span class="s">'c'</span><span class="p">]</span>   <span class="c1"># 3
+</span>
+<span class="k">print</span> <span class="n">tmp</span><span class="p">.</span><span class="n">idxmax</span><span class="p">()</span>   <span class="c1"># d
+</span>
+<span class="c1"># When adding two Pandas Series, only same indexes will be added,
+# otherwise NaN
+</span><span class="n">s1</span> <span class="o">=</span> <span class="n">pd</span><span class="p">.</span><span class="n">Series</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">],</span> <span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="s">'a'</span><span class="p">,</span> <span class="s">'b'</span><span class="p">,</span> <span class="s">'c'</span><span class="p">,</span> <span class="s">'d'</span><span class="p">])</span>
+<span class="n">s2</span> <span class="o">=</span> <span class="n">pd</span><span class="p">.</span><span class="n">Series</span><span class="p">([</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">40</span><span class="p">],</span> <span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="s">'c'</span><span class="p">,</span> <span class="s">'d'</span><span class="p">,</span> <span class="s">'e'</span><span class="p">,</span> <span class="s">'f'</span><span class="p">])</span>
+<span class="k">print</span> <span class="n">s1</span> <span class="o">+</span> <span class="n">s2</span>
+
+<span class="n">s3</span> <span class="o">=</span> <span class="n">s1</span> <span class="o">+</span> <span class="n">s2</span>
+<span class="n">s3</span><span class="p">.</span><span class="n">dropna</span><span class="p">(</span><span class="n">inplace</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>   <span class="c1"># Drop NaN
+# s3.fillna(0, inplace=True)   # Fill NaN with 0
+</span>
+<span class="n">s</span> <span class="o">=</span> <span class="n">pd</span><span class="p">.</span><span class="n">Series</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">])</span>
+<span class="k">def</span> <span class="nf">add_one</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">x</span> <span class="o">+</span> <span class="mi">1</span>
+<span class="k">print</span> <span class="n">s</span><span class="p">.</span><span class="nb">apply</span><span class="p">(</span><span class="n">add_one</span><span class="p">)</span>   <span class="c1"># apply(): vectorized operation
+</span></code></pre></div></div>
+
+<h2 id="numpy-array-2d">NumPy array: 2D</h2>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="n">np</span>
+
+<span class="c1"># Subway ridership for 5 stations on 10 different days
+</span><span class="n">ridership</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="n">array</span><span class="p">([</span>
+    <span class="p">[</span>   <span class="mi">0</span><span class="p">,</span>    <span class="mi">0</span><span class="p">,</span>    <span class="mi">2</span><span class="p">,</span>    <span class="mi">5</span><span class="p">,</span>    <span class="mi">0</span><span class="p">],</span>
+    <span class="p">[</span><span class="mi">1478</span><span class="p">,</span> <span class="mi">3877</span><span class="p">,</span> <span class="mi">3674</span><span class="p">,</span> <span class="mi">2328</span><span class="p">,</span> <span class="mi">2539</span><span class="p">],</span>
+    <span class="p">[</span><span class="mi">1613</span><span class="p">,</span> <span class="mi">4088</span><span class="p">,</span> <span class="mi">3991</span><span class="p">,</span> <span class="mi">6461</span><span class="p">,</span> <span class="mi">2691</span><span class="p">],</span>
+    <span class="p">[</span><span class="mi">1560</span><span class="p">,</span> <span class="mi">3392</span><span class="p">,</span> <span class="mi">3826</span><span class="p">,</span> <span class="mi">4787</span><span class="p">,</span> <span class="mi">2613</span><span class="p">],</span>
+    <span class="p">[</span><span class="mi">1608</span><span class="p">,</span> <span class="mi">4802</span><span class="p">,</span> <span class="mi">3932</span><span class="p">,</span> <span class="mi">4477</span><span class="p">,</span> <span class="mi">2705</span><span class="p">],</span>
+    <span class="p">[</span><span class="mi">1576</span><span class="p">,</span> <span class="mi">3933</span><span class="p">,</span> <span class="mi">3909</span><span class="p">,</span> <span class="mi">4979</span><span class="p">,</span> <span class="mi">2685</span><span class="p">],</span>
+    <span class="p">[</span>  <span class="mi">95</span><span class="p">,</span>  <span class="mi">229</span><span class="p">,</span>  <span class="mi">255</span><span class="p">,</span>  <span class="mi">496</span><span class="p">,</span>  <span class="mi">201</span><span class="p">],</span>
+    <span class="p">[</span>   <span class="mi">2</span><span class="p">,</span>    <span class="mi">0</span><span class="p">,</span>    <span class="mi">1</span><span class="p">,</span>   <span class="mi">27</span><span class="p">,</span>    <span class="mi">0</span><span class="p">],</span>
+    <span class="p">[</span><span class="mi">1438</span><span class="p">,</span> <span class="mi">3785</span><span class="p">,</span> <span class="mi">3589</span><span class="p">,</span> <span class="mi">4174</span><span class="p">,</span> <span class="mi">2215</span><span class="p">],</span>
+    <span class="p">[</span><span class="mi">1342</span><span class="p">,</span> <span class="mi">4043</span><span class="p">,</span> <span class="mi">4009</span><span class="p">,</span> <span class="mi">4665</span><span class="p">,</span> <span class="mi">3033</span><span class="p">]</span>
+<span class="p">])</span>
+
+<span class="c1"># Change False to True for each block of code to see what it does
+</span>
+<span class="c1"># Accessing elements
+</span><span class="k">print</span> <span class="n">ridership</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
+<span class="k">print</span> <span class="n">ridership</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">:</span><span class="mi">5</span><span class="p">]</span>
+<span class="k">print</span> <span class="n">ridership</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="p">:]</span>
+
+<span class="c1"># Vectorized operations on rows or columns
+</span><span class="k">print</span> <span class="n">ridership</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="p">:]</span> <span class="o">+</span> <span class="n">ridership</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="p">:]</span>
+<span class="k">print</span> <span class="n">ridership</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="n">ridership</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">]</span>
+
+<span class="c1"># Vectorized operations on entire arrays
+</span><span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">],</span> <span class="p">[</span><span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">]])</span>
+<span class="n">b</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">]])</span>
+<span class="k">print</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span>
+</code></pre></div></div>
+
+<h2 id="numpy-axis">NumPy axis</h2>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="n">np</span>
+
+<span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="n">array</span><span class="p">([</span>
+    <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span>
+    <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">],</span>
+    <span class="p">[</span><span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">]</span>
+<span class="p">])</span>
+
+<span class="k">print</span> <span class="n">a</span><span class="p">.</span><span class="nb">sum</span><span class="p">()</span>   <span class="c1"># 45
+</span><span class="k">print</span> <span class="n">a</span><span class="p">.</span><span class="nb">sum</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>   <span class="c1"># [12 15 18]
+</span><span class="k">print</span> <span class="n">a</span><span class="p">.</span><span class="nb">sum</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>   <span class="c1"># [ 6 15 24]
+</span></code></pre></div></div>
+
+<h2 id="accessing-data-from-a-pandas-dataframe">Accessing data from a Pandas DataFrame</h2>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="n">pd</span>
+
+<span class="c1"># Subway ridership for 5 stations on 10 different days
+</span><span class="n">ridership_df</span> <span class="o">=</span> <span class="n">pd</span><span class="p">.</span><span class="n">DataFrame</span><span class="p">(</span>
+    <span class="n">data</span><span class="o">=</span><span class="p">[[</span>   <span class="mi">0</span><span class="p">,</span>    <span class="mi">0</span><span class="p">,</span>    <span class="mi">2</span><span class="p">,</span>    <span class="mi">5</span><span class="p">,</span>    <span class="mi">0</span><span class="p">],</span>
+          <span class="p">[</span><span class="mi">1478</span><span class="p">,</span> <span class="mi">3877</span><span class="p">,</span> <span class="mi">3674</span><span class="p">,</span> <span class="mi">2328</span><span class="p">,</span> <span class="mi">2539</span><span class="p">],</span>
+          <span class="p">[</span><span class="mi">1613</span><span class="p">,</span> <span class="mi">4088</span><span class="p">,</span> <span class="mi">3991</span><span class="p">,</span> <span class="mi">6461</span><span class="p">,</span> <span class="mi">2691</span><span class="p">],</span>
+          <span class="p">[</span><span class="mi">1560</span><span class="p">,</span> <span class="mi">3392</span><span class="p">,</span> <span class="mi">3826</span><span class="p">,</span> <span class="mi">4787</span><span class="p">,</span> <span class="mi">2613</span><span class="p">],</span>
+          <span class="p">[</span><span class="mi">1608</span><span class="p">,</span> <span class="mi">4802</span><span class="p">,</span> <span class="mi">3932</span><span class="p">,</span> <span class="mi">4477</span><span class="p">,</span> <span class="mi">2705</span><span class="p">],</span>
+          <span class="p">[</span><span class="mi">1576</span><span class="p">,</span> <span class="mi">3933</span><span class="p">,</span> <span class="mi">3909</span><span class="p">,</span> <span class="mi">4979</span><span class="p">,</span> <span class="mi">2685</span><span class="p">],</span>
+          <span class="p">[</span>  <span class="mi">95</span><span class="p">,</span>  <span class="mi">229</span><span class="p">,</span>  <span class="mi">255</span><span class="p">,</span>  <span class="mi">496</span><span class="p">,</span>  <span class="mi">201</span><span class="p">],</span>
+          <span class="p">[</span>   <span class="mi">2</span><span class="p">,</span>    <span class="mi">0</span><span class="p">,</span>    <span class="mi">1</span><span class="p">,</span>   <span class="mi">27</span><span class="p">,</span>    <span class="mi">0</span><span class="p">],</span>
+          <span class="p">[</span><span class="mi">1438</span><span class="p">,</span> <span class="mi">3785</span><span class="p">,</span> <span class="mi">3589</span><span class="p">,</span> <span class="mi">4174</span><span class="p">,</span> <span class="mi">2215</span><span class="p">],</span>
+          <span class="p">[</span><span class="mi">1342</span><span class="p">,</span> <span class="mi">4043</span><span class="p">,</span> <span class="mi">4009</span><span class="p">,</span> <span class="mi">4665</span><span class="p">,</span> <span class="mi">3033</span><span class="p">]],</span>
+    <span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="s">'05-01-11'</span><span class="p">,</span> <span class="s">'05-02-11'</span><span class="p">,</span> <span class="s">'05-03-11'</span><span class="p">,</span> <span class="s">'05-04-11'</span><span class="p">,</span> <span class="s">'05-05-11'</span><span class="p">,</span>
+           <span class="s">'05-06-11'</span><span class="p">,</span> <span class="s">'05-07-11'</span><span class="p">,</span> <span class="s">'05-08-11'</span><span class="p">,</span> <span class="s">'05-09-11'</span><span class="p">,</span> <span class="s">'05-10-11'</span><span class="p">],</span>
+    <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s">'R003'</span><span class="p">,</span> <span class="s">'R004'</span><span class="p">,</span> <span class="s">'R005'</span><span class="p">,</span> <span class="s">'R006'</span><span class="p">,</span> <span class="s">'R007'</span><span class="p">]</span>
+<span class="p">)</span>
+
+<span class="c1"># Change False to True for each block of code to see what it does
+</span>
+<span class="c1"># DataFrame creation
+# You can create a DataFrame out of a dictionary mapping column names to values
+</span><span class="n">df_1</span> <span class="o">=</span> <span class="n">pd</span><span class="p">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s">'A'</span><span class="p">:</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="s">'B'</span><span class="p">:</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">]})</span>
+<span class="k">print</span> <span class="n">df_1</span>
+<span class="c1"># You can also use a list of lists or a 2D NumPy array
+</span><span class="n">df_2</span> <span class="o">=</span> <span class="n">pd</span><span class="p">.</span><span class="n">DataFrame</span><span class="p">([[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">]],</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s">'A'</span><span class="p">,</span> <span class="s">'B'</span><span class="p">,</span> <span class="s">'C'</span><span class="p">])</span>
+<span class="k">print</span> <span class="n">df_2</span>
+
+<span class="c1"># Accessing elements
+</span><span class="k">print</span> <span class="n">ridership_df</span><span class="p">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="k">print</span> <span class="n">ridership_df</span><span class="p">.</span><span class="n">loc</span><span class="p">[</span><span class="s">'05-05-11'</span><span class="p">]</span>
+<span class="k">print</span> <span class="n">ridership_df</span><span class="p">[</span><span class="s">'R003'</span><span class="p">]</span>
+<span class="k">print</span> <span class="n">ridership_df</span><span class="p">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
+
+<span class="c1"># Accessing multiple rows
+</span><span class="k">print</span> <span class="n">ridership_df</span><span class="p">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="mi">4</span><span class="p">]</span>
+
+<span class="c1"># Accessing multiple columns
+</span><span class="k">print</span> <span class="n">ridership_df</span><span class="p">[[</span><span class="s">'R003'</span><span class="p">,</span> <span class="s">'R005'</span><span class="p">]]</span>
+
+<span class="c1"># Pandas axis
+</span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="p">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s">'A'</span><span class="p">:</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="s">'B'</span><span class="p">:</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">]})</span>
+<span class="k">print</span> <span class="n">df</span><span class="p">.</span><span class="nb">sum</span><span class="p">()</span>
+<span class="k">print</span> <span class="n">df</span><span class="p">.</span><span class="nb">sum</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="k">print</span> <span class="n">df</span><span class="p">.</span><span class="n">values</span><span class="p">.</span><span class="nb">sum</span><span class="p">()</span>
+<span class="c1"># Instead of axis=0/1, can use axis='index'/'columns'
+</span></code></pre></div></div>
+
+<h2 id="read-in-pandas-dataframe">Read in Pandas DataFrame</h2>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="n">pd</span>
+
+<span class="n">filename</span> <span class="o">=</span> <span class="s">'/datasets/ud170/subway/nyc_subway_weather.csv'</span>
+<span class="n">subway_df</span> <span class="o">=</span> <span class="n">pd</span><span class="p">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span>
+</code></pre></div></div>
+
+<h2 id="dataframe-vectorized-operations">DataFrame vectorized operations</h2>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="n">pd</span>
+
+<span class="c1"># Adding DataFrames with the column names
+</span><span class="n">df1</span> <span class="o">=</span> <span class="n">pd</span><span class="p">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s">'a'</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="s">'b'</span><span class="p">:</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">],</span> <span class="s">'c'</span><span class="p">:</span> <span class="p">[</span><span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">]})</span>
+<span class="n">df2</span> <span class="o">=</span> <span class="n">pd</span><span class="p">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s">'a'</span><span class="p">:</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">30</span><span class="p">],</span> <span class="s">'b'</span><span class="p">:</span> <span class="p">[</span><span class="mi">40</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">60</span><span class="p">],</span> <span class="s">'c'</span><span class="p">:</span> <span class="p">[</span><span class="mi">70</span><span class="p">,</span> <span class="mi">80</span><span class="p">,</span> <span class="mi">90</span><span class="p">]})</span>
+<span class="k">print</span> <span class="n">df1</span> <span class="o">+</span> <span class="n">df2</span>
+
+    <span class="n">a</span>   <span class="n">b</span>   <span class="n">c</span>
+<span class="mi">0</span>  <span class="mi">11</span>  <span class="mi">44</span>  <span class="mi">77</span>
+<span class="mi">1</span>  <span class="mi">22</span>  <span class="mi">55</span>  <span class="mi">88</span>
+<span class="mi">2</span>  <span class="mi">33</span>  <span class="mi">66</span>  <span class="mi">99</span>
+
+<span class="c1"># Adding DataFrames with overlapping column names
+</span><span class="n">df1</span> <span class="o">=</span> <span class="n">pd</span><span class="p">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s">'a'</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="s">'b'</span><span class="p">:</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">],</span> <span class="s">'c'</span><span class="p">:</span> <span class="p">[</span><span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">]})</span>
+<span class="n">df2</span> <span class="o">=</span> <span class="n">pd</span><span class="p">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s">'d'</span><span class="p">:</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">30</span><span class="p">],</span> <span class="s">'c'</span><span class="p">:</span> <span class="p">[</span><span class="mi">40</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">60</span><span class="p">],</span> <span class="s">'b'</span><span class="p">:</span> <span class="p">[</span><span class="mi">70</span><span class="p">,</span> <span class="mi">80</span><span class="p">,</span> <span class="mi">90</span><span class="p">]})</span>
+<span class="k">print</span> <span class="n">df1</span> <span class="o">+</span> <span class="n">df2</span>
+
+    <span class="n">a</span>   <span class="n">b</span>   <span class="n">c</span>   <span class="n">d</span>
+<span class="mi">0</span> <span class="n">NaN</span>  <span class="mi">74</span>  <span class="mi">47</span> <span class="n">NaN</span>
+<span class="mi">1</span> <span class="n">NaN</span>  <span class="mi">85</span>  <span class="mi">58</span> <span class="n">NaN</span>
+<span class="mi">2</span> <span class="n">NaN</span>  <span class="mi">96</span>  <span class="mi">69</span> <span class="n">NaN</span>
+
+<span class="c1"># Adding DataFrames with overlapping row indexes
+</span><span class="n">df1</span> <span class="o">=</span> <span class="n">pd</span><span class="p">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s">'a'</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="s">'b'</span><span class="p">:</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">],</span> <span class="s">'c'</span><span class="p">:</span> <span class="p">[</span><span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">]},</span>
+                   <span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="s">'row1'</span><span class="p">,</span> <span class="s">'row2'</span><span class="p">,</span> <span class="s">'row3'</span><span class="p">])</span>
+<span class="n">df2</span> <span class="o">=</span> <span class="n">pd</span><span class="p">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s">'a'</span><span class="p">:</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">30</span><span class="p">],</span> <span class="s">'b'</span><span class="p">:</span> <span class="p">[</span><span class="mi">40</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">60</span><span class="p">],</span> <span class="s">'c'</span><span class="p">:</span> <span class="p">[</span><span class="mi">70</span><span class="p">,</span> <span class="mi">80</span><span class="p">,</span> <span class="mi">90</span><span class="p">]},</span>
+                   <span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="s">'row4'</span><span class="p">,</span> <span class="s">'row3'</span><span class="p">,</span> <span class="s">'row2'</span><span class="p">])</span>
+<span class="k">print</span> <span class="n">df1</span> <span class="o">+</span> <span class="n">df2</span>
+
+         <span class="n">a</span>     <span class="n">b</span>     <span class="n">c</span>
+<span class="n">row1</span>   <span class="n">NaN</span>   <span class="n">NaN</span>   <span class="n">NaN</span>
+<span class="n">row2</span>  <span class="mf">32.0</span>  <span class="mf">65.0</span>  <span class="mf">98.0</span>
+<span class="n">row3</span>  <span class="mf">23.0</span>  <span class="mf">56.0</span>  <span class="mf">89.0</span>
+<span class="n">row4</span>   <span class="n">NaN</span>   <span class="n">NaN</span>   <span class="n">NaN</span>
+
+<span class="c1"># DataFrame applymap(): operate on one element a time
+</span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="p">.</span><span class="n">DataFrame</span><span class="p">({</span>
+    <span class="s">'a'</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span>
+    <span class="s">'b'</span><span class="p">:</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">30</span><span class="p">],</span>
+    <span class="s">'c'</span><span class="p">:</span> <span class="p">[</span><span class="mi">5</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">15</span><span class="p">]</span>
+<span class="p">})</span>
+
+<span class="k">def</span> <span class="nf">add_one</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">x</span> <span class="o">+</span> <span class="mi">1</span>
+
+<span class="k">print</span> <span class="n">df</span><span class="p">.</span><span class="n">applymap</span><span class="p">(</span><span class="n">add_one</span><span class="p">)</span>
+
+   <span class="n">a</span>   <span class="n">b</span>   <span class="n">c</span>
+<span class="mi">0</span>  <span class="mi">2</span>  <span class="mi">11</span>   <span class="mi">6</span>
+<span class="mi">1</span>  <span class="mi">3</span>  <span class="mi">21</span>  <span class="mi">11</span>
+<span class="mi">2</span>  <span class="mi">4</span>  <span class="mi">31</span>  <span class="mi">16</span>
+
+<span class="c1"># DataFrame apply(): operate on one column a time
+</span>
+<span class="n">grades_df</span> <span class="o">=</span> <span class="n">pd</span><span class="p">.</span><span class="n">DataFrame</span><span class="p">(</span>
+    <span class="n">data</span><span class="o">=</span><span class="p">{</span><span class="s">'exam1'</span><span class="p">:</span> <span class="p">[</span><span class="mi">43</span><span class="p">,</span> <span class="mi">81</span><span class="p">,</span> <span class="mi">78</span><span class="p">,</span> <span class="mi">75</span><span class="p">,</span> <span class="mi">89</span><span class="p">,</span> <span class="mi">70</span><span class="p">,</span> <span class="mi">91</span><span class="p">,</span> <span class="mi">65</span><span class="p">,</span> <span class="mi">98</span><span class="p">,</span> <span class="mi">87</span><span class="p">],</span>
+          <span class="s">'exam2'</span><span class="p">:</span> <span class="p">[</span><span class="mi">24</span><span class="p">,</span> <span class="mi">63</span><span class="p">,</span> <span class="mi">56</span><span class="p">,</span> <span class="mi">56</span><span class="p">,</span> <span class="mi">67</span><span class="p">,</span> <span class="mi">51</span><span class="p">,</span> <span class="mi">79</span><span class="p">,</span> <span class="mi">46</span><span class="p">,</span> <span class="mi">72</span><span class="p">,</span> <span class="mi">60</span><span class="p">]},</span>
+    <span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="s">'Andre'</span><span class="p">,</span> <span class="s">'Barry'</span><span class="p">,</span> <span class="s">'Chris'</span><span class="p">,</span> <span class="s">'Dan'</span><span class="p">,</span> <span class="s">'Emilio'</span><span class="p">,</span>
+           <span class="s">'Fred'</span><span class="p">,</span> <span class="s">'Greta'</span><span class="p">,</span> <span class="s">'Humbert'</span><span class="p">,</span> <span class="s">'Ivan'</span><span class="p">,</span> <span class="s">'James'</span><span class="p">]</span>
+<span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">convert_grades_curve</span><span class="p">(</span><span class="n">exam_grades</span><span class="p">):</span>
+    <span class="c1"># Pandas has a bult-in function that will perform this calculation
+</span>    <span class="c1"># This will give the bottom 0% to 10% of students the grade 'F',
+</span>    <span class="c1"># 10% to 20% the grade 'D', and so on. You can read more about
+</span>    <span class="c1"># the qcut() function here:
+</span>    <span class="c1"># http://pandas.pydata.org/pandas-docs/stable/generated/pandas.qcut.html
+</span>    <span class="k">return</span> <span class="n">pd</span><span class="p">.</span><span class="n">qcut</span><span class="p">(</span><span class="n">exam_grades</span><span class="p">,</span>
+                   <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.8</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span>
+                   <span class="n">labels</span><span class="o">=</span><span class="p">[</span><span class="s">'F'</span><span class="p">,</span> <span class="s">'D'</span><span class="p">,</span> <span class="s">'C'</span><span class="p">,</span> <span class="s">'B'</span><span class="p">,</span> <span class="s">'A'</span><span class="p">])</span>
+
+<span class="c1"># qcut() operates on a list, array, or Series. This is the
+# result of running the function on a single column of the
+# DataFrame.
+</span><span class="k">print</span> <span class="n">convert_grades_curve</span><span class="p">(</span><span class="n">grades_df</span><span class="p">[</span><span class="s">'exam1'</span><span class="p">])</span>
+
+<span class="n">Andre</span>      <span class="n">F</span>
+<span class="n">Barry</span>      <span class="n">B</span>
+<span class="n">Chris</span>      <span class="n">C</span>
+<span class="n">Dan</span>        <span class="n">C</span>
+<span class="n">Emilio</span>     <span class="n">B</span>
+<span class="n">Fred</span>       <span class="n">C</span>
+<span class="n">Greta</span>      <span class="n">A</span>
+<span class="n">Humbert</span>    <span class="n">D</span>
+<span class="n">Ivan</span>       <span class="n">A</span>
+<span class="n">James</span>      <span class="n">B</span>
+<span class="n">Name</span><span class="p">:</span> <span class="n">exam1</span><span class="p">,</span> <span class="n">dtype</span><span class="p">:</span> <span class="n">category</span>
+<span class="n">Categories</span> <span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="nb">object</span><span class="p">):</span> <span class="p">[</span><span class="n">F</span> <span class="o">&lt;</span> <span class="n">D</span> <span class="o">&lt;</span> <span class="n">C</span> <span class="o">&lt;</span> <span class="n">B</span> <span class="o">&lt;</span> <span class="n">A</span><span class="p">]</span>
+
+<span class="c1"># qcut() does not work on DataFrames, but we can use apply()
+# to call the function on each column separately
+</span><span class="k">print</span> <span class="n">grades_df</span><span class="p">.</span><span class="nb">apply</span><span class="p">(</span><span class="n">convert_grades_curve</span><span class="p">)</span>
+
+        <span class="n">exam1</span> <span class="n">exam2</span>
+<span class="n">Andre</span>       <span class="n">F</span>     <span class="n">F</span>
+<span class="n">Barry</span>       <span class="n">B</span>     <span class="n">B</span>
+<span class="n">Chris</span>       <span class="n">C</span>     <span class="n">C</span>
+<span class="n">Dan</span>         <span class="n">C</span>     <span class="n">C</span>
+<span class="n">Emilio</span>      <span class="n">B</span>     <span class="n">B</span>
+<span class="n">Fred</span>        <span class="n">C</span>     <span class="n">C</span>
+<span class="n">Greta</span>       <span class="n">A</span>     <span class="n">A</span>
+<span class="n">Humbert</span>     <span class="n">D</span>     <span class="n">D</span>
+<span class="n">Ivan</span>        <span class="n">A</span>     <span class="n">A</span>
+<span class="n">James</span>       <span class="n">B</span>     <span class="n">B</span>
+</code></pre></div></div>
+
+<h2 id="adding-a-dataframe-to-a-series">Adding a DataFrame to a Series:</h2>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="n">pd</span>
+
+<span class="c1"># Adding a Series to a square DataFrame
+</span><span class="n">s</span> <span class="o">=</span> <span class="n">pd</span><span class="p">.</span><span class="n">Series</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">])</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="p">.</span><span class="n">DataFrame</span><span class="p">({</span>
+    <span class="mi">0</span><span class="p">:</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">40</span><span class="p">],</span>
+    <span class="mi">1</span><span class="p">:</span> <span class="p">[</span><span class="mi">50</span><span class="p">,</span> <span class="mi">60</span><span class="p">,</span> <span class="mi">70</span><span class="p">,</span> <span class="mi">80</span><span class="p">],</span>
+    <span class="mi">2</span><span class="p">:</span> <span class="p">[</span><span class="mi">90</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">110</span><span class="p">,</span> <span class="mi">120</span><span class="p">],</span>
+    <span class="mi">3</span><span class="p">:</span> <span class="p">[</span><span class="mi">130</span><span class="p">,</span> <span class="mi">140</span><span class="p">,</span> <span class="mi">150</span><span class="p">,</span> <span class="mi">160</span><span class="p">]</span>
+<span class="p">})</span>
+
+<span class="k">print</span> <span class="n">df</span>
+<span class="k">print</span> <span class="s">''</span> <span class="c1"># Create a blank line between outputs
+</span><span class="k">print</span> <span class="n">df</span> <span class="o">+</span> <span class="n">s</span>
+
+    <span class="mi">0</span>   <span class="mi">1</span>    <span class="mi">2</span>    <span class="mi">3</span>
+<span class="mi">0</span>  <span class="mi">10</span>  <span class="mi">50</span>   <span class="mi">90</span>  <span class="mi">130</span>
+<span class="mi">1</span>  <span class="mi">20</span>  <span class="mi">60</span>  <span class="mi">100</span>  <span class="mi">140</span>
+<span class="mi">2</span>  <span class="mi">30</span>  <span class="mi">70</span>  <span class="mi">110</span>  <span class="mi">150</span>
+<span class="mi">3</span>  <span class="mi">40</span>  <span class="mi">80</span>  <span class="mi">120</span>  <span class="mi">160</span>
+
+    <span class="mi">0</span>   <span class="mi">1</span>    <span class="mi">2</span>    <span class="mi">3</span>
+<span class="mi">0</span>  <span class="mi">11</span>  <span class="mi">52</span>   <span class="mi">93</span>  <span class="mi">134</span>
+<span class="mi">1</span>  <span class="mi">21</span>  <span class="mi">62</span>  <span class="mi">103</span>  <span class="mi">144</span>
+<span class="mi">2</span>  <span class="mi">31</span>  <span class="mi">72</span>  <span class="mi">113</span>  <span class="mi">154</span>
+<span class="mi">3</span>  <span class="mi">41</span>  <span class="mi">82</span>  <span class="mi">123</span>  <span class="mi">164</span>
+
+<span class="c1"># Adding a Series to a one-row DataFrame
+</span><span class="n">s</span> <span class="o">=</span> <span class="n">pd</span><span class="p">.</span><span class="n">Series</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">])</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="p">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="mi">0</span><span class="p">:</span> <span class="p">[</span><span class="mi">10</span><span class="p">],</span> <span class="mi">1</span><span class="p">:</span> <span class="p">[</span><span class="mi">20</span><span class="p">],</span> <span class="mi">2</span><span class="p">:</span> <span class="p">[</span><span class="mi">30</span><span class="p">],</span> <span class="mi">3</span><span class="p">:</span> <span class="p">[</span><span class="mi">40</span><span class="p">]})</span>
+
+<span class="k">print</span> <span class="n">df</span>
+<span class="k">print</span> <span class="s">''</span> <span class="c1"># Create a blank line between outputs
+</span><span class="k">print</span> <span class="n">df</span> <span class="o">+</span> <span class="n">s</span>
+
+<span class="c1"># Adding a Series to a one-column DataFrame
+</span><span class="n">s</span> <span class="o">=</span> <span class="n">pd</span><span class="p">.</span><span class="n">Series</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">])</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="p">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="mi">0</span><span class="p">:</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">40</span><span class="p">]})</span>
+
+<span class="k">print</span> <span class="n">df</span>
+<span class="k">print</span> <span class="s">''</span> <span class="c1"># Create a blank line between outputs
+</span><span class="k">print</span> <span class="n">df</span> <span class="o">+</span> <span class="n">s</span>
+
+    <span class="mi">0</span>
+<span class="mi">0</span>  <span class="mi">10</span>
+<span class="mi">1</span>  <span class="mi">20</span>
+<span class="mi">2</span>  <span class="mi">30</span>
+<span class="mi">3</span>  <span class="mi">40</span>
+
+    <span class="mi">0</span>   <span class="mi">1</span>   <span class="mi">2</span>   <span class="mi">3</span>
+<span class="mi">0</span>  <span class="mi">11</span> <span class="n">NaN</span> <span class="n">NaN</span> <span class="n">NaN</span>
+<span class="mi">1</span>  <span class="mi">21</span> <span class="n">NaN</span> <span class="n">NaN</span> <span class="n">NaN</span>
+<span class="mi">2</span>  <span class="mi">31</span> <span class="n">NaN</span> <span class="n">NaN</span> <span class="n">NaN</span>
+<span class="mi">3</span>  <span class="mi">41</span> <span class="n">NaN</span> <span class="n">NaN</span> <span class="n">NaN</span>
+
+<span class="c1"># Adding when DataFrame column names match Series index
+</span><span class="n">s</span> <span class="o">=</span> <span class="n">pd</span><span class="p">.</span><span class="n">Series</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">],</span> <span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="s">'a'</span><span class="p">,</span> <span class="s">'b'</span><span class="p">,</span> <span class="s">'c'</span><span class="p">,</span> <span class="s">'d'</span><span class="p">])</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="p">.</span><span class="n">DataFrame</span><span class="p">({</span>
+    <span class="s">'a'</span><span class="p">:</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">40</span><span class="p">],</span>
+    <span class="s">'b'</span><span class="p">:</span> <span class="p">[</span><span class="mi">50</span><span class="p">,</span> <span class="mi">60</span><span class="p">,</span> <span class="mi">70</span><span class="p">,</span> <span class="mi">80</span><span class="p">],</span>
+    <span class="s">'c'</span><span class="p">:</span> <span class="p">[</span><span class="mi">90</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">110</span><span class="p">,</span> <span class="mi">120</span><span class="p">],</span>
+    <span class="s">'d'</span><span class="p">:</span> <span class="p">[</span><span class="mi">130</span><span class="p">,</span> <span class="mi">140</span><span class="p">,</span> <span class="mi">150</span><span class="p">,</span> <span class="mi">160</span><span class="p">]</span>
+<span class="p">})</span>
+
+<span class="k">print</span> <span class="n">df</span>
+<span class="k">print</span> <span class="s">''</span> <span class="c1"># Create a blank line between outputs
+</span><span class="k">print</span> <span class="n">df</span> <span class="o">+</span> <span class="n">s</span>
+
+    <span class="n">a</span>   <span class="n">b</span>    <span class="n">c</span>    <span class="n">d</span>
+<span class="mi">0</span>  <span class="mi">10</span>  <span class="mi">50</span>   <span class="mi">90</span>  <span class="mi">130</span>
+<span class="mi">1</span>  <span class="mi">20</span>  <span class="mi">60</span>  <span class="mi">100</span>  <span class="mi">140</span>
+<span class="mi">2</span>  <span class="mi">30</span>  <span class="mi">70</span>  <span class="mi">110</span>  <span class="mi">150</span>
+<span class="mi">3</span>  <span class="mi">40</span>  <span class="mi">80</span>  <span class="mi">120</span>  <span class="mi">160</span>
+
+    <span class="n">a</span>   <span class="n">b</span>    <span class="n">c</span>    <span class="n">d</span>
+<span class="mi">0</span>  <span class="mi">11</span>  <span class="mi">52</span>   <span class="mi">93</span>  <span class="mi">134</span>
+<span class="mi">1</span>  <span class="mi">21</span>  <span class="mi">62</span>  <span class="mi">103</span>  <span class="mi">144</span>
+<span class="mi">2</span>  <span class="mi">31</span>  <span class="mi">72</span>  <span class="mi">113</span>  <span class="mi">154</span>
+<span class="mi">3</span>  <span class="mi">41</span>  <span class="mi">82</span>  <span class="mi">123</span>  <span class="mi">164</span>
+
+<span class="c1"># Adding when DataFrame column names don't match Series index
+</span><span class="n">s</span> <span class="o">=</span> <span class="n">pd</span><span class="p">.</span><span class="n">Series</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">])</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="p">.</span><span class="n">DataFrame</span><span class="p">({</span>
+    <span class="s">'a'</span><span class="p">:</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">40</span><span class="p">],</span>
+    <span class="s">'b'</span><span class="p">:</span> <span class="p">[</span><span class="mi">50</span><span class="p">,</span> <span class="mi">60</span><span class="p">,</span> <span class="mi">70</span><span class="p">,</span> <span class="mi">80</span><span class="p">],</span>
+    <span class="s">'c'</span><span class="p">:</span> <span class="p">[</span><span class="mi">90</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">110</span><span class="p">,</span> <span class="mi">120</span><span class="p">],</span>
+    <span class="s">'d'</span><span class="p">:</span> <span class="p">[</span><span class="mi">130</span><span class="p">,</span> <span class="mi">140</span><span class="p">,</span> <span class="mi">150</span><span class="p">,</span> <span class="mi">160</span><span class="p">]</span>
+<span class="p">})</span>
+
+<span class="k">print</span> <span class="n">df</span>
+<span class="k">print</span> <span class="s">''</span> <span class="c1"># Create a blank line between outputs
+</span><span class="k">print</span> <span class="n">df</span> <span class="o">+</span> <span class="n">s</span>
+
+    <span class="n">a</span>   <span class="n">b</span>    <span class="n">c</span>    <span class="n">d</span>
+<span class="mi">0</span>  <span class="mi">10</span>  <span class="mi">50</span>   <span class="mi">90</span>  <span class="mi">130</span>
+<span class="mi">1</span>  <span class="mi">20</span>  <span class="mi">60</span>  <span class="mi">100</span>  <span class="mi">140</span>
+<span class="mi">2</span>  <span class="mi">30</span>  <span class="mi">70</span>  <span class="mi">110</span>  <span class="mi">150</span>
+<span class="mi">3</span>  <span class="mi">40</span>  <span class="mi">80</span>  <span class="mi">120</span>  <span class="mi">160</span>
+
+    <span class="mi">0</span>   <span class="mi">1</span>   <span class="mi">2</span>   <span class="mi">3</span>   <span class="n">a</span>   <span class="n">b</span>   <span class="n">c</span>   <span class="n">d</span>
+<span class="mi">0</span> <span class="n">NaN</span> <span class="n">NaN</span> <span class="n">NaN</span> <span class="n">NaN</span> <span class="n">NaN</span> <span class="n">NaN</span> <span class="n">NaN</span> <span class="n">NaN</span>
+<span class="mi">1</span> <span class="n">NaN</span> <span class="n">NaN</span> <span class="n">NaN</span> <span class="n">NaN</span> <span class="n">NaN</span> <span class="n">NaN</span> <span class="n">NaN</span> <span class="n">NaN</span>
+<span class="mi">2</span> <span class="n">NaN</span> <span class="n">NaN</span> <span class="n">NaN</span> <span class="n">NaN</span> <span class="n">NaN</span> <span class="n">NaN</span> <span class="n">NaN</span> <span class="n">NaN</span>
+<span class="mi">3</span> <span class="n">NaN</span> <span class="n">NaN</span> <span class="n">NaN</span> <span class="n">NaN</span> <span class="n">NaN</span> <span class="n">NaN</span> <span class="n">NaN</span> <span class="n">NaN</span>
+
+<span class="c1"># Adding using +
+</span><span class="n">s</span> <span class="o">=</span> <span class="n">pd</span><span class="p">.</span><span class="n">Series</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">])</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="p">.</span><span class="n">DataFrame</span><span class="p">({</span>
+    <span class="mi">0</span><span class="p">:</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">40</span><span class="p">],</span>
+    <span class="mi">1</span><span class="p">:</span> <span class="p">[</span><span class="mi">50</span><span class="p">,</span> <span class="mi">60</span><span class="p">,</span> <span class="mi">70</span><span class="p">,</span> <span class="mi">80</span><span class="p">],</span>
+    <span class="mi">2</span><span class="p">:</span> <span class="p">[</span><span class="mi">90</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">110</span><span class="p">,</span> <span class="mi">120</span><span class="p">],</span>
+    <span class="mi">3</span><span class="p">:</span> <span class="p">[</span><span class="mi">130</span><span class="p">,</span> <span class="mi">140</span><span class="p">,</span> <span class="mi">150</span><span class="p">,</span> <span class="mi">160</span><span class="p">]</span>
+<span class="p">})</span>
+
+<span class="k">print</span> <span class="n">df</span>
+<span class="k">print</span> <span class="s">''</span> <span class="c1"># Create a blank line between outputs
+</span><span class="k">print</span> <span class="n">df</span> <span class="o">+</span> <span class="n">s</span>
+
+    <span class="mi">0</span>   <span class="mi">1</span>    <span class="mi">2</span>    <span class="mi">3</span>
+<span class="mi">0</span>  <span class="mi">10</span>  <span class="mi">50</span>   <span class="mi">90</span>  <span class="mi">130</span>
+<span class="mi">1</span>  <span class="mi">20</span>  <span class="mi">60</span>  <span class="mi">100</span>  <span class="mi">140</span>
+<span class="mi">2</span>  <span class="mi">30</span>  <span class="mi">70</span>  <span class="mi">110</span>  <span class="mi">150</span>
+<span class="mi">3</span>  <span class="mi">40</span>  <span class="mi">80</span>  <span class="mi">120</span>  <span class="mi">160</span>
+
+    <span class="mi">0</span>   <span class="mi">1</span>    <span class="mi">2</span>    <span class="mi">3</span>
+<span class="mi">0</span>  <span class="mi">11</span>  <span class="mi">52</span>   <span class="mi">93</span>  <span class="mi">134</span>
+<span class="mi">1</span>  <span class="mi">21</span>  <span class="mi">62</span>  <span class="mi">103</span>  <span class="mi">144</span>
+<span class="mi">2</span>  <span class="mi">31</span>  <span class="mi">72</span>  <span class="mi">113</span>  <span class="mi">154</span>
+<span class="mi">3</span>  <span class="mi">41</span>  <span class="mi">82</span>  <span class="mi">123</span>  <span class="mi">164</span>
+
+<span class="c1"># Adding with axis='index'
+</span><span class="k">print</span> <span class="n">df</span><span class="p">.</span><span class="n">add</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="s">'index'</span><span class="p">)</span>
+<span class="c1"># The functions sub(), mul(), and div() work similarly to add()
+</span>
+    <span class="mi">0</span>   <span class="mi">1</span>    <span class="mi">2</span>    <span class="mi">3</span>
+<span class="mi">0</span>  <span class="mi">11</span>  <span class="mi">51</span>   <span class="mi">91</span>  <span class="mi">131</span>
+<span class="mi">1</span>  <span class="mi">22</span>  <span class="mi">62</span>  <span class="mi">102</span>  <span class="mi">142</span>
+<span class="mi">2</span>  <span class="mi">33</span>  <span class="mi">73</span>  <span class="mi">113</span>  <span class="mi">153</span>
+<span class="mi">3</span>  <span class="mi">44</span>  <span class="mi">84</span>  <span class="mi">124</span>  <span class="mi">164</span>
+
+<span class="c1"># Adding with axis='columns'
+</span><span class="k">print</span> <span class="n">df</span><span class="p">.</span><span class="n">add</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="s">'columns'</span><span class="p">)</span>
+<span class="c1"># The functions sub(), mul(), and div() work similarly to add()
+</span>
+    <span class="mi">0</span>   <span class="mi">1</span>    <span class="mi">2</span>    <span class="mi">3</span>
+<span class="mi">0</span>  <span class="mi">11</span>  <span class="mi">52</span>   <span class="mi">93</span>  <span class="mi">134</span>
+<span class="mi">1</span>  <span class="mi">21</span>  <span class="mi">62</span>  <span class="mi">103</span>  <span class="mi">144</span>
+<span class="mi">2</span>  <span class="mi">31</span>  <span class="mi">72</span>  <span class="mi">113</span>  <span class="mi">154</span>
+<span class="mi">3</span>  <span class="mi">41</span>  <span class="mi">82</span>  <span class="mi">123</span>  <span class="mi">164</span>
+</code></pre></div></div>
+
+<h2 id="pandas-groupby">Pandas groupby()</h2>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="n">plt</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="n">np</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="n">pd</span>
+<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="n">sns</span>
+
+<span class="n">values</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">4</span><span class="p">])</span>
+<span class="n">example_df</span> <span class="o">=</span> <span class="n">pd</span><span class="p">.</span><span class="n">DataFrame</span><span class="p">({</span>
+    <span class="s">'value'</span><span class="p">:</span> <span class="n">values</span><span class="p">,</span>
+    <span class="s">'even'</span><span class="p">:</span> <span class="n">values</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="s">'above_three'</span><span class="p">:</span> <span class="n">values</span> <span class="o">&gt;</span> <span class="mi">3</span>
+<span class="p">},</span> <span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="s">'a'</span><span class="p">,</span> <span class="s">'b'</span><span class="p">,</span> <span class="s">'c'</span><span class="p">,</span> <span class="s">'d'</span><span class="p">,</span> <span class="s">'e'</span><span class="p">,</span> <span class="s">'f'</span><span class="p">,</span> <span class="s">'g'</span><span class="p">])</span>
+
+<span class="c1"># Examine DataFrame
+</span><span class="k">print</span> <span class="n">example_df</span>
+
+  <span class="n">above_three</span>   <span class="n">even</span>  <span class="n">value</span>
+<span class="n">a</span>       <span class="bp">False</span>  <span class="bp">False</span>      <span class="mi">1</span>
+<span class="n">b</span>       <span class="bp">False</span>  <span class="bp">False</span>      <span class="mi">3</span>
+<span class="n">c</span>       <span class="bp">False</span>   <span class="bp">True</span>      <span class="mi">2</span>
+<span class="n">d</span>        <span class="bp">True</span>   <span class="bp">True</span>      <span class="mi">4</span>
+<span class="n">e</span>       <span class="bp">False</span>  <span class="bp">False</span>      <span class="mi">1</span>
+<span class="n">f</span>        <span class="bp">True</span>   <span class="bp">True</span>      <span class="mi">6</span>
+<span class="n">g</span>        <span class="bp">True</span>   <span class="bp">True</span>      <span class="mi">4</span>
+
+<span class="c1"># Examine groups
+</span><span class="n">grouped_data</span> <span class="o">=</span> <span class="n">example_df</span><span class="p">.</span><span class="n">groupby</span><span class="p">(</span><span class="s">'even'</span><span class="p">)</span>
+<span class="c1"># The groups attribute is a dictionary mapping keys to lists of row indexes
+</span><span class="k">print</span> <span class="n">grouped_data</span><span class="p">.</span><span class="n">groups</span>
+
+<span class="p">{</span><span class="bp">False</span><span class="p">:</span> <span class="n">Index</span><span class="p">([</span><span class="s">u'a'</span><span class="p">,</span> <span class="s">u'b'</span><span class="p">,</span> <span class="s">u'e'</span><span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><span class="s">'object'</span><span class="p">),</span>
+ <span class="bp">True</span><span class="p">:</span> <span class="n">Index</span><span class="p">([</span><span class="s">u'c'</span><span class="p">,</span> <span class="s">u'd'</span><span class="p">,</span> <span class="s">u'f'</span><span class="p">,</span> <span class="s">u'g'</span><span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><span class="s">'object'</span><span class="p">)}</span>
+
+<span class="c1"># Group by multiple columns
+</span><span class="n">grouped_data</span> <span class="o">=</span> <span class="n">example_df</span><span class="p">.</span><span class="n">groupby</span><span class="p">([</span><span class="s">'even'</span><span class="p">,</span> <span class="s">'above_three'</span><span class="p">])</span>
+<span class="k">print</span> <span class="n">grouped_data</span><span class="p">.</span><span class="n">groups</span>
+
+<span class="p">{(</span><span class="bp">True</span><span class="p">,</span> <span class="bp">False</span><span class="p">):</span> <span class="n">Index</span><span class="p">([</span><span class="s">u'c'</span><span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><span class="s">'object'</span><span class="p">),</span>
+ <span class="p">(</span><span class="bp">False</span><span class="p">,</span> <span class="bp">False</span><span class="p">):</span> <span class="n">Index</span><span class="p">([</span><span class="s">u'a'</span><span class="p">,</span> <span class="s">u'b'</span><span class="p">,</span> <span class="s">u'e'</span><span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><span class="s">'object'</span><span class="p">),</span>
+ <span class="p">(</span><span class="bp">True</span><span class="p">,</span> <span class="bp">True</span><span class="p">):</span> <span class="n">Index</span><span class="p">([</span><span class="s">u'd'</span><span class="p">,</span> <span class="s">u'f'</span><span class="p">,</span> <span class="s">u'g'</span><span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><span class="s">'object'</span><span class="p">)}</span>
+
+<span class="c1"># Get sum of each group
+</span><span class="n">grouped_data</span> <span class="o">=</span> <span class="n">example_df</span><span class="p">.</span><span class="n">groupby</span><span class="p">(</span><span class="s">'even'</span><span class="p">)</span>
+<span class="k">print</span> <span class="n">grouped_data</span><span class="p">.</span><span class="nb">sum</span><span class="p">()</span>
+
+       <span class="n">above_three</span>  <span class="n">value</span>
+<span class="n">even</span>                     
+<span class="bp">False</span>          <span class="mf">0.0</span>      <span class="mi">5</span>
+<span class="bp">True</span>           <span class="mf">3.0</span>     <span class="mi">16</span>
+
+<span class="c1"># Limit columns in result
+</span><span class="n">grouped_data</span> <span class="o">=</span> <span class="n">example_df</span><span class="p">.</span><span class="n">groupby</span><span class="p">(</span><span class="s">'even'</span><span class="p">)</span>
+
+<span class="c1"># You can take one or more columns from the result DataFrame
+</span><span class="k">print</span> <span class="n">grouped_data</span><span class="p">.</span><span class="nb">sum</span><span class="p">()[</span><span class="s">'value'</span><span class="p">]</span>
+
+<span class="n">even</span>
+<span class="bp">False</span>     <span class="mi">5</span>
+<span class="bp">True</span>     <span class="mi">16</span>
+<span class="n">Name</span><span class="p">:</span> <span class="n">value</span><span class="p">,</span> <span class="n">dtype</span><span class="p">:</span> <span class="n">int64</span>
+
+<span class="c1"># You can also take a subset of columns from the grouped data before
+# collapsing to a DataFrame. In this case, the result is the same.
+</span><span class="k">print</span> <span class="n">grouped_data</span><span class="p">[</span><span class="s">'value'</span><span class="p">].</span><span class="nb">sum</span><span class="p">()</span>
+
+<span class="n">even</span>
+<span class="bp">False</span>     <span class="mi">5</span>
+<span class="bp">True</span>     <span class="mi">16</span>
+<span class="n">Name</span><span class="p">:</span> <span class="n">value</span><span class="p">,</span> <span class="n">dtype</span><span class="p">:</span> <span class="n">int64</span>
+</code></pre></div></div>
+
+<h2 id="combining-pandas-dataframes">Combining Pandas DataFrames</h2>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">df1</span><span class="p">.</span><span class="n">merge</span><span class="p">(</span><span class="n">df2</span><span class="p">,</span>
+    <span class="n">on</span><span class="o">=</span><span class="p">[</span><span class="n">column</span> <span class="n">names</span><span class="p">],</span>   <span class="c1"># or
+</span>  <span class="c1"># left_on=[columns of df1],
+</span>  <span class="c1"># right_on=[columns of df2],
+</span>    <span class="n">how</span><span class="o">=</span><span class="s">'inner|outer|left|right'</span><span class="p">)</span>
+
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="n">plt</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="n">np</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="n">pd</span>
+<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="n">sns</span>
+
+<span class="n">values</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">4</span><span class="p">])</span>
+<span class="n">example_df</span> <span class="o">=</span> <span class="n">pd</span><span class="p">.</span><span class="n">DataFrame</span><span class="p">({</span>
+    <span class="s">'value'</span><span class="p">:</span> <span class="n">values</span><span class="p">,</span>
+    <span class="s">'even'</span><span class="p">:</span> <span class="n">values</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="s">'above_three'</span><span class="p">:</span> <span class="n">values</span> <span class="o">&gt;</span> <span class="mi">3</span>
+<span class="p">},</span> <span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="s">'a'</span><span class="p">,</span> <span class="s">'b'</span><span class="p">,</span> <span class="s">'c'</span><span class="p">,</span> <span class="s">'d'</span><span class="p">,</span> <span class="s">'e'</span><span class="p">,</span> <span class="s">'f'</span><span class="p">,</span> <span class="s">'g'</span><span class="p">])</span>
+
+<span class="c1"># groupby() without as_index
+</span><span class="n">first_even</span> <span class="o">=</span> <span class="n">example_df</span><span class="p">.</span><span class="n">groupby</span><span class="p">(</span><span class="s">'even'</span><span class="p">).</span><span class="n">first</span><span class="p">()</span>
+<span class="k">print</span> <span class="n">first_even</span>
+<span class="c1"># print first_even['even']
+# Causes an error. 'even' is no longer a column in the DataFrame
+</span>
+      <span class="n">above_three</span>  <span class="n">value</span>
+<span class="n">even</span>                    
+<span class="bp">False</span>       <span class="bp">False</span>      <span class="mi">1</span>
+<span class="bp">True</span>        <span class="bp">False</span>      <span class="mi">2</span>
+
+<span class="c1"># groupby() with as_index=False
+</span><span class="n">first_even</span> <span class="o">=</span> <span class="n">example_df</span><span class="p">.</span><span class="n">groupby</span><span class="p">(</span><span class="s">'even'</span><span class="p">,</span> <span class="n">as_index</span><span class="o">=</span><span class="bp">False</span><span class="p">).</span><span class="n">first</span><span class="p">()</span>
+<span class="k">print</span> <span class="n">first_even</span>
+<span class="k">print</span> <span class="s">''</span>
+<span class="k">print</span> <span class="n">first_even</span><span class="p">[</span><span class="s">'even'</span><span class="p">]</span> <span class="c1"># Now 'even' is still a column in the DataFrame
+</span>
+    <span class="n">even</span> <span class="n">above_three</span>  <span class="n">value</span>
+<span class="mi">0</span>  <span class="bp">False</span>       <span class="bp">False</span>      <span class="mi">1</span>
+<span class="mi">1</span>   <span class="bp">True</span>       <span class="bp">False</span>      <span class="mi">2</span>
+
+<span class="mi">0</span>    <span class="bp">False</span>
+<span class="mi">1</span>     <span class="bp">True</span>
+<span class="n">Name</span><span class="p">:</span> <span class="n">even</span><span class="p">,</span> <span class="n">dtype</span><span class="p">:</span> <span class="nb">bool</span>
+</code></pre></div></div>
+
+<h2 id="plotting-for-dataframes-with-matplotlib">Plotting for DataFrames with Matplotlib</h2>
+
+<p>Matplotlib doc is <a href="http://matplotlib.org/api/pyplot_api.html">here</a>.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="n">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="n">plt</span>
+
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">);</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="n">sin</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="n">plt</span><span class="p">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p><img src="/images/20170915-NumPyPandas-512x384.png" /></p>
+
+<h2 id="3d-data-in-numpy">3D data in NumPy</h2>
+
+<p>NumPy arrays can have arbitrarily many dimensions. Just like you can create a 1D array from a list, and a 2D array from a list of lists, you can create a 3D array from a list of lists of lists, and so on. For example, the following code would create a 3D array:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="n">array</span><span class="p">([</span>
+    <span class="p">[[</span><span class="s">'A1a'</span><span class="p">,</span> <span class="s">'A1b'</span><span class="p">,</span> <span class="s">'A1c'</span><span class="p">],</span> <span class="p">[</span><span class="s">'A2a'</span><span class="p">,</span> <span class="s">'A2b'</span><span class="p">,</span> <span class="s">'A2c'</span><span class="p">]],</span>
+    <span class="p">[[</span><span class="s">'B1a'</span><span class="p">,</span> <span class="s">'B1b'</span><span class="p">,</span> <span class="s">'B1c'</span><span class="p">],</span> <span class="p">[</span><span class="s">'B2a'</span><span class="p">,</span> <span class="s">'B2b'</span><span class="p">,</span> <span class="s">'B2c'</span><span class="p">]]</span>
+<span class="p">])</span>
+</code></pre></div></div>
+
+<h2 id="3d-data-in-pandas">3D data in Pandas</h2>
+
+<p>Pandas has a data structure called a Panel, which is similar to a DataFrame or a Series, but for 3D data. If you would like, you can learn more about Panels <a href="http://pandas.pydata.org/pandas-docs/stable/dsintro.html#panel">here</a>.</p>
+:ET

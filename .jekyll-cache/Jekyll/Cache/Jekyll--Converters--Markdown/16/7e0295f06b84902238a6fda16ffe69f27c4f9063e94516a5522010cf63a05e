@@ -1,0 +1,22 @@
+I"�<p><code class="language-plaintext highlighter-rouge">git diff id1 id2</code> is to view git commit</p>
+
+<p>Make one commit per logical change</p>
+
+<p><code class="language-plaintext highlighter-rouge">git log</code> to see which files have been changed in each commit</p>
+
+<p><code class="language-plaintext highlighter-rouge">git clone</code> to download the whole repository</p>
+
+<p><code class="language-plaintext highlighter-rouge">git config --global color.ui auto</code></p>
+
+<p><code class="language-plaintext highlighter-rouge">git checkout id</code>: go back to a commit</p>
+
+<p><code class="language-plaintext highlighter-rouge">git checkout branch_name</code>: most recent commit</p>
+
+<p><code class="language-plaintext highlighter-rouge">git diff</code> with no arguments: compare current state with most recent commit</p>
+
+<p><code class="language-plaintext highlighter-rouge">git reset ­­--hard</code> to get rid of uncommitted changes</p>
+
+<p><code class="language-plaintext highlighter-rouge">git commit -­a -­m "Commit message"</code> commit all changes</p>
+
+<p><code class="language-plaintext highlighter-rouge">git reflog</code>: commits that recently checked out</p>
+:ET

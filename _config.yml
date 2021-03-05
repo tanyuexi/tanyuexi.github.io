@@ -8,17 +8,16 @@
 # Site settings
 title: "Yuexi's Blog 月茜的博客"
 email: alicia.tan.4edu@gmail.com
-#email: tanyuexi@gmail.com
 description: > # this means to ignore newlines until "baseurl:"
   Yuexi Tan (Alicia)'s personal blog <br>
   谭月茜的个人博客
 baseurl: "" # the subpath of your site, e.g. /blog
-url: "http://yuexit.github.io" # the base hostname & protocol for your site
+url: "http://tanyuexi.github.io" # the base hostname & protocol for your site
 twitter_username:  YuexiTan
-github_username:  yuexit
+github_username:  tanyuexi
 linkedin_username:  yuexitan
 
 # Build settings
 markdown: kramdown
-exclude: [.DS_Store,run_test.sh,.git,.gitignore]
+exclude: [.DS_Store,run_test.sh,.git,.gitignore,.sass-cache]
 encoding: utf-8

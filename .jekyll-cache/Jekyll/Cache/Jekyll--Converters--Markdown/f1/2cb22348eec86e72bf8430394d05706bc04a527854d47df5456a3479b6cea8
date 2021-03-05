@@ -1,0 +1,349 @@
+I"ʑ<p>Udacity course link: <a href="https://classroom.udacity.com/courses/ud1110">https://classroom.udacity.com/courses/ud1110</a></p>
+
+<p>For your convenience, use <a href="https://www.continuum.io/downloads">Anaconda 3</a> to install Python 3. If install python3 in anaconda2, create an environment named ‘py3’ (or whatever else) for Python 3 by <code class="language-plaintext highlighter-rouge">conda create -n py3 python=3</code>, then use this environment by <code class="language-plaintext highlighter-rouge">source activate py3</code>.</p>
+
+<h2 id="numbers-and-strings">Numbers and Strings</h2>
+
+<h3 id="arithmetic-operators">Arithmetic Operators</h3>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&gt;&gt;&gt;</span> <span class="k">print</span><span class="p">(</span><span class="mi">3</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>   <span class="c1"># Not '3^2'! (^: bitwise or)
+</span><span class="mi">9</span>
+
+<span class="o">&gt;&gt;&gt;</span> <span class="k">print</span><span class="p">(</span><span class="mi">9</span> <span class="o">%</span> <span class="mi">2</span><span class="p">)</span>   <span class="c1"># Modulo operation, giving remainder
+</span><span class="mi">1</span>
+
+<span class="o">&gt;&gt;&gt;</span> <span class="k">print</span><span class="p">(</span><span class="mi">15</span> <span class="o">//</span> <span class="mi">4</span><span class="p">)</span>   <span class="c1"># Integer division, rounding down even when negative
+</span><span class="mi">3</span>
+
+<span class="o">&gt;&gt;&gt;</span> <span class="k">print</span><span class="p">(</span><span class="o">-</span><span class="mi">5</span><span class="o">//</span><span class="mi">4</span><span class="p">)</span>   <span class="c1"># NOT equal to '-(5//4)'!
+</span><span class="o">-</span><span class="mi">2</span>
+</code></pre></div></div>
+
+<h3 id="arithmetic-and-whitespace">Arithmetic and Whitespace</h3>
+
+<p>Guidelines from <a href="https://www.python.org/dev/peps/pep-0008/">PEP 8</a>:</p>
+
+<ul>
+  <li>When you call a function like print, put the opening parenthesis straight after the name of the function like in print(8).</li>
+  <li>Don’t put extra spaces inside the parentheses either, it should be print(3*7).</li>
+  <li>If you are mixing operators with different priorities (like multiplication and subtraction), then you might like to add a space around the lower priority (in this case addition and subtraction) operator in order to make the code easier to read. For example, 1 + 2*3.</li>
+  <li>Don’t write extremely long lines of code; they’re hard to understand. People commonly limit themselves to lines that are 79 or 99 characters long. If you feel that you need to write longer lines, consider rewriting and simplifying your code.</li>
+</ul>
+
+<h3 id="integers-and-floats">Integers and Floats</h3>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&gt;&gt;&gt;</span> <span class="k">print</span><span class="p">(</span><span class="mi">3</span><span class="o">/</span><span class="mi">4</span><span class="p">)</span>   <span class="c1"># Python 3 only. In Python 2 more like '//', will print 0
+</span><span class="mf">0.75</span>
+
+<span class="o">&gt;&gt;&gt;</span> <span class="k">print</span><span class="p">(</span><span class="mi">16</span><span class="o">/</span><span class="mi">4</span><span class="p">)</span>   <span class="c1"># Result is a float
+</span><span class="mf">4.0</span>
+
+<span class="o">&gt;&gt;&gt;</span> <span class="mf">213.13</span>   <span class="c1"># Float
+</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="mf">341.</span>   <span class="c1"># Float
+</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="nb">int</span><span class="p">(</span><span class="mf">49.7</span><span class="p">)</span>   <span class="c1"># Integer explicitly
+</span><span class="mi">49</span>
+
+<span class="o">&gt;&gt;&gt;</span> <span class="nb">int</span><span class="p">(</span><span class="mi">16</span><span class="o">/</span><span class="mi">4</span><span class="p">)</span>   <span class="c1"># Integer explicitly
+</span><span class="mi">4</span>
+
+<span class="o">&gt;&gt;&gt;</span> <span class="nb">float</span><span class="p">(</span><span class="mi">3520</span><span class="o">+</span><span class="mi">3239</span><span class="p">)</span>   <span class="c1"># Float explicitly
+</span><span class="mf">6759.0</span>
+
+<span class="o">&gt;&gt;&gt;</span> <span class="k">print</span><span class="p">(</span><span class="mf">0.1</span> <span class="o">+</span> <span class="mf">0.1</span> <span class="o">+</span> <span class="mf">0.1</span><span class="p">)</span>   <span class="c1"># Floats are approximations,
+</span><span class="mf">0.30000000000000004</span>          <span class="c1"># may lead to surprising results
+</span></code></pre></div></div>
+
+<h3 id="errors">Errors</h3>
+
+<p>An ‘Exception’ is a problem that occurs whilst the code is running, but a ‘Syntax Error’ is a problem detected when Python checks the code before it runs it.</p>
+
+<h3 id="re-assign-operation">Re-assign Operation</h3>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&gt;&gt;&gt;</span> <span class="n">a</span> <span class="o">+=</span> <span class="mi">1</span>   <span class="c1"># Equals to 'a = a + 1'
+</span><span class="o">&gt;&gt;&gt;</span> <span class="n">a</span> <span class="o">-=</span> <span class="mi">1</span>   <span class="c1"># Equals to 'a = a - 1'
+</span><span class="o">&gt;&gt;&gt;</span> <span class="n">a</span> <span class="o">*=</span> <span class="mi">1</span>   <span class="c1"># Equals to 'a = a * 1'
+</span><span class="o">&gt;&gt;&gt;</span> <span class="n">a</span> <span class="o">/=</span> <span class="mi">1</span>   <span class="c1"># Equals to 'a = a / 1'
+</span></code></pre></div></div>
+
+<h3 id="multiple-assignment">Multiple Assignment</h3>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&gt;&gt;&gt;</span> <span class="n">savings</span><span class="p">,</span> <span class="n">salary</span> <span class="o">=</span> <span class="mf">514.86</span><span class="p">,</span> <span class="mf">320.51</span>
+</code></pre></div></div>
+
+<h3 id="strings">Strings</h3>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&gt;&gt;&gt;</span> <span class="n">instructor_1</span> <span class="o">=</span> <span class="s">"Philip"</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">instructor_2</span> <span class="o">=</span> <span class="s">"Charlie"</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="k">print</span><span class="p">(</span><span class="n">instructor_1</span> <span class="o">+</span> <span class="n">instructor_2</span><span class="p">)</span>   <span class="c1"># Concatenate strings
+</span><span class="n">PhilipCharlie</span>
+
+<span class="o">&gt;&gt;&gt;</span> <span class="nb">len</span><span class="p">(</span><span class="s">"Udacity"</span><span class="p">)</span>   <span class="c1"># Characters in the string
+</span><span class="mi">7</span>
+
+<span class="o">&gt;&gt;&gt;</span> <span class="k">print</span><span class="p">(</span><span class="s">"hippo"</span><span class="o">*</span><span class="mi">3</span><span class="p">)</span>   <span class="c1"># Repeat the string
+</span><span class="n">hippohippohippo</span>
+
+<span class="o">&gt;&gt;&gt;</span> <span class="n">my_string</span> <span class="o">=</span> <span class="s">'abcde'</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="k">print</span><span class="p">(</span><span class="n">my_string</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="mi">3</span><span class="p">])</span>   <span class="c1"># Indexing and slicing
+</span><span class="n">bc</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="k">print</span><span class="p">(</span><span class="n">my_string</span><span class="p">[:</span><span class="mi">3</span><span class="p">])</span>
+<span class="n">abc</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="k">print</span><span class="p">(</span><span class="n">my_string</span><span class="p">[</span><span class="mi">3</span><span class="p">:])</span>
+<span class="n">de</span>
+
+<span class="o">&gt;&gt;&gt;</span> <span class="s">'abc'</span> <span class="ow">in</span> <span class="n">my_string</span>   <span class="c1"># 'in' operator
+</span><span class="bp">True</span>
+</code></pre></div></div>
+
+<h3 id="type-and-type-conversion">Type and Type Conversion</h3>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&gt;&gt;&gt;</span> <span class="k">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="mi">633</span><span class="p">))</span>
+<span class="nb">int</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="k">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="s">"633"</span><span class="p">))</span>
+<span class="nb">str</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="k">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="mf">633.0</span><span class="p">))</span>
+<span class="nb">float</span>
+</code></pre></div></div>
+
+<h3 id="string-methods">String Methods</h3>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&gt;&gt;&gt;</span> <span class="s">"charlotte hippopotamus turner"</span><span class="p">.</span><span class="n">title</span><span class="p">()</span>   <span class="c1"># Capitalize each word
+</span><span class="s">'Charlotte Hippopotamus Turner'</span>
+
+<span class="o">&gt;&gt;&gt;</span> <span class="s">"charlotte hippopotamus turner"</span><span class="p">.</span><span class="n">islower</span><span class="p">()</span>   <span class="c1"># Test whether lower cases
+</span><span class="bp">True</span>
+
+<span class="o">&gt;&gt;&gt;</span> <span class="n">user_ip</span> <span class="o">=</span> <span class="s">"10.0.0.1"</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">url</span> <span class="o">=</span> <span class="s">"/bears/koala"</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">now</span> <span class="o">=</span> <span class="s">"16:20"</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">log_message</span> <span class="o">=</span> <span class="s">"IP address {} accessed {} at {}"</span><span class="p">.</span><span class="nb">format</span><span class="p">(</span><span class="n">user_ip</span><span class="p">,</span> <span class="n">url</span><span class="p">,</span> <span class="n">now</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="k">print</span><span class="p">(</span><span class="n">log_message</span><span class="p">)</span>
+<span class="n">IP</span> <span class="n">address</span> <span class="mf">10.0</span><span class="p">.</span><span class="mf">0.1</span> <span class="n">accessed</span> <span class="o">/</span><span class="n">bears</span><span class="o">/</span><span class="n">koala</span> <span class="n">at</span> <span class="mi">16</span><span class="p">:</span><span class="mi">20</span>
+</code></pre></div></div>
+
+<p><a href="http://docs.python.org/3/library/stdtypes.html#string-methods">More string methods</a></p>
+
+<h2 id="functions-installation-and-conditionals">Functions, Installation and Conditionals</h2>
+
+<h3 id="functions">Functions</h3>
+
+<p>The definition of a function that calculates the volume of a cylinder:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">cylinder_volume</span><span class="p">(</span><span class="n">height</span><span class="p">,</span> <span class="n">radius</span><span class="p">):</span>
+    <span class="n">pi</span> <span class="o">=</span> <span class="mf">3.14159</span>
+    <span class="k">return</span> <span class="n">height</span> <span class="o">*</span> <span class="n">pi</span> <span class="o">*</span> <span class="n">radius</span> <span class="o">**</span> <span class="mi">2</span>
+
+<span class="s">"""
+This is the docstrings for big chunk of comments
+"""</span>
+
+<span class="c1"># This is for one line only
+</span></code></pre></div></div>
+
+<h3 id="conditionals">Conditionals</h3>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># if, elif and else
+</span><span class="k">if</span> <span class="n">x</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">'Negative changed to zero'</span><span class="p">)</span>
+<span class="k">elif</span> <span class="n">x</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">'Zero'</span><span class="p">)</span>
+<span class="k">elif</span> <span class="n">x</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">'Single'</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">'More'</span><span class="p">)</span>
+
+<span class="c1"># Boolean expressions
+</span><span class="k">if</span> <span class="p">(</span><span class="ow">not</span> <span class="n">do_not_email</span><span class="p">)</span> <span class="ow">and</span> <span class="p">(</span><span class="n">location</span> <span class="o">==</span> <span class="s">"USA"</span> <span class="ow">or</span> <span class="n">location</span> <span class="o">==</span> <span class="s">"CAN"</span><span class="p">):</span>
+    <span class="n">send_email</span><span class="p">()</span>
+</code></pre></div></div>
+
+<h2 id="data-structures-and-loops">Data Structures and Loops</h2>
+
+<h3 id="lists">Lists</h3>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&gt;&gt;&gt;</span> <span class="n">my_list</span> <span class="o">=</span> <span class="p">[</span><span class="s">'a'</span><span class="p">,</span><span class="s">'b'</span><span class="p">,</span><span class="s">'c'</span><span class="p">,</span><span class="s">'d'</span><span class="p">,</span><span class="s">'e'</span><span class="p">]</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="k">print</span><span class="p">(</span><span class="n">my_list</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="mi">3</span><span class="p">])</span>   <span class="c1"># Indexing and slicing
+</span><span class="p">[</span><span class="s">'b'</span><span class="p">,</span> <span class="s">'c'</span><span class="p">]</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="k">print</span><span class="p">(</span><span class="n">my_list</span><span class="p">[:</span><span class="mi">3</span><span class="p">])</span>
+<span class="p">[</span><span class="s">'a'</span><span class="p">,</span> <span class="s">'b'</span><span class="p">,</span> <span class="s">'c'</span><span class="p">]</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="k">print</span><span class="p">(</span><span class="n">my_list</span><span class="p">[</span><span class="mi">3</span><span class="p">:])</span>
+<span class="p">[</span><span class="s">'d'</span><span class="p">,</span> <span class="s">'e'</span><span class="p">]</span>
+
+<span class="o">&gt;&gt;&gt;</span> <span class="s">'a'</span> <span class="ow">in</span> <span class="n">my_list</span>   <span class="c1"># 'in' operator
+</span><span class="bp">True</span>
+
+<span class="o">&gt;&gt;&gt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">my_list</span><span class="p">)</span>   <span class="c1"># 'len' function
+</span><span class="mi">5</span>
+
+<span class="o">&gt;&gt;&gt;</span> <span class="n">batch_sizes</span> <span class="o">=</span> <span class="p">[</span><span class="mi">15</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">89</span><span class="p">,</span> <span class="mi">34</span><span class="p">,</span> <span class="mi">65</span><span class="p">,</span> <span class="mi">35</span><span class="p">]</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="nb">max</span><span class="p">(</span><span class="n">batch_sizes</span><span class="p">)</span>   <span class="c1"># 'max' for a number list
+</span><span class="mi">89</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="nb">max</span><span class="p">(</span><span class="n">my_list</span><span class="p">)</span>   <span class="c1"># 'max' for a string list, sorting alphabetically
+</span><span class="s">'e'</span>
+<span class="c1"># 'min' works similarly
+</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">batch_sizes</span><span class="p">)</span>   <span class="c1"># 'sorted' function
+</span><span class="p">[</span><span class="mi">6</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="mi">34</span><span class="p">,</span> <span class="mi">35</span><span class="p">,</span> <span class="mi">65</span><span class="p">,</span> <span class="mi">89</span><span class="p">]</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">batch_sizes</span><span class="p">,</span> <span class="n">reverse</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+<span class="p">[</span><span class="mi">89</span><span class="p">,</span> <span class="mi">65</span><span class="p">,</span> <span class="mi">35</span><span class="p">,</span> <span class="mi">34</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="mi">6</span><span class="p">]</span>
+
+<span class="o">&gt;&gt;&gt;</span> <span class="s">'-'</span><span class="p">.</span><span class="n">join</span><span class="p">(</span><span class="n">my_list</span><span class="p">)</span>   <span class="c1"># 'join' method
+</span><span class="s">'a-b-c-d-e'</span>
+
+<span class="o">&gt;&gt;&gt;</span> <span class="n">my_list</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="s">'f'</span><span class="p">)</span>   <span class="c1"># 'append' method
+</span><span class="o">&gt;&gt;&gt;</span> <span class="k">print</span><span class="p">(</span><span class="n">my_list</span><span class="p">)</span>
+<span class="p">[</span><span class="s">'a'</span><span class="p">,</span> <span class="s">'b'</span><span class="p">,</span> <span class="s">'c'</span><span class="p">,</span> <span class="s">'d'</span><span class="p">,</span> <span class="s">'e'</span><span class="p">,</span> <span class="s">'f'</span><span class="p">]</span>
+</code></pre></div></div>
+
+<h3 id="sets">Sets</h3>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&gt;&gt;&gt;</span> <span class="n">my_list</span> <span class="o">=</span> <span class="p">[</span><span class="s">'a'</span><span class="p">,</span> <span class="s">'a'</span><span class="p">,</span> <span class="s">'b'</span><span class="p">,</span> <span class="s">'c'</span><span class="p">]</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">my_set</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="n">my_list</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">my_set</span>   <span class="c1"># Duplicates removed
+</span><span class="p">{</span><span class="s">'b'</span><span class="p">,</span> <span class="s">'a'</span><span class="p">,</span> <span class="s">'c'</span><span class="p">}</span>
+
+<span class="o">&gt;&gt;&gt;</span> <span class="n">my_set</span><span class="p">.</span><span class="n">add</span><span class="p">(</span><span class="s">'d'</span><span class="p">)</span>   <span class="c1"># 'add' method
+</span><span class="o">&gt;&gt;&gt;</span> <span class="n">my_set</span>
+<span class="p">{</span><span class="s">'d'</span><span class="p">,</span> <span class="s">'b'</span><span class="p">,</span> <span class="s">'a'</span><span class="p">,</span> <span class="s">'c'</span><span class="p">}</span>
+
+<span class="k">for</span> <span class="n">letter</span> <span class="ow">in</span> <span class="n">my_set</span><span class="p">:</span>   <span class="c1"># Iterate over a set
+</span>    <span class="k">print</span><span class="p">(</span><span class="n">letter</span><span class="p">)</span>
+</code></pre></div></div>
+
+<h3 id="tuples">Tuples</h3>
+
+<p>Tuples are similar to lists in that they store an ordered collection of objects which can be accessed by their indexes (for example <code class="language-plaintext highlighter-rouge">AngkorWat[0]</code> and <code class="language-plaintext highlighter-rouge">AngkorWat[1]</code>). Unlike lists, tuples are <em>immutable</em>. You can’t add and remove items from tuples, or sort them in place.</p>
+
+<p>Why do we have tuples if they’re like lists with less features? Tuples useful when you have two or more values that are so closely related that they will always be used together, like latitude and longitude coordinates. A common use for tuples is to return multiple values from a function. It’s usually best to avoid using mutable default arguments.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&gt;&gt;&gt;</span> <span class="n">AngkorWat</span> <span class="o">=</span> <span class="p">(</span><span class="mf">13.4125</span><span class="p">,</span> <span class="mf">103.866667</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">dimensions</span> <span class="o">=</span> <span class="mi">52</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="mi">100</span>   <span class="c1"># Can be used without parentheses
+</span><span class="o">&gt;&gt;&gt;</span> <span class="n">length</span><span class="p">,</span> <span class="n">width</span><span class="p">,</span> <span class="n">height</span> <span class="o">=</span> <span class="n">dimensions</span>   <span class="c1"># Or just one line:
+</span><span class="o">&gt;&gt;&gt;</span> <span class="n">length</span><span class="p">,</span> <span class="n">width</span><span class="p">,</span> <span class="n">height</span> <span class="o">=</span> <span class="mi">52</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="mi">100</span>
+</code></pre></div></div>
+
+<h3 id="dictionaries">Dictionaries</h3>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&gt;&gt;&gt;</span> <span class="n">elements</span> <span class="o">=</span> <span class="p">{</span><span class="s">'hydrogen'</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s">'helium'</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span> <span class="s">'carbon'</span><span class="p">:</span> <span class="mi">6</span><span class="p">}</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="k">print</span><span class="p">(</span><span class="n">element</span><span class="p">[</span><span class="s">'carbon'</span><span class="p">])</span>
+<span class="mi">6</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">elements</span><span class="p">[</span><span class="s">'lithium'</span><span class="p">]</span> <span class="o">=</span> <span class="mi">3</span>   <span class="c1"># Add new value
+</span><span class="o">&gt;&gt;&gt;</span> <span class="k">print</span><span class="p">(</span><span class="n">elements</span><span class="p">[</span><span class="s">'lithium'</span><span class="p">])</span>
+<span class="mi">3</span>
+
+<span class="o">&gt;&gt;&gt;</span> <span class="n">elements</span><span class="p">[</span><span class="s">'dilithium'</span><span class="p">]</span>   <span class="c1"># KeyError for non-existing keys
+</span><span class="nb">KeyError</span><span class="p">:</span> <span class="s">'dilithium'</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">elements</span><span class="p">.</span><span class="n">get</span><span class="p">(</span><span class="s">'dilithium'</span><span class="p">)</span>   <span class="c1"># 'get' method
+</span><span class="bp">None</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">elements</span><span class="p">.</span><span class="n">get</span><span class="p">(</span><span class="s">'kryptonite'</span><span class="p">,</span> <span class="s">'There</span><span class="se">\'</span><span class="s">s no such element!'</span><span class="p">)</span>
+<span class="s">"There's no such element!"</span>
+
+<span class="k">for</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">elements</span><span class="p">:</span>   <span class="c1"># Iterate over a dict
+</span>    <span class="k">print</span><span class="p">(</span><span class="s">"name: {}, weight: {}"</span><span class="p">.</span><span class="nb">format</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">elements</span><span class="p">[</span><span class="n">name</span><span class="p">]))</span>
+</code></pre></div></div>
+
+<h3 id="loops">Loops</h3>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">for</span> <span class="n">number</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">4</span><span class="p">):</span>   <span class="c1"># 'for' loop
+</span>    <span class="k">print</span><span class="p">(</span><span class="n">number</span><span class="p">)</span>   <span class="c1"># 0~3
+</span>
+<span class="n">card_deck</span> <span class="o">=</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">11</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">13</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">10</span><span class="p">]</span>
+<span class="n">hand</span> <span class="o">=</span> <span class="p">[]</span>
+
+<span class="k">while</span> <span class="nb">sum</span><span class="p">(</span><span class="n">hand</span><span class="p">)</span> <span class="o">&lt;=</span> <span class="mi">17</span><span class="p">:</span>   <span class="c1"># 'while' loop
+</span>    <span class="n">hand</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="n">card_deck</span><span class="p">.</span><span class="n">pop</span><span class="p">())</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">hand</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">3</span><span class="p">:</span>
+        <span class="k">continue</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">break</span>
+</code></pre></div></div>
+
+<h2 id="files-and-modules">Files and Modules</h2>
+
+<h3 id="reading-from-and-writing-to-a-file">Reading from and Writing to a File</h3>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s">'/my_path/my_file.txt'</span><span class="p">,</span><span class="s">'r'</span><span class="p">)</span>   <span class="c1"># Open to read
+</span><span class="n">file_data</span> <span class="o">=</span> <span class="n">f</span><span class="p">.</span><span class="n">read</span><span class="p">()</span>
+<span class="n">f</span><span class="p">.</span><span class="n">close</span><span class="p">()</span>   <span class="c1"># Otherwise run out of handles
+</span>
+<span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s">'/my_path/my_file.txt'</span><span class="p">,</span><span class="s">'w'</span><span class="p">)</span>   <span class="c1"># Open to write
+# f = open('/my_path/my_file.txt','a')   # Append instead of overwrite
+</span><span class="n">f</span><span class="p">.</span><span class="n">write</span><span class="p">(</span><span class="s">"Hello World!"</span><span class="p">)</span>
+<span class="n">file_data</span> <span class="o">=</span> <span class="n">f</span><span class="p">.</span><span class="n">read</span><span class="p">()</span>
+<span class="n">f</span><span class="p">.</span><span class="n">close</span><span class="p">()</span>
+
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s">'/my_path/my_file.txt'</span><span class="p">,</span><span class="s">'r'</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>   <span class="c1"># Automatically close after use
+</span>    <span class="c1"># file_data = f.read()   # Read the whole file
+</span>    <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">f</span><span class="p">:</span>   <span class="c1"># Read each line of file
+</span>        <span class="k">print</span><span class="p">(</span><span class="n">line</span><span class="p">.</span><span class="n">strip</span><span class="p">())</span>   <span class="c1"># 'strip' method to remove newline char
+</span></code></pre></div></div>
+
+<h3 id="importing-modules">Importing Modules</h3>
+
+<p>Use <code class="language-plaintext highlighter-rouge">import package_name</code>, or <code class="language-plaintext highlighter-rouge">from module_name import object_name</code>.</p>
+
+<p><strong>Do NOT use <code class="language-plaintext highlighter-rouge">from module_name import *</code>!!</strong></p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&gt;&gt;&gt;</span> <span class="kn">import</span> <span class="nn">math</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="k">print</span><span class="p">(</span><span class="n">math</span><span class="p">.</span><span class="n">factorial</span><span class="p">(</span><span class="mi">3</span><span class="p">))</span>   <span class="c1"># Must add the module name
+</span><span class="mi">6</span>
+
+<span class="o">&gt;&gt;&gt;</span> <span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">defaultdict</span>   <span class="c1"># Import only one function
+</span><span class="o">&gt;&gt;&gt;</span> <span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">defaultdict</span><span class="p">,</span> <span class="n">namedtuple</span>   <span class="c1"># Multiple functions
+</span><span class="o">&gt;&gt;&gt;</span> <span class="n">defaultdict</span><span class="p">()</span>   <span class="c1"># Without the module name
+</span><span class="n">defaultdict</span><span class="p">(</span><span class="bp">None</span><span class="p">,</span> <span class="p">{})</span>
+
+<span class="o">&gt;&gt;&gt;</span> <span class="kn">from</span> <span class="nn">csv</span> <span class="kn">import</span> <span class="n">reader</span> <span class="k">as</span> <span class="n">csvreader</span>   <span class="c1"># Give function a different name
+</span><span class="o">&gt;&gt;&gt;</span> <span class="kn">import</span> <span class="nn">multiprocessing</span> <span class="k">as</span> <span class="n">mp</span>   <span class="c1"># Give module a shorter name
+</span></code></pre></div></div>
+
+<p>Explore <a href="https://docs.python.org/3/library/">the standard library</a>. Most useful ones:</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">csv</code>: very convenient for reading and writing csv files</li>
+  <li><code class="language-plaintext highlighter-rouge">collections</code>: useful extensions of the usual data types including OrderedDict, defaultdict and namedtuple</li>
+  <li><code class="language-plaintext highlighter-rouge">random</code>: generates pseudo-random numbers, shuffles sequences randomly and chooses random items</li>
+  <li><code class="language-plaintext highlighter-rouge">string</code>: more functions on strings. This module also contains useful collections of letters like string.digits (a string containing all characters with are valid digits).</li>
+  <li><code class="language-plaintext highlighter-rouge">re</code>: pattern-matching in strings via regular expressions</li>
+  <li><code class="language-plaintext highlighter-rouge">math</code>: some standard mathematical functions</li>
+  <li><code class="language-plaintext highlighter-rouge">os</code>: interacting with operating systems</li>
+  <li><code class="language-plaintext highlighter-rouge">os.path</code>: submodule of os for manipulating path names</li>
+  <li><code class="language-plaintext highlighter-rouge">sys</code>: work directly with the Python interpreter</li>
+  <li><code class="language-plaintext highlighter-rouge">json</code>: good for reading and writing json files (good for web work)</li>
+</ul>
+
+<h3 id="installing-packages">Installing Packages</h3>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>pip3 <span class="nb">install </span>package_name
+<span class="c"># Or, install with specified versions</span>
+<span class="nv">$ </span>pip3 <span class="nb">install</span> <span class="nt">-r</span> requirements.txt
+<span class="c"># Content of requirements.txt:</span>
+<span class="nv">beautifulsoup4</span><span class="o">==</span>4.5.1
+<span class="nv">bs4</span><span class="o">==</span>0.0.1
+<span class="nv">pytz</span><span class="o">==</span>2016.7
+<span class="nv">requests</span><span class="o">==</span>2.11.1
+</code></pre></div></div>
+
+<p>Useful third-party libraries:</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">IPython</code> - A better interactive Python interpreter</li>
+  <li><code class="language-plaintext highlighter-rouge">requests</code> - Provides easy to use methods to make web requests. Useful for accessing web APIs.</li>
+  <li><code class="language-plaintext highlighter-rouge">Flask</code> - a lightweight framework for making web applications and APIs.</li>
+  <li><code class="language-plaintext highlighter-rouge">Django</code> - A more featureful framework for making web applications. Django is particularly good for designing complex, content heavy, web applications.</li>
+  <li><code class="language-plaintext highlighter-rouge">Beautiful Soup</code> - Used to parse HTML and extract information from it. Great for web scraping.</li>
+  <li><code class="language-plaintext highlighter-rouge">pytest</code> - extends Python’s builtin assertions and unittest module.</li>
+  <li><code class="language-plaintext highlighter-rouge">PyYAML</code> - For reading and writing YAML files.</li>
+  <li><code class="language-plaintext highlighter-rouge">NumPy</code> - The fundamental package for scientific computing with Python. It contains among other things a powerful N-dimensional array object and useful linear algebra capabilities.</li>
+  <li><code class="language-plaintext highlighter-rouge">pandas</code> - A library containing high-performance, data structures and data analysis tools. In particular, pandas provides dataframes!</li>
+  <li><code class="language-plaintext highlighter-rouge">matplotlib</code> - a 2D plotting library which produces publication quality figures in a variety of hardcopy formats and interactive environments.</li>
+  <li><code class="language-plaintext highlighter-rouge">ggplot</code> - Another 2D plotting library, based on R’s ggplot2 library.</li>
+  <li><code class="language-plaintext highlighter-rouge">Pillow</code> - The Python Imaging Library adds image processing capabilities to your Python interpreter.</li>
+  <li><code class="language-plaintext highlighter-rouge">pyglet</code> - A cross-platform application framework intended for game development.</li>
+  <li><code class="language-plaintext highlighter-rouge">Pygame</code> - A set of Python modules designed for writing games.</li>
+  <li><code class="language-plaintext highlighter-rouge">pytz</code> - World Timezone Definitions for Python</li>
+</ul>
+:ET

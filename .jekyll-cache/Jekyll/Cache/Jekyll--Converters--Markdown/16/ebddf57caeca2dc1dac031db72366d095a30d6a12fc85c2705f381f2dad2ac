@@ -1,0 +1,23 @@
+I"0	<p><img src="/images/20160309-ArtificialIntell-320x150.jpg" /></p>
+
+<h2 id="highlights">Highlights</h2>
+
+<ul>
+  <li>Artificial intelligence is about making models for thinking, perception and action</li>
+  <li>Mimicking biology may be the best strategy to solve a seemingly complicated problem</li>
+</ul>
+
+<h2 id="course-information">Course information</h2>
+
+<p><a href="http://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-034-artificial-intelligence-fall-2010/index.htm">Artificial intelligence</a> by Patrick Winston, MIT is the best course I have ever taken so far, because the professor introduced the greatest minds rather than technical details in class. I was particularly fascinated by the simple yet careful designed demonstrations, which efficiently conveyed the ideas and made me amazed. <strong>Highly recommended.</strong></p>
+
+<h2 id="what-i-learned-most-from-this-course">What I learned most from this course</h2>
+
+<p><strong>Artificial intelligence is about making models for thinking, perception and action.</strong> We “think, feel and move” everyday, but few can describe how exactly our brains work. When you are able to make a model of human’s thinking process, it definetely feels like being God. To put it in other words, artificial intelligence is about asking “if you are God, how would you design the human brain?”.</p>
+
+<p><strong>Mimicking biology may be the best strategy to solve a seemingly complicated problem.</strong> Living things are known to be the most efficient and flexible machines on earth. So I always think that biologists are actually machine dissectors. If you want to do something in a perfect way, just look at the nature. Two things that hit me most in this course are <strong>the genetic algorithm</strong> and <strong>artificial neural networks</strong>. The genetic algorithm has an immense solution space, and an incredibly simple mechanism to pick the best solution. It applys to almost everything, even those with multiple local optima. And the model of neural networks simulates the physical structure of the brain. In theory, we should be able to accomplish all human-doable tasks with it. In fact, it has successfully solved problems like visual recognition.</p>
+
+<h2 id="syllabus">Syllabus</h2>
+
+<p><img src="/images/20160309-ArtificialIntellMindMap.svg" /></p>
+:ET

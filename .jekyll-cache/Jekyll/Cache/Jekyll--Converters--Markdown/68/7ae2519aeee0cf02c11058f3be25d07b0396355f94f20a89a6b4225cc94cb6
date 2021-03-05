@@ -1,0 +1,71 @@
+I"4<p>Udacity course link: <a href="https://classroom.udacity.com/courses/ud1111">https://classroom.udacity.com/courses/ud1111</a></p>
+
+<h2 id="anaconda">Anaconda</h2>
+
+<h3 id="install">Install</h3>
+
+<p>Download: <a href="https://www.continuum.io/downloads">https://www.continuum.io/downloads</a></p>
+
+<h3 id="managing-packages">Managing Packages</h3>
+
+<p>To install a package, type <code class="language-plaintext highlighter-rouge">conda install package_name</code>, <code class="language-plaintext highlighter-rouge">conda install numpy scipy pandas</code>, <code class="language-plaintext highlighter-rouge">conda install numpy=1.10</code> etc. Conda also automatically installs dependencies for you.</p>
+
+<p>To uninstall, use <code class="language-plaintext highlighter-rouge">conda remove package_name</code>. To update a package, <code class="language-plaintext highlighter-rouge">conda update package_name</code>. To update all packages in an environment, <code class="language-plaintext highlighter-rouge">conda update --all</code>. To list installed packages, <code class="language-plaintext highlighter-rouge">conda list</code>.</p>
+
+<p>If you don’t know the exact name of the package you’re looking for, you can try searching with <code class="language-plaintext highlighter-rouge">conda search search_term</code>.</p>
+
+<h3 id="managing-environments">Managing Environments</h3>
+
+<p>To create an environment, use <code class="language-plaintext highlighter-rouge">conda create -n env_name list_of_packages</code>. Here <code class="language-plaintext highlighter-rouge">-n env_name</code> sets the name of your environment (<code class="language-plaintext highlighter-rouge">-n</code> for name) and <code class="language-plaintext highlighter-rouge">list_of_packages</code> is the list of packages you want installed in the environment. To create an environment with a specific Python version, do something like <code class="language-plaintext highlighter-rouge">conda create -n py3 python=3</code> or <code class="language-plaintext highlighter-rouge">conda create -n py2 python=2</code>.</p>
+
+<h3 id="entering-an-environment">Entering an Environment</h3>
+
+<p>Once you have an environment created, use <code class="language-plaintext highlighter-rouge">source activate my_env</code> to enter it on OSX/Linux. On Windows, use <code class="language-plaintext highlighter-rouge">activate my_env</code>. To leave the environment, type <code class="language-plaintext highlighter-rouge">source deactivate</code> (on OSX/Linux). On Windows, use <code class="language-plaintext highlighter-rouge">deactivate</code>.</p>
+
+<h3 id="saving-and-loading-environments">Saving and Loading Environments</h3>
+
+<p>You can save the packages to a YAML file with <code class="language-plaintext highlighter-rouge">conda env export &gt; environment.yaml</code>. To create an environment from an environment file use <code class="language-plaintext highlighter-rouge">conda env create -f environment.yaml</code>. This will create a new environment with the same name listed in environment.yaml.</p>
+
+<h3 id="listing-environments">Listing Environments</h3>
+
+<p>If you forget what your environments are named (happens to me sometimes), use <code class="language-plaintext highlighter-rouge">conda env list</code> to list out all the environments you’ve created. You should see a list of environments, there will be an asterisk next to the environment you’re currently in. The default environment, the environment used when you aren’t in one, is called <code class="language-plaintext highlighter-rouge">root</code>.</p>
+
+<h3 id="removing-environments">Removing Environments</h3>
+
+<p><code class="language-plaintext highlighter-rouge">conda env remove -n env_name</code> will remove the specified environment (here, named env_name).</p>
+
+<h2 id="jupyter-notebooks">Jupyter Notebooks</h2>
+
+<h3 id="installing-jupyter-notebook">Installing Jupyter Notebook</h3>
+
+<p>To install Jupyter notebooks in a conda environment, use <code class="language-plaintext highlighter-rouge">conda install jupyter notebook</code>.</p>
+
+<p>Jupyter notebooks are also available through pip with <code class="language-plaintext highlighter-rouge">pip install jupyter notebook</code>.</p>
+
+<h3 id="launching-the-notebook-server">Launching the Notebook Server</h3>
+
+<p>To start a notebook server, enter <code class="language-plaintext highlighter-rouge">jupyter notebook</code> in your terminal or console. This will start the server in the directory you ran the command in. That means any notebook files will be saved in that directory. Typically you’d want to start the server in the directory where your notebooks live. However, you can navigate through your file system to where the notebooks are.</p>
+
+<p>By default, the notebook server runs at <a href="http://localhost:8888">http://localhost:8888</a>. If you aren’t familiar with this, <code class="language-plaintext highlighter-rouge">localhost</code> means your computer and <code class="language-plaintext highlighter-rouge">8888</code> is the port the server is communicating on. As long as the server is still running, you can always come back to it by going to <a href="http://localhost:8888">http://localhost:8888</a> in your browser.</p>
+
+<p>If you start another server, it’ll try to use port <code class="language-plaintext highlighter-rouge">8888</code>, but since it is occupied, the new server will run on port <code class="language-plaintext highlighter-rouge">8889</code>. Then, you’d connect to it at <a href="http://localhost:8889">http://localhost:8889</a>. Every additional notebook server will increment the port number like this.</p>
+
+<p>You should consider installing Notebook Conda to help manage your environments. Run the following command: <code class="language-plaintext highlighter-rouge">conda install nb_conda</code>.</p>
+
+<h3 id="magic-keywords">Magic Keywords</h3>
+
+<p>Magic keywords are special commands you can run in cells that let you control the notebook itself or perform system calls such as changing directories. For example, you can set up matplotlib to work interactively in the notebook with <code class="language-plaintext highlighter-rouge">%matplotlib</code>.</p>
+
+<p>Use <code class="language-plaintext highlighter-rouge">%config InlineBackend.figure_format = 'retina'</code> after <code class="language-plaintext highlighter-rouge">%matplotlib inline</code> to render higher resolution images.</p>
+
+<p>With the Python kernel, you can turn on the interactive debugger using the magic command <code class="language-plaintext highlighter-rouge">%pdb</code>. When you cause an error, you’ll be able to inspect the variables in the current namespace.</p>
+
+<h3 id="converting-notebooks">Converting Notebooks</h3>
+
+<p>Since notebooks are JSON, it is simple to convert them to other formats. Jupyter comes with a utility called nbconvert for converting to HTML, Markdown, slideshows, etc.</p>
+
+<p>For example, to convert a notebook to an HTML file, in your terminal use</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>jupyter nbconvert --to html notebook.ipynb
+</code></pre></div></div>
+:ET

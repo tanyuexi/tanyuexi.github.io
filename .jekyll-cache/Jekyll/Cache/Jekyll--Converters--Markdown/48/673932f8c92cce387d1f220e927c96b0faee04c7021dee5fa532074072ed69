@@ -1,0 +1,363 @@
+I".
+<ul>
+  <li><a href="#AI">AI</a></li>
+  <li><a href="#Game-Devel">Game-Devel</a></li>
+  <li><a href="#Life-Story">Life-Story</a></li>
+  <li><a href="#Math-Stat">Math-Stat</a></li>
+  <li><a href="#Neuro-Sci">Neuro-Sci</a></li>
+  <li><a href="#Note">Note</a></li>
+  <li><a href="#Opinion">Opinion</a></li>
+  <li><a href="#Web-Devel">Web-Devel</a></li>
+</ul>
+
+<p><br /></p>
+
+<h3 id="Game-Devel">Game-Devel</h3>
+<ul class="post-list-compact">
+    
+      <li>
+      	<p>
+          <a href="/2018/08/08/Unity-Game-Design-Practice.html">Unity 游戏设计与实现 [书籍] <br />Unity Game Design and Practice [Book]</a>
+          <span class="post-meta">Aug 8, 2018</span>
+        </p>
+      </li>
+    
+      <li>
+      	<p>
+          <a href="/2016/03/08/Intro-to-Game-Devel.html">游戏开发入门 [课程]<br />Introduction to Game Development [Course]</a>
+          <span class="post-meta">Mar 8, 2016</span>
+        </p>
+      </li>
+    
+      <li>
+      	<p>
+          <a href="/2016/03/06/Intro-to-Game-Design.html">游戏设计入门 [课程]<br />Introduction to Game Design [Course]</a>
+          <span class="post-meta">Mar 6, 2016</span>
+        </p>
+      </li>
+    
+      <li>
+      	<p>
+          <a href="/2016/02/07/Balance-Master.html">时间管理大师：我制作的第一个游戏<br />Balance Master: My First Game</a>
+          <span class="post-meta">Feb 7, 2016</span>
+        </p>
+      </li>
+    
+  </ul>
+
+<h3 id="Note">Note</h3>
+<ul class="post-list-compact">
+    
+      <li>
+      	<p>
+          <a href="/2018/08/08/Unity-Game-Design-Practice.html">Unity 游戏设计与实现 [书籍] <br />Unity Game Design and Practice [Book]</a>
+          <span class="post-meta">Aug 8, 2018</span>
+        </p>
+      </li>
+    
+      <li>
+      	<p>
+          <a href="/2018/06/28/SQL-Udacity.html">数据分析 SQL 基础 [课程] <br />SQL for Data Analysis [Course]</a>
+          <span class="post-meta">Jun 28, 2018</span>
+        </p>
+      </li>
+    
+      <li>
+      	<p>
+          <a href="/2017/09/26/DLND-Udacity.html">深度学习基础 [课程] <br />Deep Learning Foundations [Course]</a>
+          <span class="post-meta">Sep 26, 2017</span>
+        </p>
+      </li>
+    
+      <li>
+      	<p>
+          <a href="/2017/09/15/NumPy-Pandas-Udacity.html">NumPy 与 Pandas [课程] <br />NumPy and Pandas [Course]</a>
+          <span class="post-meta">Sep 15, 2017</span>
+        </p>
+      </li>
+    
+      <li>
+      	<p>
+          <a href="/2017/09/12/Anaconda-Jupyter.html">Anaconda 与 Jupyter Notebooks [课程] <br />Anaconda and Jupyter Notebooks [Course]</a>
+          <span class="post-meta">Sep 12, 2017</span>
+        </p>
+      </li>
+    
+      <li>
+      	<p>
+          <a href="/2017/08/22/Python-Udacity.html">Python 编程入门 [课程] <br />Introduction to Python Programming [Course]</a>
+          <span class="post-meta">Aug 22, 2017</span>
+        </p>
+      </li>
+    
+      <li>
+      	<p>
+          <a href="/2017/04/09/HowTo-Use-Git-GitHub.html">如何使用 Git 和 GitHub [课程] <br />How to Use Git and GitHub [Course]</a>
+          <span class="post-meta">Apr 9, 2017</span>
+        </p>
+      </li>
+    
+      <li>
+      	<p>
+          <a href="/2016/12/14/Molecular-Systems-Memory.html">记忆的分子和系统生物学机制 [综述]<br />The Molecular and Systems Biology of Memory [Review]</a>
+          <span class="post-meta">Dec 14, 2016</span>
+        </p>
+      </li>
+    
+      <li>
+      	<p>
+          <a href="/2016/10/16/Mechanisms-Memory.html">记忆的机制 [书籍]<br />Mechanisms of Memory [Book]</a>
+          <span class="post-meta">Oct 16, 2016</span>
+        </p>
+      </li>
+    
+      <li>
+      	<p>
+          <a href="/2016/09/12/Visual-Quantitative.html">定量信息的视觉显示 [书籍]<br />The Visual Display of Quantitative Information [Book]</a>
+          <span class="post-meta">Sep 12, 2016</span>
+        </p>
+      </li>
+    
+      <li>
+      	<p>
+          <a href="/2016/06/03/HowTo-Prove-It.html">如何做证明：一种结构化的方法 [书籍]<br />How to Prove it: A Structured Approach [Book]</a>
+          <span class="post-meta">Jun 3, 2016</span>
+        </p>
+      </li>
+    
+      <li>
+      	<p>
+          <a href="/2016/04/13/Geoffrey-Hinton-AMA.html">Geoffrey Hinton: 你问我答在 Reddit [网络]<br />Geoffrey Hinton: "Ask Me Anything" on Reddit [Web]</a>
+          <span class="post-meta">Apr 13, 2016</span>
+        </p>
+      </li>
+    
+      <li>
+      	<p>
+          <a href="/2016/04/07/NN-for-ML-3of3.html">机器学习中的神经网络 (3/3) [课程]<br />Neural Networks for Machine Learning (3/3) [Course]</a>
+          <span class="post-meta">Apr 7, 2016</span>
+        </p>
+      </li>
+    
+      <li>
+      	<p>
+          <a href="/2016/03/31/NN-for-ML-2of3.html">机器学习中的神经网络 (2/3) [课程]<br />Neural Networks for Machine Learning (2/3) [Course]</a>
+          <span class="post-meta">Mar 31, 2016</span>
+        </p>
+      </li>
+    
+      <li>
+      	<p>
+          <a href="/2016/03/18/NN-for-ML-1of3.html">机器学习中的神经网络 (1/3) [课程]<br />Neural Networks for Machine Learning (1/3) [Course]</a>
+          <span class="post-meta">Mar 18, 2016</span>
+        </p>
+      </li>
+    
+      <li>
+      	<p>
+          <a href="/2016/03/09/Artificial-Intelligence.html">人工智能 [课程]<br />Artificial Intelligence [Course]</a>
+          <span class="post-meta">Mar 9, 2016</span>
+        </p>
+      </li>
+    
+      <li>
+      	<p>
+          <a href="/2016/03/08/Intro-to-Game-Devel.html">游戏开发入门 [课程]<br />Introduction to Game Development [Course]</a>
+          <span class="post-meta">Mar 8, 2016</span>
+        </p>
+      </li>
+    
+      <li>
+      	<p>
+          <a href="/2016/03/07/HTML-CSS-JavaScript.html">HTML, CSS 以及 JavaScript [课程]<br />HTML, CSS and JavaScript [Course]</a>
+          <span class="post-meta">Mar 7, 2016</span>
+        </p>
+      </li>
+    
+      <li>
+      	<p>
+          <a href="/2016/03/06/Intro-to-Game-Design.html">游戏设计入门 [课程]<br />Introduction to Game Design [Course]</a>
+          <span class="post-meta">Mar 6, 2016</span>
+        </p>
+      </li>
+    
+  </ul>
+
+<h3 id="Web-Devel">Web-Devel</h3>
+<ul class="post-list-compact">
+    
+      <li>
+      	<p>
+          <a href="/2017/04/06/Fix-Hover-Mobile-Checkbox.html">如何利用复选框解决移动设备的鼠标悬停问题 <br />How to Fix the ':hover' Problem on Mobile Devices with Checkbox</a>
+          <span class="post-meta">Apr 6, 2017</span>
+        </p>
+      </li>
+    
+      <li>
+      	<p>
+          <a href="/2016/03/07/HTML-CSS-JavaScript.html">HTML, CSS 以及 JavaScript [课程]<br />HTML, CSS and JavaScript [Course]</a>
+          <span class="post-meta">Mar 7, 2016</span>
+        </p>
+      </li>
+    
+  </ul>
+
+<h3 id="AI">AI</h3>
+<ul class="post-list-compact">
+    
+      <li>
+      	<p>
+          <a href="/2017/09/26/DLND-Udacity.html">深度学习基础 [课程] <br />Deep Learning Foundations [Course]</a>
+          <span class="post-meta">Sep 26, 2017</span>
+        </p>
+      </li>
+    
+      <li>
+      	<p>
+          <a href="/2016/04/13/Geoffrey-Hinton-AMA.html">Geoffrey Hinton: 你问我答在 Reddit [网络]<br />Geoffrey Hinton: "Ask Me Anything" on Reddit [Web]</a>
+          <span class="post-meta">Apr 13, 2016</span>
+        </p>
+      </li>
+    
+      <li>
+      	<p>
+          <a href="/2016/04/07/NN-for-ML-3of3.html">机器学习中的神经网络 (3/3) [课程]<br />Neural Networks for Machine Learning (3/3) [Course]</a>
+          <span class="post-meta">Apr 7, 2016</span>
+        </p>
+      </li>
+    
+      <li>
+      	<p>
+          <a href="/2016/03/31/NN-for-ML-2of3.html">机器学习中的神经网络 (2/3) [课程]<br />Neural Networks for Machine Learning (2/3) [Course]</a>
+          <span class="post-meta">Mar 31, 2016</span>
+        </p>
+      </li>
+    
+      <li>
+      	<p>
+          <a href="/2016/03/18/NN-for-ML-1of3.html">机器学习中的神经网络 (1/3) [课程]<br />Neural Networks for Machine Learning (1/3) [Course]</a>
+          <span class="post-meta">Mar 18, 2016</span>
+        </p>
+      </li>
+    
+      <li>
+      	<p>
+          <a href="/2016/03/09/Artificial-Intelligence.html">人工智能 [课程]<br />Artificial Intelligence [Course]</a>
+          <span class="post-meta">Mar 9, 2016</span>
+        </p>
+      </li>
+    
+  </ul>
+
+<h3 id="Opinion">Opinion</h3>
+<ul class="post-list-compact">
+    
+      <li>
+      	<p>
+          <a href="/2016/04/22/HowTo-Research.html">科研：坑的识别与绕过<br />Research: How to Spot and Avoid the Pitfalls</a>
+          <span class="post-meta">Apr 22, 2016</span>
+        </p>
+      </li>
+    
+  </ul>
+
+<h3 id="Math-Stat">Math-Stat</h3>
+<ul class="post-list-compact">
+    
+      <li>
+      	<p>
+          <a href="/2016/09/12/Visual-Quantitative.html">定量信息的视觉显示 [书籍]<br />The Visual Display of Quantitative Information [Book]</a>
+          <span class="post-meta">Sep 12, 2016</span>
+        </p>
+      </li>
+    
+      <li>
+      	<p>
+          <a href="/2016/06/03/HowTo-Prove-It.html">如何做证明：一种结构化的方法 [书籍]<br />How to Prove it: A Structured Approach [Book]</a>
+          <span class="post-meta">Jun 3, 2016</span>
+        </p>
+      </li>
+    
+  </ul>
+
+<h3 id="Neuro-Sci">Neuro-Sci</h3>
+<ul class="post-list-compact">
+    
+      <li>
+      	<p>
+          <a href="/2016/12/14/Molecular-Systems-Memory.html">记忆的分子和系统生物学机制 [综述]<br />The Molecular and Systems Biology of Memory [Review]</a>
+          <span class="post-meta">Dec 14, 2016</span>
+        </p>
+      </li>
+    
+      <li>
+      	<p>
+          <a href="/2016/10/16/Mechanisms-Memory.html">记忆的机制 [书籍]<br />Mechanisms of Memory [Book]</a>
+          <span class="post-meta">Oct 16, 2016</span>
+        </p>
+      </li>
+    
+  </ul>
+
+<h3 id="Life-Story">Life-Story</h3>
+<ul class="post-list-compact">
+    
+      <li>
+      	<p>
+          <a href="/2019/10/08/Soothing-Crying-Baby.html">安抚哭泣的婴儿（翻译）<br />Soothing a Crying Baby</a>
+          <span class="post-meta">Oct 8, 2019</span>
+        </p>
+      </li>
+    
+      <li>
+      	<p>
+          <a href="/2019/10/05/Camping-Out.html">露营法（翻译）<br />Camping Out</a>
+          <span class="post-meta">Oct 5, 2019</span>
+        </p>
+      </li>
+    
+      <li>
+      	<p>
+          <a href="/2019/09/13/Controlled-Comforting.html">节制安抚法（翻译）<br />Controlled Comforting</a>
+          <span class="post-meta">Sep 13, 2019</span>
+        </p>
+      </li>
+    
+      <li>
+      	<p>
+          <a href="/2019/09/12/Bedtime-Routine.html">积极的睡前流程（翻译）<br />Positive Bedtime Routines</a>
+          <span class="post-meta">Sep 12, 2019</span>
+        </p>
+      </li>
+    
+      <li>
+      	<p>
+          <a href="/2019/09/11/Baby-Waking.html">宝宝的早醒和安抚问题（翻译）<br />Baby Waking and Settling Problems</a>
+          <span class="post-meta">Sep 11, 2019</span>
+        </p>
+      </li>
+    
+      <li>
+      	<p>
+          <a href="/2019/09/10/Baby-Sleep.html">婴儿的睡眠问题（翻译）<br />Baby Sleep Problems</a>
+          <span class="post-meta">Sep 10, 2019</span>
+        </p>
+      </li>
+    
+      <li>
+      	<p>
+          <a href="/2018/09/30/Breastfeeding-Story-Raven.html">番薯吃奶的那些事儿 <br />Breastfeeding Story of Raven</a>
+          <span class="post-meta">Sep 30, 2018</span>
+        </p>
+      </li>
+    
+      <li>
+      	<p>
+          <a href="/2018/08/10/Birth-Story-Raven.html">番薯诞生记 <br />Birth Story of Raven</a>
+          <span class="post-meta">Aug 10, 2018</span>
+        </p>
+      </li>
+    
+  </ul>
+
+:ET
