@@ -7,9 +7,9 @@
 
 # Site settings
 title: "Yuexi's Blog 月茜的博客"
-email: alicia.tan.4edu@gmail.com
+email: tanyuexi@gmail.com
 description: > # this means to ignore newlines until "baseurl:"
-  Yuexi Tan (Alicia)'s personal blog <br>
+  Tan Yuexi's personal blog <br>
   谭月茜的个人博客
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "http://tanyuexi.github.io" # the base hostname & protocol for your site
