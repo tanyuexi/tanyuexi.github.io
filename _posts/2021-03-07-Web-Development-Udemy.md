@@ -516,9 +516,9 @@ A card is a flexible and extensible content container. It includes options for h
 
 ## 84. Media Query Breakpoints
 
-```
+```css
 @media print {} // when print
-@media screen (min-width: 900px)  // when on certain screen
+@media screen and (min-width: 900px)  // when on certain screen
 @media (min-width: 900px) and (max-width: 1200px)
 ```
 
