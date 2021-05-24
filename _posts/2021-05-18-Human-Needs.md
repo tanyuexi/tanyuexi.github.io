@@ -33,7 +33,7 @@ tags:  Life-Story
 
 正如一朵花的绽放需要水和阳光，我们想要幸福快乐，也有一些基本需求。这些需求不如“水、食物和住处”那样显而易见，却是非常必需的。
 
-[]!(https://hdcdnsun2.r.worldssl.net/sites/www.hypnosisdownloads.com/themes/hypnosisnew/images/new/healthy-wilting-daisy.jpg)
+![](https://hdcdnsun2.r.worldssl.net/sites/www.hypnosisdownloads.com/themes/hypnosisnew/images/new/healthy-wilting-daisy.jpg)
 
 在现代社会里，这些需求经常被忽视。若忽视太久，我们就会遭受焦虑、抑郁、成瘾等问题。又由于这个过程发展的时间很长，所以症结难被发现，这样一来让人无比困惑：我为什么会有这个问题。
 
@@ -43,7 +43,7 @@ tags:  Life-Story
 
 与世隔绝会极大地影响我们的心理状况、情绪和行为。所有人，或多或少地都需要与别人有定期良好的相处。
 
-[]!(https://hdcdnsun2.r.worldssl.net/sites/www.hypnosisdownloads.com/themes/hypnosisnew/images/new/the-need-to-give-and-receive-attention.jpg)
+![](https://hdcdnsun2.r.worldssl.net/sites/www.hypnosisdownloads.com/themes/hypnosisnew/images/new/the-need-to-give-and-receive-attention.jpg)
 
 **建议：**
 
@@ -56,7 +56,7 @@ tags:  Life-Story
 
 现代人越来越将自己当作机器来对待。我们边吃饭边工作、不睡觉、吃垃圾食品、不运动、用咖啡因来透支不适的身体。这样长期忽视营养、睡眠、休息和运动，会导致心理问题和压力诱导的疾病。
 
-[]!(https://hdcdnsun2.r.worldssl.net/sites/www.hypnosisdownloads.com/themes/hypnosisnew/images/new/the-need-to-heed-mind-body-connection.jpg)
+![](https://hdcdnsun2.r.worldssl.net/sites/www.hypnosisdownloads.com/themes/hypnosisnew/images/new/the-need-to-heed-mind-body-connection.jpg)
 
 **建议：**
 
@@ -71,7 +71,7 @@ tags:  Life-Story
 
 我们需要为某个东西而努力。这样我们的想象和期望就能以充满希望（而非逃避或恐惧）的态度来运作。
 
-[]!(https://hdcdnsun2.r.worldssl.net/sites/www.hypnosisdownloads.com/themes/hypnosisnew/images/new/the-need-for-purpose-goals-and-meaning.jpg)
+![](https://hdcdnsun2.r.worldssl.net/sites/www.hypnosisdownloads.com/themes/hypnosisnew/images/new/the-need-for-purpose-goals-and-meaning.jpg)
 
 **建议：**
 
@@ -83,7 +83,7 @@ tags:  Life-Story
 
 这项需求让我们找到了存在的理由，这个理由超越了自己的个人需求。满足这项需求将提升我们的免疫力、精神健康和幸福值。任何令我们将注意力从自己身上移开的事情都可以，无论是俱乐部、慈善，还是信仰。
 
-[]!(https://hdcdnsun2.r.worldssl.net/sites/www.hypnosisdownloads.com/themes/hypnosisnew/images/new/the-need-for-community-and-contribution.jpg)
+![](https://hdcdnsun2.r.worldssl.net/sites/www.hypnosisdownloads.com/themes/hypnosisnew/images/new/the-need-for-community-and-contribution.jpg)
 
 **建议：**
 
@@ -94,7 +94,7 @@ tags:  Life-Story
 
 尝试新事物。探索。学习。提升已有技能。没有了进步和达成的感觉，我们就会觉得自己无用、存在没有价值。无聊会令生活看起来平淡无奇。我们都需要拉伸筋骨（streched），但不要压力山大（stressed）。
 
-[]!(https://hdcdnsun2.r.worldssl.net/sites/www.hypnosisdownloads.com/themes/hypnosisnew/images/new/the-need-for-challenge-and-creativity.jpg)
+![](https://hdcdnsun2.r.worldssl.net/sites/www.hypnosisdownloads.com/themes/hypnosisnew/images/new/the-need-for-challenge-and-creativity.jpg)
 
 **建议：**
 
@@ -106,7 +106,7 @@ tags:  Life-Story
 
 所有人，都需要至少一个人可以倾听我们的想法、希望和梦想。有的人可以通过对宠物说话来满足这项需求，但大多数人都需要几个关爱并支持自己的亲友。
 
-[]!(https://hdcdnsun2.r.worldssl.net/sites/www.hypnosisdownloads.com/themes/hypnosisnew/images/new/the-need-for-intimacy.jpg)
+![](https://hdcdnsun2.r.worldssl.net/sites/www.hypnosisdownloads.com/themes/hypnosisnew/images/new/the-need-for-intimacy.jpg)
 
 **建议：**
 
@@ -119,7 +119,7 @@ tags:  Life-Story
 
 无论是酷刑的幸存者，还是下岗的幸存者，适应得最好的是那些能够在生活某处维持控制感的人。所以，拥有多种兴趣爱好是非常重要的。
 
-[]!(https://hdcdnsun2.r.worldssl.net/sites/www.hypnosisdownloads.com/themes/hypnosisnew/images/new/the-need-for-control.jpg)
+![](https://hdcdnsun2.r.worldssl.net/sites/www.hypnosisdownloads.com/themes/hypnosisnew/images/new/the-need-for-control.jpg)
 
 **建议：**
 
@@ -130,7 +130,7 @@ tags:  Life-Story
 
 “觉得自己很重要”是很重要的，我们不应为自己有这种渴望而羞耻。每个人想拥有的地位都不一样，这项需求不仅仅通过工作得到满足。有的人觉得“成为一个好祖辈/父母/儿女”就够了。那些具有破坏性的问题行为，可能是想要寻求认可的错误努力。
 
-[]!(https://hdcdnsun2.r.worldssl.net/sites/www.hypnosisdownloads.com/themes/hypnosisnew/images/new/the-need-for-status.jpg)
+![](https://hdcdnsun2.r.worldssl.net/sites/www.hypnosisdownloads.com/themes/hypnosisnew/images/new/the-need-for-status.jpg)
 
 **建议：**
 
@@ -143,7 +143,7 @@ tags:  Life-Story
 
 当我们所处的环境令人害怕、无法预测或者是危险的，我们的心理健康自然会变糟糕。这项需求受到经济状况、健康、人身安全，以及其它基本需求是否得到满足的影响。
 
-[]!(https://hdcdnsun2.r.worldssl.net/sites/www.hypnosisdownloads.com/themes/hypnosisnew/images/new/the-need-for-safety-and-security.jpg)
+![](https://hdcdnsun2.r.worldssl.net/sites/www.hypnosisdownloads.com/themes/hypnosisnew/images/new/the-need-for-safety-and-security.jpg)
 
 **建议：**
 
