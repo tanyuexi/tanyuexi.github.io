@@ -770,9 +770,9 @@ When `autocomplete` is on, the browser automatically complete values based on va
 | `<form>` | Defines an HTML form for user input |
 | `<input>` | Defines an input control |
 | `<textarea>` | Defines a multiline input control (text area) |
-| `<label>` | Defines a label for an <input> element |
+| `<label>` | Defines a label for an `<input>` element |
 | `<fieldset>` | Groups related elements in a form |
-| `<legend>` | Defines a caption for a <fieldset> element |
+| `<legend>` | Defines a caption for a `<fieldset>` element |
 | `<select>` | Defines a drop-down list |
 | `<optgroup>` | Defines a group of related options in a drop-down list |
 | `<option>` | Defines an option in a drop-down list |

@@ -29,7 +29,7 @@ tags:  Life-Story
 
 马洛斯的金字塔需求理论就不说了，太笼统抽象，不解决实际问题。今天看到一篇文章，觉得写得很好，需求描述详细，甚至给出了操作建议，就在这里翻译一下吧。
 
-(*原文链接*)[https://www.hypnosisdownloads.com/blog/the-primal-human-needs]
+(原文链接)[https://www.hypnosisdownloads.com/blog/the-primal-human-needs]
 
 正如一朵花的绽放需要水和阳光，我们想要幸福快乐，也有一些基本需求。这些需求不如“水、食物和住处”那样显而易见，却是非常必需的。
 
